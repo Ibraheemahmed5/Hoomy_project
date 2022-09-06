@@ -6,7 +6,7 @@ import 'package:hoomy_project1/test.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Color(0xFFEFEFEF),
+    statusBarColor: Colors.black87,
     statusBarIconBrightness: Brightness.dark,
     statusBarBrightness: Brightness.light,
   ));
