@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hoomy_project1/test.dart';
+
+import 'landing/dashbord.dart';
+import 'landing/landing_page.dart';
 
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: test(),
+      home: Landing(),
     );
   }
 }

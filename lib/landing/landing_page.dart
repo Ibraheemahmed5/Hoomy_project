@@ -20,13 +20,13 @@ class Landing extends StatelessWidget {
            children:[
               Stack(
                 children: [
-                Image.asset('Assits/Images/11.png'),
+                Image.asset('photo/11.png'),
                   Padding(
                     padding: const EdgeInsets.only(top: 100),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('Assits/Images/hoomy2.png',width: 210,height: 100),
+                        Image.asset('photo/hoomy2.png',width: 210,height: 100),
                       ],
                     ),
                   )
