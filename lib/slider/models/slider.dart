@@ -20,7 +20,7 @@ final slideList = [
     text: 'Wellcome2'
   ),
   Slide(
-    imageUrl: 'Assits/Images/img.png',
+    imageUrl: '',
     text: 'Wellcome3'
   ),
 ];

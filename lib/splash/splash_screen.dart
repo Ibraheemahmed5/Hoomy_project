@@ -7,7 +7,7 @@ class Splash extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:  Image.asset('Assits/Images/hoomy1.png',width: 270,height: 300,),
+        child:  Image.asset('photo/hoomy1.png',width: 270,height: 300,),
       ),
 
     );

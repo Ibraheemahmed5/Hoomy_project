@@ -41,6 +41,7 @@ dependencies:
   google_fonts: ^3.0.1
   get: ^4.6.5
   flutter_screenutil: ^5.5.4
+  flutter_snake_navigationbar: ^0.6.1
 
 dev_dependencies:
   flutter_test:
@@ -65,8 +66,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
+assets:
      - photo/33.png
+     - photo/44.png
      - photo/11.png
      - photo/22.png
      - photo/hoomy1.png

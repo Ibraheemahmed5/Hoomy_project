@@ -100,7 +100,6 @@ class _DashboardState extends State<Dashboard> {
                       onPressed: () {},
                       child: Icon(Icons.arrow_forward_ios)
                   ),
-
                 ],
               ),
             )

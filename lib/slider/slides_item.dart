@@ -8,14 +8,14 @@ class SlideItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 100),
+      padding: const EdgeInsets.only(top: 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
             width: 250,
-            height: 250,
+            height: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               image: DecorationImage(
@@ -23,9 +23,6 @@ class SlideItem extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-          ),
-          SizedBox(
-            height: 40,
           ),
           Text(
             slideList[index].text,

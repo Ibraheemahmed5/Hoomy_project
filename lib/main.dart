@@ -2,6 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'Sign_in_page/sing_in_main_page.dart';
+import 'Sign_up_page/Sign_up_main_page.dart';
+
+import 'Sign_up_page/sign_up.dart';
+import 'home/cart_list.dart';
+import 'home/home_main_page.dart';
+import 'home/home_slider/slider.dart';
 import 'landing/dashbord.dart';
 import 'landing/landing_page.dart';
 
@@ -23,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Landing(),
+      home: Sign_up_main_page(),
     );
   }
 }
