@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../button.dart';
+import 'button.dart';
 
 class Landing extends StatelessWidget {
   const Landing({Key? key}) : super(key: key);
@@ -37,12 +37,15 @@ class Landing extends StatelessWidget {
                  child: Column(
                    children: [
                        Button1(
-                         text: 'Sign in',
+                         text: 'تسجيل دخول', onPressed: () {
+                           print("تسجيل الدخول");
+                       },
                        ) ,
                        Button1(
-                         text: 'Sign up',
+                         text: 'انشاء حساب',
+                         onPressed: () {   print("انشاء حساب");},
                        ),
-                       RichText(text: TextSpan(text: 'Visit as guest ->',
+                       RichText(text: TextSpan(text: 'الدخول كزائر',
                            recognizer: TapGestureRecognizer()
                              ..onTap = () {},
                            style: GoogleFonts.inter(fontSize: 20,color: Colors.black),))

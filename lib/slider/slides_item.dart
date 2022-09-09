@@ -14,8 +14,8 @@ class SlideItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 250,
-            height: 100,
+            width: 300,
+            height: 250,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               image: DecorationImage(

@@ -12,15 +12,15 @@ class Slide {
 
 final slideList = [
   Slide(
-    imageUrl: 'Assits/Images/img.png',
+    imageUrl: 'photo/img.png',
     text: 'Wellcome1'
   ),
   Slide(
-    imageUrl: 'Assits/Images/img.png',
+    imageUrl: 'photo/img.png',
     text: 'Wellcome2'
   ),
   Slide(
-    imageUrl: '',
+    imageUrl: 'photo/img.png',
     text: 'Wellcome3'
   ),
 ];

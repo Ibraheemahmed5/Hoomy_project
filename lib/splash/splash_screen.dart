@@ -6,6 +6,7 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child:  Image.asset('photo/hoomy1.png',width: 270,height: 300,),
       ),

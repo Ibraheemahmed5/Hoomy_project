@@ -10,12 +10,12 @@ class HomeSlide{
 
 final homeslideList = [
   HomeSlide(
-      imageUrl: 'photo/11.png',
+      imageUrl: 'photo/hoomy1.png',
   ),
   HomeSlide(
-      imageUrl: 'photo/22.png',
+      imageUrl: 'photo/hoomy1.png',
   ),
   HomeSlide(
-      imageUrl: 'photo/11.png',
+      imageUrl: 'photo/hoomy1.png',
   ),
 ];

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
+import 'package:unicons/unicons.dart';
 import 'cart_list.dart';
 import 'catigory_buttons_bar.dart';
 import 'home_slider/slider.dart';
@@ -79,6 +80,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                 ],
               ),
             ),
+            ////
             Container(
                 height: 365,
                 width: double.infinity,
@@ -91,13 +93,14 @@ class _HomeMainPageState extends State<HomeMainPage> {
                   padding: const EdgeInsets.only(left: 10, right: 10),
                   child: Expanded(child: CardsList()),
                 )),
-            // Expanded(child: CardsList()),
+            ////
           ],
         ),
       ),
 
       bottomNavigationBar: SnakeNavigationBar.color(
         height: 60,
+
         behaviour: snakeBarStyle,
         snakeShape: snakeShape,
         shape: bottomBarShape,
@@ -128,7 +131,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
               break;
           }
         }),
-        items: const [
+        items:  [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_filled),
             label: 'home',
@@ -137,7 +140,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
               icon: Icon(Icons.favorite), label: 'favorite'),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart_outlined), label: 'cart'),
-          BottomNavigationBarItem(icon: Icon(Icons.icecream), label: 'profile')
+          BottomNavigationBarItem(icon: Icon(UniconsLine.user), label: 'profile')
         ],
         selectedLabelStyle: const TextStyle(fontSize: 14),
         unselectedLabelStyle: const TextStyle(fontSize: 10),
