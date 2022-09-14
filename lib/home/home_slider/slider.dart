@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hoomy_project1/home/home_slider/slide_item.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
-
 import '../../slider/models/slider.dart';
 
 class HomeSlider extends StatefulWidget {

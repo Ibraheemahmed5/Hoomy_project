@@ -49,6 +49,7 @@ dependencies:
   external_app_launcher: ^3.1.0
   url_launcher: ^6.1.5
   whatsapp: ^1.0.6
+  ionicons: ^0.2.1
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 import 'package:unicons/unicons.dart';
+import '../favorite_page/favorite_page_main.dart';
+import '../my_cart_page/my_cart_main.dart';
+import '../profile_page/profile_main_page.dart';
 import 'cart_list.dart';
 import 'catigory_buttons_bar.dart';
 import 'home_slider/slider.dart';
@@ -117,17 +120,32 @@ class _HomeMainPageState extends State<HomeMainPage> {
           print(index);
           switch (index) {
             case 0:
-              print("object00000");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => HomeMainPage(),
+                  ));
               break;
             case 1:
-              print("object111");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FavoritePage(),
+                  ));
               break;
             case 2:
-              print("object2222");
-              break;
-
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyCart(),
+                  ));
+              break;              break;
             case 3:
-              print("object333");
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => profile_main_page(),
+                  ));
               break;
           }
         }),

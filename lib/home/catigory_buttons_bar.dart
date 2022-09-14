@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../catigory_buttons.dart';
 
 class CatigoryButtonsBar extends StatelessWidget {
