@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
 
 import '../slider/models/slider.dart';
+import 'landing_page.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -99,7 +102,10 @@ class _DashboardState extends State<Dashboard> {
                           fixedSize: const Size(65, 65),
                           shape: const CircleBorder(),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                           Get.to(Landing());
+
+                        },
                         child: Icon(Icons.arrow_forward_ios)
                     ),
                   ],

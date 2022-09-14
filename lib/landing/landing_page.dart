@@ -2,7 +2,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 
+import '../Sign_in_page/sing_in_main_page.dart';
+import '../Sign_up_page/Sign_up_main_page.dart';
+import '../home/home_main_page.dart';
 import 'button.dart';
 
 class Landing extends StatelessWidget {
@@ -11,191 +15,59 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     body:
-     SafeArea(
-       child: Center(
-         child: Column(
-           mainAxisAlignment: MainAxisAlignment.start,
-           crossAxisAlignment: CrossAxisAlignment.center,
-           children:[
+        body: SafeArea(
+      child: Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
               Stack(
                 children: [
-                Image.asset('photo/11.png'),
+                  Image.asset('photo/11.png'),
                   Padding(
                     padding: const EdgeInsets.only(top: 100),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('photo/hoomy2.png',width: 210,height: 100),
+                        Image.asset('photo/hoomy2.png',
+                            width: 210, height: 100),
                       ],
                     ),
                   )
                 ],
               ),
-             Padding(
-               padding: const EdgeInsets.only(top: 100),
-                 child: Column(
-                   children: [
-                       Button1(
-                         text: 'تسجيل دخول', onPressed: () {
-                           print("تسجيل الدخول");
-                       },
-                       ) ,
-                       Button1(
-                         text: 'انشاء حساب',
-                         onPressed: () {   print("انشاء حساب");},
-                       ),
-                       RichText(text: TextSpan(text: 'الدخول كزائر',
-                           recognizer: TapGestureRecognizer()
-                             ..onTap = () {},
-                           style: GoogleFonts.inter(fontSize: 20,color: Colors.black),))
-                 ],
-           ),
-             ),
-           ]
-         ),
-       ),
-     )
-    );
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: Column(
+                  children: [
+                    Button1(
+                      text: 'تسجيل دخول',
+                      onPressed: () {
+                        print("تسجيل الدخول");
+                        Get.to(Sign_in_main_page());
+                      },
+                    ),
+                    Button1(
+                      text: 'انشاء حساب',
+                      onPressed: () {
+                        print("انشاء حساب");
+                        Get.to(Sign_up_main_page());
+                      },
+                    ),
+                    RichText(
+                        text: TextSpan(
+                      text: 'الدخول كزائر',
+                      recognizer: TapGestureRecognizer()..onTap = () {
+                        Get.to(HomeMainPage());
+                      },
+                      style:
+                          GoogleFonts.inter(fontSize: 20, color: Colors.black),
+                    ))
+                  ],
+                ),
+              ),
+            ]),
+      ),
+    ));
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

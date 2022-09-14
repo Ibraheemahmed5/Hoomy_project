@@ -16,6 +16,9 @@ class Prodect{
 
 
 
+
+
+
   Prodect(String name,int price,List<String> image_link, List<int> pcolor,String desc,String catigory,int quantity,[bool? add ,bool? isFave,bool? available,bool? delete_from_cart,bool? is_clicked])
       : isFav = (isFave??false).obs,
         add = (add??false).obs,
@@ -30,7 +33,13 @@ class Prodect{
         quantity = quantity.obs,
         pcolor = pcolor.obs;
 
+static List<RxString> catigories = [
+  "كرسي".obs,
+  "كرسي1".obs,
+  "كرسي2".obs
 
+
+];
 
   makeAsFav(){
     if(isFav == false)

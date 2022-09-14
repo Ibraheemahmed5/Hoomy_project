@@ -13,7 +13,7 @@ final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
-    margin: EdgeInsets.only(bottom: 30),
+    margin: EdgeInsets.only(bottom: 30 ,left: 30,right: 30),
     width: 337,
     height: 50,
     child:  RawMaterialButton(

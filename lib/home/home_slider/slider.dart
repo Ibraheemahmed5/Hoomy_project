@@ -46,47 +46,42 @@ class _HomeSliderState extends State<HomeSlider> {
   @override
   Widget build(BuildContext context) {
     return  Padding(
-        padding: const EdgeInsets.only(left: 10,right: 10,bottom: 15,top: 5),
+        padding: const EdgeInsets.only(left: 0,right: 0,bottom: 0,top: 5),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 300,
+              width: 500,
               height: 200,
-              child: Expanded(
-                child: Stack(
-                  alignment: AlignmentDirectional.bottomCenter,
-                  children: <Widget>[
-                    PageView.builder(
-                      scrollDirection: Axis.horizontal,
-                      controller: _pageController,
-                      onPageChanged: _onPageChanged,
-                      itemCount: slideList.length,
-                      itemBuilder: (ctx, i) => HomeSlideItem(i),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: Stack(
-                        children: <Widget>[
-                          Container(
-                            margin: const EdgeInsets.only(bottom: 10),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                for(int i = 0; i<slideList.length; i++)
-                                  if( i == _currentPage )
-                                    SlideDots(true)
-                                  else
-                                    SlideDots(false)
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+              child: Stack(
+                alignment: AlignmentDirectional.bottomCenter,
+                children: <Widget>[
+                  PageView.builder(
+                    scrollDirection: Axis.horizontal,
+                    controller: _pageController,
+                    onPageChanged: _onPageChanged,
+                    itemCount: slideList.length,
+                    itemBuilder: (ctx, i) => HomeSlideItem(i),
+                  ),
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 10),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            for(int i = 0; i<slideList.length; i++)
+                              if( i == _currentPage )
+                                SlideDots(true)
+                              else
+                                SlideDots(false)
+                          ],
+                        ),
+                      )
+                    ],
+                  )
+                ],
               ),
             ),
           ],

@@ -49,6 +49,11 @@ dependencies:
   external_app_launcher: ^3.1.0
   url_launcher: ^6.1.5
   whatsapp: ^1.0.6
+  image_picker: ^0.8.5+3
+  file_picker: ^3.0.4
+  dropdown_button2: ^1.8.0
+  flutter_slider_drawer: ^2.1.1
+  app_popup_menu: ^1.0.0
   ionicons: ^0.2.1
 
 dev_dependencies:
@@ -81,6 +86,8 @@ flutter:
      - photo/hoomy1.png
      - photo/hoomy2.png
      - photo/img.png
+     - photo/Messeng.png
+     - photo/search.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
