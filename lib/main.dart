@@ -11,6 +11,7 @@ import 'Search_page_/search_page.dart';
 import 'Sign_in_page/sing_in_main_page.dart';
 import 'Sign_up_page/Sign_up_main_page.dart';
 import 'Sign_up_page/sign_up.dart';
+import 'home/catigories_page/catigories_main.dart';
 import 'home/home_main_page.dart';
 import 'landing/dashbord.dart';
 import 'landing/landing_page.dart';
@@ -33,15 +34,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-       home: Splash(),
+      // home: Splash(),
       // home: Dashboard(),
       //home: Landing(),
       //home: Sign_in_main_page(),
      //home: Sign_up_main_page(),
-    //home: HomeMainPage(),
+    home: HomeMainPage(),
      // home: profile_main_page(),
       //home: Search_page(),
-     // home: whatsapp_main_page(),
+      //home: whatsapp_main_page(),
+      //home: CatigoriesPage()
 
     );
   }
