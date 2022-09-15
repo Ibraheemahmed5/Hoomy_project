@@ -8,8 +8,8 @@ import '../home/prodects/model.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
-class Cart extends StatelessWidget {
-  const Cart({Key? key, required this.prodects}) : super(key: key);
+class Cart1 extends StatelessWidget {
+  const Cart1({Key? key, required this.prodects}) : super(key: key);
 
 
   final Prodect prodects;

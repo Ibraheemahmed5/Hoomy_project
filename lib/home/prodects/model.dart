@@ -34,10 +34,18 @@ class Prodect{
         pcolor = pcolor.obs;
 
 static List<RxString> catigories = [
-  "كرسي".obs,
   "كرسي1".obs,
-  "كرسي2".obs
-
+  "كرسي2".obs,
+  "كرسي3".obs,
+  "كرسي4".obs,
+  "كرسي5".obs,
+  "كرسي6".obs,
+  "كرسي7".obs,
+  "كرسي8".obs,
+  "كرسي9".obs,
+  "كرسي10".obs,
+  "كرسي11".obs,
+  "كرسي12".obs,
 
 ];
 

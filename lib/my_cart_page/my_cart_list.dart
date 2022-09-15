@@ -15,7 +15,7 @@ class MyCardsList extends StatelessWidget {
       return
         ListView(
           children:
-          Prodect.Prodects.where((e) => e.add.value && e.delete_from_cart.value).map((e) => Cart(prodects:e)).toList(),
+          Prodect.Prodects.where((e) => e.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
         );
     }
     );
