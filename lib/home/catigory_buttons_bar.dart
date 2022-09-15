@@ -35,12 +35,18 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
             height: 55,
             child: Align(
               alignment: Alignment.center,
-              child:  Text(
-                "الكل",
-                style: GoogleFonts.inter(
-                    fontSize: 16,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+              child:  TextButton(
+
+                onPressed: () {
+
+                },
+                child: Text(
+                  "الكل",
+                  style: GoogleFonts.inter(
+                      fontSize: 16,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),
@@ -52,6 +58,9 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
                   return CatigoryButtons(
                     text: Prodect.catigories[index].value,
                     onPressed: () {
+                      setState(() {
+
+                      });
                       print(Prodect.catigories[index].value);
                       Get.to(CatigoriesPage(text:  Prodect.catigories[index].value,prodect: Prodect.Prodects.first,));
                     },
