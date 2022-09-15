@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
       //home: MyApp1(),
       //home: MyCart(),
       // home: FavoritePage(),
-     home: HomeMainPage(),
      // home: whatsapp_main_page(),
 
     );
