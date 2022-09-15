@@ -34,16 +34,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: Splash(),
-      // home: Dashboard(),
-      //home: Landing(),
-      //home: Sign_in_main_page(),
-     //home: Sign_up_main_page(),
-    home: HomeMainPage(),
-     // home: profile_main_page(),
-      //home: Search_page(),
-      //home: whatsapp_main_page(),
-      //home: CatigoriesPage()
+     home: HomeMainPage(),
+     // home: whatsapp_main_page(),
 
     );
   }

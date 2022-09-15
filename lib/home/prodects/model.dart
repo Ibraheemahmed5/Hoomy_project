@@ -93,6 +93,7 @@ makeAsClicked(){
     Prodect('Mika Chair', 46,ImagesList, PColors,'GAMIFIED SEATING: A racecar-style gaming chair that provides luxury and comfort, whether its used for intense gaming sessions and climbing to the top of the leaderboards, or long work days.', 'chair',1),Prodect('Mika Chair', 46,ImagesList, PColors,'GAMIFIED SEATING: A racecar-style gaming chair that provides luxury and comfort, whether its used for intense gaming sessions and climbing to the top of the leaderboards, or long work days.', ' in fashion.',1),
     Prodect('Mika Chair', 46,ImagesList, PColors,'GAMIFIED SEATING: A racecar-style gaming chair that provides luxury and comfort, whether its used for intense gaming sessions and climbing to the top of the leaderboards, or long work days.', 'chair',1)].obs;
 
+
   static addItem(String name,int price,String image_link,String desc,String catigory,List<int> pcolor,int quantity){
     Prodect data= Prodect(name,price,ImagesList,pcolor,catigory,desc,quantity);
     Prodects.add(data);
