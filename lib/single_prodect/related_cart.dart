@@ -17,7 +17,11 @@ class RelatedCart extends StatelessWidget {
         return GestureDetector(
           onTap: (){
         //    prodects.makeAsClicked();
-            Get.to(SingleProdect(prodects: prodects));
+            Navigator.pushReplacement<void, void>(
+                context,
+                MaterialPageRoute<void>(
+                builder: (BuildContext context) =>  SingleProdect(prodects: prodects,)));
+       //     Get.to(SingleProdect(prodects: prodects));
            // prodects.makeAsClicked();
           },
           child: Padding(

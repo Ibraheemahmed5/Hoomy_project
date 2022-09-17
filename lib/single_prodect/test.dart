@@ -1,22 +1,30 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:hoomy_project1/home/prodects/model.dart';
 
-import 'images/images_list.dart';
+import '../slider/models/slider.dart';
+import '../slider/slides_dots.dart';
+import 'images/prodect_images.dart';
 
 class test extends StatelessWidget {
-  const test({Key? key, required this.prodect}) : super(key: key);
-  final Prodect prodect;
+  test({Key? key, required this.im}) : super(key: key);
+  final int im;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        height: 300,
-        width: 300,
-        child:ImagesList(prodect: prodect,),
-
+    return Padding(
+      padding: const EdgeInsets.only(left: 0,right: 0,bottom: 0,top: 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            height: 250,
+            child: Image.asset(Prodect.ImagesList[im]),
+            ),
+        ],
       ),
-
     );
   }
 }

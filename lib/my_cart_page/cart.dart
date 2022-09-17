@@ -21,7 +21,7 @@ class Cart1 extends StatelessWidget {
           GestureDetector(
             onTap: (){
           prodects.makeAsClicked();
-          Get.to(SingleProdect(prodects: prodects));
+          Get.to(SingleProdect(prodects: prodects,));
         },
         child:Padding(
           padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
