@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:unicons/unicons.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/whatsapp.dart';
 import '../favorite_page/favorite_page_main.dart';
 import '../home/cart_list.dart';
 import '../home/home_main_page.dart';
+import '../home/prodects/model.dart';
 import '../profile_page/blue_logo.dart';
 import '../profile_page/profile_main_page.dart';
+import '../whatsapp/whatsapp_main_page.dart';
 import 'NavigationBar_cart.dart';
 import 'make_order_button.dart';
 import 'my_cart_list.dart';
@@ -19,6 +22,7 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
+  String text='${Prodect.Prodects.where((e) => e.add.value).map((e) =>({e.name , e.quantity})  )}ارغب بطلب المنتجات التالية :'+'مرحبا';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +64,9 @@ class _MyCartState extends State<MyCart> {
                       padding: const EdgeInsets.only(right: 20, left: 20),
                       child: Button2(
                         text: 'اتمام الطلب',
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(whatsapp_main_page(text:text,));
+                        },
                       ),
                     )
                   ],
