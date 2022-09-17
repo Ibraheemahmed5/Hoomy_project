@@ -24,7 +24,7 @@ class MyCardsList extends StatelessWidget {
     getCartTotalPrice(){
       Rx<double> total = 0.0.obs;
       if(Prodect.Prodects.isNotEmpty) {
-        Prodect.Prodects.where((e) => e.add.value).forEach((element) {
+        Prodect.Prodects.where((e) => e.add.value).forEach((element){
           total += element.price.value * element.quantity.value;
         });
       }
