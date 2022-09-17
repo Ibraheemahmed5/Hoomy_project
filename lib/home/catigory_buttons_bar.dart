@@ -62,7 +62,13 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
 
                       });
                       print(Prodect.catigories[index].value);
-                      Get.to(CatigoriesPage(text:  Prodect.catigories[index].value,prodect: Prodect.Prodects.first,));
+                      Navigator.pushReplacement<void, void>(
+                          context,
+                          MaterialPageRoute<void>(
+                          builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value,prodect: Prodect.Prodects.first,),
+                        ),
+                      );
+                     // Get.to(CatigoriesPage(text:  Prodect.catigories[index].value,prodect: Prodect.Prodects.first,));
                     },
                   );
                   index = index1.value;

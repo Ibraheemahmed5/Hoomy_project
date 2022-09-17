@@ -22,7 +22,7 @@ class FavCart extends StatelessWidget {
           GestureDetector(
               onTap: (){
                 prodects.makeAsClicked();
-                Get.to(SingleProdect(prodects: prodects));
+                Get.to(SingleProdect(prodects: prodects,),);
               },
           child: Padding(
           padding: const EdgeInsets.all(8.0),
