@@ -13,13 +13,14 @@ class CardsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: GridView.count(
-      crossAxisCount: 2,
+    return  Container(
+    child: GridView.count(
+    crossAxisCount: 2,
       childAspectRatio: MediaQuery.of(context).size.width /
           ((MediaQuery.of(context).size.height) - 250),
       children: Prodect.Prodects.map((e) => Cart( prodects: e,)).toList(),
     ));
+
   }
 }
 

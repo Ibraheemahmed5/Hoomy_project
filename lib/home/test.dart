@@ -8,14 +8,14 @@ import 'package:hoomy_project1/home/prodects/model.dart';
 import 'cart_list.dart';
 import 'home_slider/slider.dart';
 
-class test extends StatefulWidget {
-  const test({Key? key}) : super(key: key);
+class test2 extends StatefulWidget {
+  const test2({Key? key}) : super(key: key);
 
   @override
-  State<test> createState() => _testState();
+  State<test2> createState() => _test2State();
 }
 
-class _testState extends State<test> {
+class _test2State extends State<test2> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController =

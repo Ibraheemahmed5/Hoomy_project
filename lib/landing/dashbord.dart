@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
@@ -46,13 +47,16 @@ class _DashboardState extends State<Dashboard> {
       _currentPage = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 60),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
@@ -78,8 +82,8 @@ class _DashboardState extends State<Dashboard> {
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                for(int i = 0; i<slideList.length; i++)
-                                  if( i == _currentPage )
+                                for (int i = 0; i < slideList.length; i++)
+                                  if (i == _currentPage)
                                     SlideDots(true)
                                   else
                                     SlideDots(false)
@@ -103,11 +107,12 @@ class _DashboardState extends State<Dashboard> {
                           shape: const CircleBorder(),
                         ),
                         onPressed: () {
-                           Get.to(Landing());
-
+                          Get.to(Landing(),
+                              transition: Transition.noTransition,
+                              duration: Duration(seconds: 1));
+                          setState(() {});
                         },
-                        child: Icon(Icons.arrow_forward_ios)
-                    ),
+                        child: Icon(Icons.arrow_forward_ios)),
                   ],
                 ),
               )

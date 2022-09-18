@@ -3,9 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:hoomy_project1/home/prodects/model.dart';
 
-import '../slider/models/slider.dart';
-import '../slider/slides_dots.dart';
-import 'images/prodect_images.dart';
+
 
 class test extends StatelessWidget {
   test({Key? key, required this.im}) : super(key: key);

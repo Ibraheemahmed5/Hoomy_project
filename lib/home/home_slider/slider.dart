@@ -51,7 +51,7 @@ class _HomeSliderState extends State<HomeSlider> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              width: 500,
+              width: 600,
               height: 200,
               child: Stack(
                 alignment: AlignmentDirectional.bottomCenter,
@@ -63,6 +63,17 @@ class _HomeSliderState extends State<HomeSlider> {
                     itemCount: slideList.length,
                     itemBuilder: (ctx, i) => HomeSlideItem(i),
                   ),
+
+
+
+
+
+
+
+
+
+
+
                   Stack(
                     children: <Widget>[
                       Container(

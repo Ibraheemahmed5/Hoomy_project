@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../prodects/model.dart';
 import 'catigories_list.dart';
 
-class test extends StatelessWidget {
-  const test({Key? key, required this.text, required this.prodect}) : super(key: key);
+class test3 extends StatelessWidget {
+  const test3({Key? key, required this.text, required this.prodect}) : super(key: key);
   final String text;
   final Prodect prodect;
   @override

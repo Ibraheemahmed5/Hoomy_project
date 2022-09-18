@@ -22,7 +22,15 @@ class MyCart extends StatefulWidget {
 }
 
 class _MyCartState extends State<MyCart> {
-  String text='${Prodect.Prodects.where((e) => e.add.value).map((e) =>({e.name , e.quantity})  )}ارغب بطلب المنتجات التالية :'+'مرحبا';
+  String text =
+      "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${Prodect.Prodects.where((e) => e.add.value).map((e) => ({
+            "اسم الامنتج :${e.name}\n"
+                "العدد :${e.quantity}\n"
+                "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
+                "\n"
+                "\n"
+          }))}";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,7 +73,9 @@ class _MyCartState extends State<MyCart> {
                       child: Button2(
                         text: 'اتمام الطلب',
                         onPressed: () {
-                          Get.to(whatsapp_main_page(text:text,));
+                          Get.to(whatsapp_main_page(
+                            text: text,
+                          ));
                         },
                       ),
                     )

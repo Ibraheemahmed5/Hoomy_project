@@ -56,6 +56,8 @@ dependencies:
   app_popup_menu: ^1.0.0
   ionicons: ^0.2.1
   salomon_bottom_bar: ^3.3.1
+  responsive_ui: ^3.0.0
+  flutter_statusbarcolor_ns: ^0.4.0
 
 dev_dependencies:
   flutter_test:

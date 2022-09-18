@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
 
 import '../landing/dashbord.dart';
@@ -20,14 +21,17 @@ class _SplashState extends State<Splash> {
 
   Future delay() async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => Dashboard()),
-    );
+
+    Get.to(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
+
+
   }
 
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
+
     return Scaffold(
+
         backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

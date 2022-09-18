@@ -13,6 +13,7 @@ import 'images/images_list.dart';
 class PageModel extends StatelessWidget {
   const PageModel({Key? key, required this.prodects}) : super(key: key);
   final Prodect prodects;
+
   @override
   Widget build(BuildContext context) {
     return Column(

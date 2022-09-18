@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,6 +9,13 @@ import 'package:hoomy_project1/home/prodects/home_cart.dart';
 import 'package:hoomy_project1/home/prodects/model.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 import 'package:hoomy_project1/Search_page_/search_page.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+import 'package:unicons/unicons.dart';
+import '../favorite_page/favorite_page_main.dart';
+import '../my_cart_page/cart.dart';
+import '../my_cart_page/my_cart_main.dart';
+import '../profile_page/profile_main_page.dart';
 import 'NavigationBar_home.dart';
 import 'cart_list.dart';
 import 'catigory_buttons_bar.dart';
@@ -20,8 +29,15 @@ class HomeMainPage extends StatefulWidget {
 }
 
 class _HomeMainPageState extends State<HomeMainPage> {
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(EditableTextState());
+  }
+
   @override
   Widget build(BuildContext context) {
+    FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
+
     final TextEditingController searchController =
         TextEditingController(text: "");
     final RxBool isEmpty1 = true.obs;
@@ -62,7 +78,6 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         height: 55,
                         child: CatigoryButtonsBar(),
                       ),
-
                     if (text.value.isEmpty)
                       Padding(
                         padding: const EdgeInsets.only(bottom: 5),
@@ -78,74 +93,73 @@ class _HomeMainPageState extends State<HomeMainPage> {
               ),
               // ////
 
-               if (text.value.isEmpty)
-                 Padding(
-                   padding: const EdgeInsets.only(right: 20),
-                   child: Align(
-                     alignment: Alignment.centerRight,
-                     child: Container(
-                       width: 100,
-                       height: 50,
-                       child: Align(
-                         alignment: Alignment.centerRight,
-                         child: Text(
-                           "الشائع",
-                           style: GoogleFonts.inter(
-                               fontSize: 25,
-                               color: Colors.black,
-                               fontWeight: FontWeight.bold),
-                         ),
-                       ),
-                     ),
-                   ),
-                 ),
+              if (text.value.isEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Container(
+                      width: 100,
+                      height: 50,
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          "الشائع",
+                          style: GoogleFonts.inter(
+                              fontSize: 25,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
 
-               if (text.value.isEmpty)
-                 Flexible(
-                   child: Container(
-                       width: double.infinity,
-                       decoration: BoxDecoration(
-                           color: Color(0XFFE1F8FF),
-                           borderRadius: BorderRadius.only(
-                               topLeft: Radius.circular(30),
-                               topRight: Radius.circular(30))),
-                       child: Padding(
-                         padding:
-                             const EdgeInsets.only(left: 10, right: 10, top: 5),
-                         child: CardsList(),
-                       )),
-                 ),
+              if (text.value.isEmpty)
+                Flexible(
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Color(0XFFE1F8FF),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30))),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.only(left: 10, right: 10, top: 5),
+                        child: CardsList(),
+                      )),
+                ),
 
-               if (text.value.isNotEmpty)
-              Flexible(
-                   child: Container(
-                       width: double.infinity,
-                       decoration: BoxDecoration(
-                           color: Color(0XFFE1F8FF),
-                           borderRadius: BorderRadius.only(
-                               topLeft: Radius.circular(30),
-                               topRight: Radius.circular(30))),
-                       child: Padding(
-                           padding: const EdgeInsets.only(
-                               left: 10, right: 10, top: 5),
-                           child: Container(
-                               child: GridView.count(
-                             crossAxisCount: 2,
-                             childAspectRatio: MediaQuery.of(context)
-                                     .size
-                                     .width /
-                                 ((MediaQuery.of(context).size.height) - 250),
-                             children: Prodect.Prodects.where((e) => e.name
-                                     .toLowerCase()
-                                     .contains(text.value.toLowerCase()))
+              if (text.value.isNotEmpty)
+                Flexible(
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Color(0XFFE1F8FF),
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30))),
+                      child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 10, right: 10, top: 5),
+                          child: Container(
+                              child: GridView.count(
+                            crossAxisCount: 2,
+                            childAspectRatio: MediaQuery.of(context)
+                                    .size
+                                    .width /
+                                ((MediaQuery.of(context).size.height) - 250),
+                            children: Prodect.Prodects.where((e) => e.name
+                                    .toLowerCase()
+                                    .contains(text.value.toLowerCase()))
                                 .map((e) => Cart(prodects: e))
-                                 .toList(),
-                         )))),
-                 ),
-                  ],
+                                .toList(),
+                          )))),
+                ),
+            ],
           );
-        }
-        ),
+        }),
       ),
       bottomNavigationBar: NavigationBar_home(),
     );

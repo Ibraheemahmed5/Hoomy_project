@@ -1,18 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/single_prodect/page_model.dart';
 import 'package:hoomy_project1/single_prodect/relatid_list.dart';
 import 'package:hoomy_project1/single_prodect/test.dart';
+import 'package:ionicons/ionicons.dart';
+import '../home/catigories_page/test.dart';
 import '../home/home_main_page.dart';
 import '../home/prodects/model.dart';
+import '../home/test.dart';
 import '../my_cart_page/make_order_button.dart';
+import '../my_cart_page/prodects_counter.dart';
 import '../profile_page/blue_logo.dart';
-
+import 'colors/colors_list.dart';
+import 'images/images_list.dart';
 
 class SingleProdect extends StatefulWidget {
   const SingleProdect({Key? key, required this.prodects}) : super(key: key);
   final Prodect prodects;
+
   @override
   State<SingleProdect> createState() => _SingleProdectState(prodects);
 }
@@ -91,3 +98,4 @@ class _SingleProdectState extends State<SingleProdect> {
     );
   }
 }
+
