@@ -46,8 +46,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Obx(() {
-          return Column(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -63,6 +62,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         Get.to(Search_page());
                       },
                       onChanged: (String text1) {
+
                         text.value = text1;
 
                         if (text.value == "") {
@@ -158,8 +158,8 @@ class _HomeMainPageState extends State<HomeMainPage> {
                           )))),
                 ),
             ],
-          );
-        }),
+          )
+
       ),
       bottomNavigationBar: NavigationBar_home(),
     );

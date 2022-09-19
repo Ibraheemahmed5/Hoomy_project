@@ -33,6 +33,7 @@ class _SearchBarState extends State<SearchBar> {
           child: Container(
             height: 60,
             child: TextField(
+              autofocus: false,
                 onChanged: (text) {
                   widget.onChanged!(text);
                 },

@@ -20,12 +20,12 @@ class MyCart extends StatefulWidget {
   @override
   State<MyCart> createState() => _MyCartState();
 }
-
+late final Prodect prodect;
 class _MyCartState extends State<MyCart> {
   String text =
       "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${Prodect.Prodects.where((e) => e.add.value).map((e) => ({
-            "اسم الامنتج :${e.name}\n"
-                "العدد :${e.quantity}\n"
+            "اسم الامنتج :${e.name.value}\n"
+                "العدد :${e.quantity.value}\n"
                 "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
                 "\n"
                 "\n"
@@ -73,6 +73,11 @@ class _MyCartState extends State<MyCart> {
                       child: Button2(
                         text: 'اتمام الطلب',
                         onPressed: () {
+                          setState(() {
+
+
+
+                          });
                           Get.to(whatsapp_main_page(
                             text: text,
                           ));

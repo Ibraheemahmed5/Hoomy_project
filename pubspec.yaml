@@ -58,6 +58,8 @@ dependencies:
   salomon_bottom_bar: ^3.3.1
   responsive_ui: ^3.0.0
   flutter_statusbarcolor_ns: ^0.4.0
+  dio: ^4.0.6
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:

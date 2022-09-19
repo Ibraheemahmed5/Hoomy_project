@@ -52,7 +52,7 @@ class _HomeSliderState extends State<HomeSlider> {
           children: <Widget>[
             Container(
               width: 600,
-              height: 200,
+              height: 120,
               child: Stack(
                 alignment: AlignmentDirectional.bottomCenter,
                 children: <Widget>[
@@ -77,7 +77,7 @@ class _HomeSliderState extends State<HomeSlider> {
                   Stack(
                     children: <Widget>[
                       Container(
-                        margin: const EdgeInsets.only(bottom: 10),
+                        margin: const EdgeInsets.only(bottom: 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,

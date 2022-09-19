@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
-
 import '../home/prodects/model.dart';
 import '../single_prodect/single_prodect_main.dart';
 
@@ -52,6 +51,7 @@ class Cart1 extends StatelessWidget {
                                 onPressed: (){
                                   prodects.deleteFromCart();
                                   prodects.addToCart();
+
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),
                               ),

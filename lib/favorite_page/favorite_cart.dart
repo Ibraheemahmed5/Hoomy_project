@@ -61,7 +61,7 @@ class FavCart extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 40),
+                      padding: const EdgeInsets.only(top: 30),
                       child: Container(
                         child: ElevatedButton(
                           onPressed: () {

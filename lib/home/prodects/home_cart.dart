@@ -36,22 +36,35 @@ class _CartState extends State<Cart> {
                   borderRadius: BorderRadius.circular(18)),
               child:Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child:
-                    Container(
-                      child: ElevatedButton(
-                        onPressed:(){
-                          widget.prodects.makeAsFav();
-                        },
-                        child:widget.prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: Color(0XFFE7E7E7),
-                          fixedSize: const Size(26, 26),
-                          shape: const CircleBorder(),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 0),
+                          child: ElevatedButton(
+                            onPressed:(){
+                              widget.prodects.makeAsFav();
+                            },
+                            child:widget.prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: Color(0XFFE7E7E7),
+                              fixedSize: const Size(26, 26),
+                              shape: const CircleBorder(),
+                            ),
+                          ),
                         ),
-                      ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                              ' غير متوفر',
+                              style: GoogleFonts.inter(fontSize: 14,color: Colors.red,fontWeight: FontWeight.bold)
+                          ),
+                        ),
+
+
+                      ],
                     ),
                   ),
                   if(widget.prodects.available == false)
@@ -93,7 +106,7 @@ class _CartState extends State<Cart> {
                       ),
                       if(widget.prodects.available == true)
                         Padding(
-                        padding: const EdgeInsets.only(top: 45),
+                        padding: const EdgeInsets.only(top: 5),
                         child: Container(
                           child: ElevatedButton(
                             onPressed: () {
@@ -117,17 +130,8 @@ class _CartState extends State<Cart> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                             if(widget.prodects.available == true)
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 3),
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(
-                                    'المنتج غير متاح',
-                                      style: GoogleFonts.inter(fontSize: 14,color: Colors.red,fontWeight: FontWeight.bold)
-                                  ),
-                                ),
-                              ),
+                             //if(widget.prodects.available == true)
+
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 3),
                                 child: Align(

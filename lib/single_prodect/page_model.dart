@@ -18,13 +18,16 @@ class PageModel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 80,
-          child: Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: 0),
-                child:Center(child: ImagesList(prodect: prodects,)),
-              )
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 60),
+          child: Container(
+            height: 80,
+            child: Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(left: 0),
+                  child:Center(child: ImagesList(prodect: prodects,)),
+                )
+            ),
           ),
         ),
         Padding(

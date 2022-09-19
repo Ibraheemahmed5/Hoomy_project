@@ -30,26 +30,7 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
     return Container(
       child: Row(
         children: [
-          Container(
-            width: 45,
-            height: 55,
-            child: Align(
-              alignment: Alignment.center,
-              child:  TextButton(
 
-                onPressed: () {
-
-                },
-                child: Text(
-                  "الكل",
-                  style: GoogleFonts.inter(
-                      fontSize: 16,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ),
           Expanded(
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,

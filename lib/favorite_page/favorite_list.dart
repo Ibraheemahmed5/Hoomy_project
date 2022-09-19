@@ -15,8 +15,9 @@ class FavoriteList extends StatelessWidget {
       return
         GridView.count(
           crossAxisCount: 2,
-          childAspectRatio:182/250,
-          children:
+          childAspectRatio: MediaQuery.of(context).size.width /550,
+
+      children:
           Prodect.Prodects.where((e) => e.isFav.value).map((e) => FavCart(prodects:e)).toList(),
         );
     }

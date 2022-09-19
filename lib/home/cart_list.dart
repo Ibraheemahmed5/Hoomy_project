@@ -15,9 +15,12 @@ class CardsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Container(
     child: GridView.count(
-    crossAxisCount: 2,
-      childAspectRatio: MediaQuery.of(context).size.width /
-          ((MediaQuery.of(context).size.height) - 250),
+      shrinkWrap: true,
+      physics: ScrollPhysics(),
+
+      crossAxisCount: 2,
+      childAspectRatio: MediaQuery.of(context).size.width /550,
+
       children: Prodect.Prodects.map((e) => Cart( prodects: e,)).toList(),
     ));
 
