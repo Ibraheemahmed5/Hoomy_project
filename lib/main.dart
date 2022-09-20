@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       //home: Landing(),
       //home: Sign_in_main_page(),
       //home: Sign_up_main_page(),
-       home: HomeMainPage(),
+      // home: HomeMainPage(),
       //home: profile_main_page(),
       //home: Search_page(),
        //home: whatsapp_main_page(),
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       //home: MyCart(),
       // home: FavoritePage(),
       //home: whatsapp_main_page(),
-      //home: aaaaa(),
+      home: rrrr(),
     );
   }
 }

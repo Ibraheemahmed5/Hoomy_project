@@ -1,0 +1,1 @@
+class ApiConstants {  static String get_All_Products = 'http://127.0.0.1:8000/api/product/get-all-products';}

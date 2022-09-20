@@ -34,6 +34,7 @@ class Prodect {
         quantity = quantity.obs,
         pcolor = pcolor.obs;
 
+
   static List<RxString> catigories = [
     "كرسي1".obs,
     "كرسي2".obs,
