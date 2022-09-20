@@ -55,7 +55,8 @@ class _CartState extends State<Cart> {
                             ),
                           ),
                         ),
-                        Padding(
+                        if(widget.prodects.available == true)
+                          Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Text(
                               ' غير متوفر',
@@ -69,8 +70,8 @@ class _CartState extends State<Cart> {
                   ),
                   if(widget.prodects.available == false)
                     Container(
-                      width: 150,
-                      height: 120,
+                        height: 128,
+                        width:MediaQuery.of(context).size.width-50 ,
                       margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                       color: Colors.white,
                       child: Image.asset(Prodect.ImagesList[0])),
@@ -104,25 +105,25 @@ class _CartState extends State<Cart> {
                           ),
                         ),
                       ),
-                      if(widget.prodects.available == true)
-                        Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Container(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              widget.prodects.addToCart();
-                              widget.prodects.deleteFromCart();
-                            },
-                            child:widget.prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
-                            style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Color(0XFFE7E7E7),
-                              fixedSize: const Size(26, 26),
-                              shape: const CircleBorder(),
-                            ),
-                          ),
-                        ),
-                      ),
+                      // if(widget.prodects.available == true)
+                      //   Padding(
+                      //   padding: const EdgeInsets.only(top: 45),
+                      //   child: Container(
+                      //     child: ElevatedButton(
+                      //       onPressed: () {
+                      //         widget.prodects.addToCart();
+                      //         widget.prodects.deleteFromCart();
+                      //       },
+                      //       child:widget.prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                      //       style: ElevatedButton.styleFrom(
+                      //         elevation: 0,
+                      //         backgroundColor: Color(0XFFE7E7E7),
+                      //         fixedSize: const Size(26, 26),
+                      //         shape: const CircleBorder(),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
@@ -130,8 +131,6 @@ class _CartState extends State<Cart> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                             //if(widget.prodects.available == true)
-
                               Padding(
                                 padding: const EdgeInsets.only(bottom: 3),
                                 child: Align(

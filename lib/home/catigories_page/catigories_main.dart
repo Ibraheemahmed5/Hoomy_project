@@ -14,18 +14,16 @@ import '../prodects/model.dart';
 import 'catigories_list.dart';
 
 class CatigoriesPage extends StatefulWidget {
-  const CatigoriesPage({Key? key, required this.text, required this.prodect}) : super(key: key);
+  const CatigoriesPage({Key? key, required this.text}) : super(key: key);
   final String text;
-  final Prodect prodect;
   @override
-  State<CatigoriesPage> createState() => _CatigoriesPageState(text,prodect);
+  State<CatigoriesPage> createState() => _CatigoriesPageState(text);
 }
 
 class _CatigoriesPageState extends State<CatigoriesPage> {
   final String text2;
-  final Prodect prodect;
 
-  _CatigoriesPageState(this.text2, this.prodect);
+  _CatigoriesPageState(this.text2);
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController =
@@ -83,7 +81,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                       child: Padding(
                         padding:
                         const EdgeInsets.only(left: 10, right: 10, top: 5),
-                        child: CatigoriesList(prodect: prodect, text: text2,),
+                        child: CatigoriesList( text: text2,),
                       )),
                 ),
 

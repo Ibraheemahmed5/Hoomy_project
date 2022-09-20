@@ -35,23 +35,36 @@ class RelatedCart extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18)),
               child:Column(
                 children: [
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child:
-                    Container(
-                      child: ElevatedButton(
-                        onPressed:(){
-                          prodects.makeAsFav();
-                        },
-                        child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: Color(0XFFE7E7E7),
-                          fixedSize: const Size(26, 26),
-                          shape: const CircleBorder(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child:
+                        Container(
+                          child: ElevatedButton(
+                            onPressed:(){
+                              prodects.makeAsFav();
+                            },
+                            child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                            style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              backgroundColor: Color(0XFFE7E7E7),
+                              fixedSize: const Size(26, 26),
+                              shape: const CircleBorder(),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      if(prodects.available == true)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                              ' غير متوفر',
+                              style: GoogleFonts.inter(fontSize: 14,color: Colors.red,fontWeight: FontWeight.bold)
+                          ),
+                        ),
+                    ],
                   ),
                   Container(
                       width: 180,
@@ -63,7 +76,8 @@ class RelatedCart extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
+                      if(prodects.available == false)
+                        Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Container(
                           child: ElevatedButton(
@@ -103,8 +117,8 @@ class RelatedCart extends StatelessWidget {
                                 child: Text(
                                     'د.ع'+'${prodects.price.value}',
                                     style: GoogleFonts.inter(fontSize: 17,color: Colors.black
-
-                                    )),
+                                    )
+                                ),
                               )
                             ],
                           ),

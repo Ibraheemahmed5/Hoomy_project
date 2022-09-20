@@ -7,10 +7,9 @@ import '../prodects/model.dart';
 
 class CatigoriesList extends StatelessWidget {
 
-  CatigoriesList({Key? key, required this.prodect, required this.text,}) : super(key: key);
+  CatigoriesList({Key? key, required this.text,}) : super(key: key);
   static PageController controller = PageController();
   static RxInt currentPage = 0.obs;
-  final Prodect prodect;
   final String text;
 
 
@@ -20,8 +19,9 @@ class CatigoriesList extends StatelessWidget {
       Obx(() {
         return Expanded(
           child:  GridView.count(
+              childAspectRatio: MediaQuery.of(context).size.width /
+                  600,
               crossAxisCount: 2,
-              childAspectRatio: MediaQuery.of(context).size.width / ((MediaQuery.of(context).size.height) -230),
               children: Prodect.Prodects.where((a) =>
               a.catigory.value == text).map((e) =>
                   FavCart(prodects:e)).toList()

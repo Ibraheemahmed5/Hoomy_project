@@ -46,7 +46,7 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
                       Navigator.pushReplacement<void, void>(
                           context,
                           MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value,prodect: Prodect.Prodects.first,),
+                          builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value),
                         ),
                       );
                      // Get.to(CatigoriesPage(text:  Prodect.catigories[index].value,prodect: Prodect.Prodects.first,));

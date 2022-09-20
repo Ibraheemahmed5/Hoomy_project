@@ -45,7 +45,7 @@ class _SingleProdectState extends State<SingleProdect> {
           ),
           Expanded(
             child: ListView(children: [
-              test(im: 0,),
+              Center(child: test(im: 0,)),
 
               PageModel(
                 prodects: prodects,
@@ -68,11 +68,22 @@ class _SingleProdectState extends State<SingleProdect> {
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(25),
                     topRight: Radius.circular(25))),
-            child: Row(
+            child:
+            Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Obx(() {
-                  return Padding(
+                if(prodects.available == true)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Text(
+                        ' غير متوفر',
+                        style: GoogleFonts.inter(fontSize: 20,color: Colors.red,fontWeight: FontWeight.bold)
+                    ),
+                  ),
+                if(prodects.available == false)
+                  Obx(() {
+                  return
+                    Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       ' ${RelatedList(
@@ -83,7 +94,8 @@ class _SingleProdectState extends State<SingleProdect> {
                     ),
                   );
                 }),
-                Padding(
+                if(prodects.available == false)
+                  Padding(
                   padding: const EdgeInsets.only(right: 20, left: 20),
                   child: Button2(
                     text: 'اتمام الطلب',

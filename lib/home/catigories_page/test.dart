@@ -25,7 +25,7 @@ class test3 extends StatelessWidget {
                   child: Padding(
                     padding:
                     const EdgeInsets.only(left: 10, right: 10, top: 5),
-                    child: CatigoriesList(prodect: prodect, text: text,),
+                    child: CatigoriesList( text: text,),
                   )),
             ),
         ],

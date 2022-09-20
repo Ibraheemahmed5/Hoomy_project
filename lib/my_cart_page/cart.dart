@@ -26,7 +26,7 @@ class Cart1 extends StatelessWidget {
           padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
           child: Container(
             height: 165,
-            width: 378,
+            width:  MediaQuery.of(context).size.width ,
             padding: EdgeInsets.zero,
             decoration: BoxDecoration(
                 color: Color(0XFFE1F8FF),

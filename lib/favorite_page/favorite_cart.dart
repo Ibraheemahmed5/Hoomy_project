@@ -2,11 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:unicons/unicons.dart';
-import 'package:iconsax/iconsax.dart';
 import '../home/prodects/model.dart';
 import 'package:ionicons/ionicons.dart';
-
 import '../single_prodect/single_prodect_main.dart';
 
 
@@ -33,34 +30,49 @@ class FavCart extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18)),
             child:Column(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child:
-                  Container(
-                    child: ElevatedButton(
-                      onPressed:(){
-                        prodects.makeAsFav();
-                      },
-                      child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Colors.white,
-                        fixedSize: const Size(26, 26),
-                        shape: const CircleBorder(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child:
+                      Container(
+                        child: ElevatedButton(
+                          onPressed:(){
+                            prodects.makeAsFav();
+                          },
+                          child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Colors.white,
+                            fixedSize: const Size(26, 26),
+                            shape: const CircleBorder(),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                    if(prodects.available == true)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Text(
+                            ' غير متوفر',
+                            style: GoogleFonts.inter(fontSize: 14,color: Colors.red,fontWeight: FontWeight.bold)
+                        ),
+                      ),
+                  ],
                 ),
                 Container(
-                    width: 180,
+                    // width: 180,
                     height: 128,
+                    width:MediaQuery.of(context).size.width-50 ,
                     margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                     color: Colors.white,
                     child:Image.asset(Prodect.ImagesList[0])),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
+                    if(prodects.available == false)
+                      Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: Container(
                         child: ElevatedButton(

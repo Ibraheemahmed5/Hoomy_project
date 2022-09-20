@@ -14,18 +14,12 @@ class Prodect {
   final RxList<int> pcolor;
   Rx<int> quantity;
 
-  Prodect(String name, int price, List<String> image_link, List<int> pcolor,
-      String desc, String catigory, int quantity,
-      [bool? add,
-      bool? isFave,
-      bool? available,
-      bool? delete_from_cart,
-      bool? is_clicked])
-      : isFav = (isFave ?? false).obs,
-        add = (add ?? false).obs,
-        available = (available ?? false).obs,
-        delete_from_cart = (delete_from_cart ?? false).obs,
-        is_clicked = (is_clicked ?? false).obs,
+  Prodect(String name,int price,List<String> image_link, List<int> pcolor,String desc,String catigory,int quantity,[bool? add ,bool? isFave, bool? available,bool? delete_from_cart,bool? is_clicked])
+      : isFav = (isFave??false).obs,
+        add = (add??false).obs,
+        available = (available??false).obs,
+        delete_from_cart = (delete_from_cart??false).obs,
+        is_clicked = (is_clicked??false).obs,
         name = name.obs,
         price = price.obs,
         image_link = image_link.obs,
@@ -33,7 +27,6 @@ class Prodect {
         catigory = catigory.obs,
         quantity = quantity.obs,
         pcolor = pcolor.obs;
-
 
   static List<RxString> catigories = [
     "كرسي1".obs,
@@ -116,7 +109,7 @@ class Prodect {
         ImagesList,
         PColors,
         'GAMIFIED SEATING: A racecar-style gaming chair that provides luxury and comfort, whether its used for intense gaming sessions and climbing to the top of the leaderboards, or long work days.',
-        'كرسي',
+        'كرسي1',
         1),
     Prodect(
         'كرسي1',
@@ -132,7 +125,7 @@ class Prodect {
         ImagesList,
         PColors,
         'GAMIFIED SEATING: A racecar-style gaming chair that provides luxury and comfort, whether its used for intense gaming sessions and climbing to the top of the leaderboards, or long work days.',
-        'كرسي',
+        'كرسي1',
         1),
     Prodect(
         'Mika Chair',

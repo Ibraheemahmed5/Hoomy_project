@@ -43,6 +43,7 @@ class _HomeSliderState extends State<HomeSlider> {
       _currentPage = index;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return  Padding(
@@ -63,17 +64,6 @@ class _HomeSliderState extends State<HomeSlider> {
                     itemCount: slideList.length,
                     itemBuilder: (ctx, i) => HomeSlideItem(i),
                   ),
-
-
-
-
-
-
-
-
-
-
-
                   Stack(
                     children: <Widget>[
                       Container(

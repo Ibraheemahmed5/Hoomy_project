@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,15 +15,18 @@ class SearchBar extends StatefulWidget {
    final void Function() onPressed;
   final void Function(String)? onChanged;
 
-
   @override
-  State<SearchBar> createState() => _SearchBarState();
+  State<SearchBar> createState() => _SearchBarState(searchController);
 }
 
 class _SearchBarState extends State<SearchBar> {
+  final TextEditingController searchController;
+
+  _SearchBarState(this.searchController);
 
   @override
   Widget build(BuildContext context) {
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,9 +68,6 @@ class _SearchBarState extends State<SearchBar> {
                     hintStyle: GoogleFonts.inter(
                         fontSize: 15, color: Color.fromRGBO(129, 129, 129, 1))),
                 onTap: () {
-
-
-
                 }),
           ),
         ),
@@ -95,6 +94,6 @@ class _SearchBarState extends State<SearchBar> {
 
   void onPressed() {
       Get.to(Search_page());
-
   }
+
 }

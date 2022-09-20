@@ -20,11 +20,10 @@ class Landing extends StatefulWidget {
 class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(
-      Color(0xff45B9EE),
-    );
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xff45B9EE), animate: false);
 
     return Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
       child: Center(
         child: Column(

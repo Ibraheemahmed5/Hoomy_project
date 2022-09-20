@@ -31,7 +31,6 @@ class _SplashState extends State<Splash> {
     FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
 
     return Scaffold(
-
         backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
