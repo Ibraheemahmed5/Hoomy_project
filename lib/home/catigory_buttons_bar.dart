@@ -27,36 +27,34 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
 
 
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        children: [
+    return Flex(
+      direction: Axis.vertical,
 
-          Expanded(
-            child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: Prodect.catigories.length,
-                itemBuilder: (BuildContext context, index) {
-                  return CatigoryButtons(
-                    text: Prodect.catigories[index].value,
-                    onPressed: () {
-                      setState(() {
+      children: [
+        Expanded(
+          child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: Prodect.catigories.length,
+              itemBuilder: (BuildContext context, index) {
+                return CatigoryButtons(
+                  text: Prodect.catigories[index].value,
+                  onPressed: () {
+                    setState(() {
 
-                      });
-                      print(Prodect.catigories[index].value);
-                      Navigator.pushReplacement<void, void>(
-                          context,
-                          MaterialPageRoute<void>(
-                          builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value),
-                        ),
-                      );
-                     // Get.to(CatigoriesPage(text:  Prodect.catigories[index].value,prodect: Prodect.Prodects.first,));
-                    },
-                  );
-                  index = index1.value;
-                }),
-          )
-        ],
-      ),
+                    });
+                    print(Prodect.catigories[index].value);
+                    Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value),
+                      ),
+                    );
+                  },
+                );
+                index = index1.value;
+              }),
+        ),
+      ],
     );
   }
 }

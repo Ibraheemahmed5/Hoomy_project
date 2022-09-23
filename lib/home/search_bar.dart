@@ -8,12 +8,14 @@ import 'package:unicons/unicons.dart';
 class SearchBar extends StatefulWidget {
   SearchBar({
     Key? key,
-    required this.searchController, required this.onPressed, required this.onChanged,
+    required this.searchController, required this.onPressed, required this.onChanged, this.TextField1,
   }) : super(key: key);
 
   final TextEditingController searchController;
    final void Function() onPressed;
   final void Function(String)? onChanged;
+  final Widget? TextField1;
+
 
   @override
   State<SearchBar> createState() => _SearchBarState(searchController);
@@ -34,7 +36,8 @@ class _SearchBarState extends State<SearchBar> {
         Expanded(
           child: Container(
             height: 60,
-            child: TextField(
+            child:
+            TextField(
               autofocus: false,
                 onChanged: (text) {
                   widget.onChanged!(text);
@@ -67,8 +70,14 @@ class _SearchBarState extends State<SearchBar> {
                     hintText: "     بحث...",
                     hintStyle: GoogleFonts.inter(
                         fontSize: 15, color: Color.fromRGBO(129, 129, 129, 1))),
-                onTap: () {
-                }),
+               ),
+
+
+
+
+
+
+
           ),
         ),
         Padding(

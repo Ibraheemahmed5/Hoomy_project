@@ -1,4 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
+
+import '../../api/Api_calls.dart';
+import '../../api/api_Url.dart';
+import '../../api/api_models.dart';
 
 class Prodect {
   final Rx<String> name;
@@ -14,7 +19,8 @@ class Prodect {
   final RxList<int> pcolor;
   Rx<int> quantity;
 
-  Prodect(String name,int price,List<String> image_link, List<int> pcolor,String desc,String catigory,int quantity,[bool? add ,bool? isFave, bool? available,bool? delete_from_cart,bool? is_clicked])
+  Prodect(String name,int price,List<String> image_link, List<int> pcolor,String desc,String catigory,int quantity,
+      [bool? add ,bool? isFave, bool? available,bool? delete_from_cart,bool? is_clicked])
       : isFav = (isFave??false).obs,
         add = (add??false).obs,
         available = (available??false).obs,
@@ -42,6 +48,9 @@ class Prodect {
     "كرسي11".obs,
     "كرسي12".obs,
   ];
+
+
+
 
   makeAsFav() {
     if (isFav == false)
@@ -101,6 +110,12 @@ class Prodect {
     0xffFFC634,
     0xff2E924A,
   ].obs;
+
+   static List<Prodect> Prodects2 = [
+
+   ];
+
+
 
   static RxList<Prodect> Prodects = <Prodect>[
     Prodect(
@@ -176,3 +191,11 @@ class Prodect {
     Prodects.add(data);
   }
 }
+
+
+
+
+
+/////////////////////////////////////////////
+
+

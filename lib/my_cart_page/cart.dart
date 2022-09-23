@@ -73,7 +73,7 @@ class Cart1 extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 0),
                           child: Text(
-                              prodects.name.value,
+                              prodects.name.value!,
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
                           ),
                         ),

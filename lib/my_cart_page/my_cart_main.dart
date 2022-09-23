@@ -74,6 +74,8 @@ class _MyCartState extends State<MyCart> {
                         text: 'اتمام الطلب',
                         onPressed: () {
                           setState(() {
+                            print(prodect.quantity.value);
+                            print(prodect.name.value);
 
 
 

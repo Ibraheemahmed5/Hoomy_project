@@ -41,7 +41,7 @@ class _CartState extends State<Cart> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 0),
+                          padding: const EdgeInsets.only(top: 5),
                           child: ElevatedButton(
                             onPressed:(){
                               widget.prodects.makeAsFav();
@@ -88,7 +88,7 @@ class _CartState extends State<Cart> {
                     children: [
                       if(widget.prodects.available == false)
                         Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 10,bottom: 5),
                         child: Container(
                           child: ElevatedButton(
                             onPressed: () {
