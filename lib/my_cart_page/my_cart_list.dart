@@ -17,7 +17,7 @@ class MyCardsList extends StatelessWidget {
         ListView(
           // children:
           // ApiCall.Prodects2.where((e) => e!.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
-          children: ApiCall.Prodects2.where((e) => true).map((e) => Cart1(prodects: e)).toList(),
+          children: []
         );
     }
     );

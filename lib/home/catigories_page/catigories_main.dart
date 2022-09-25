@@ -86,20 +86,20 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                       )),
                 ),
 
-              if (text.value.isNotEmpty)
-                Expanded(
-                    child: Container(
-                        child: GridView.count(
-                          crossAxisCount: 2,
-                          childAspectRatio: MediaQuery.of(context).size.width /
-                              ((MediaQuery.of(context).size.height) - 250),
-                          children: ApiCall.Prodects2
-                              .where((e) => e.title!
-                              .toLowerCase()
-                              .contains(text.value.toLowerCase()))
-                              .map((e) => Cart( prodects: e))
-                              .toList(),
-                        ))),
+              // if (text.value.isNotEmpty)
+              //   Expanded(
+              //       child: Container(
+              //           child: GridView.count(
+              //             crossAxisCount: 2,
+              //             childAspectRatio: MediaQuery.of(context).size.width /
+              //                 ((MediaQuery.of(context).size.height) - 250),
+              //             children: ApiCall.Prodects2
+              //                 .where((e) => e.title!
+              //                 .toLowerCase()
+              //                 .contains(text.value.toLowerCase()))
+              //                 .map((e) => Cart( prodects: e))
+              //                 .toList(),
+              //           ))),
               ////
             ],
           );

@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/home/prodects/model.dart';
 
 import '../Search_page_/search_page.dart';
+import '../api/Api_calls.dart';
 import 'catigories_page/catigories_main.dart';
 import 'catigory_buttons.dart';
 
@@ -34,19 +35,19 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
         Expanded(
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: Prodect.catigories.length,
+              itemCount: BackEnd.apiCategory.length,
               itemBuilder: (BuildContext context, index) {
                 return CatigoryButtons(
-                  text: Prodect.catigories[index].value,
+                  text: BackEnd.apiCategory[index].title,
                   onPressed: () {
                     setState(() {
 
                     });
-                    print(Prodect.catigories[index].value);
+                    print(BackEnd.apiCategory[index]);
                     Navigator.pushReplacement<void, void>(
                         context,
                         MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>  CatigoriesPage(text:Prodect.catigories[index].value),
+                        builder: (BuildContext context) =>  CatigoriesPage(text:BackEnd.apiCategory[index]),
                       ),
                     );
                   },

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 
 import '../Sign_in_page/sing_in_main_page.dart';
 import '../Sign_up_page/Sign_up_main_page.dart';
+import '../api/Api_calls.dart';
 import '../home/home_main_page.dart';
 import 'button.dart';
 
@@ -67,8 +68,16 @@ class _LandingState extends State<Landing> {
                         text: TextSpan(
                       text: 'الدخول كزائر',
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          Get.to(HomeMainPage(),transition: Transition.noTransition,duration: Duration(seconds: 1));
+                        ..onTap = () async{
+                        await BackEnd.Get3();
+                        await BackEnd.get_Categories();
+
+                        Future.delayed(const Duration(seconds:1), () {
+                          Get.to(HomeMainPage(),transition: Transition.noTransition,duration: Duration(seconds: 4));
+
+
+
+                        });
                         },
                       style:
                           GoogleFonts.inter(fontSize: 20, color: Colors.black),

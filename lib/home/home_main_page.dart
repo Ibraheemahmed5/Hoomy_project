@@ -23,10 +23,7 @@ class HomeMainPage extends StatefulWidget {
 }
 
 class _HomeMainPageState extends State<HomeMainPage> {
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(EditableTextState());
-  }
+
 
   @override
   Widget build(BuildContext context) {

@@ -16,14 +16,13 @@ class Cart1 extends StatelessWidget {
   final ProductModel prodects;
   @override
   Widget build(BuildContext context) {
-    ApiCall? api;
 
     return
       Obx((){
         return
           GestureDetector(
             onTap: (){
-              api!.makeAsClicked();
+            //  api!.makeAsClicked();
           //Get.to(SingleProdect(prodects: prodects,));
         },
         child:Padding(
@@ -53,8 +52,8 @@ class Cart1 extends StatelessWidget {
                                 elevation: 0,
                                 backgroundColor: Color(0XFFE7E7E7),
                                 onPressed: (){
-                                  api!.deleteFromCart();
-                                  api!.addToCart();
+                                 // api!.deleteFromCart();
+                                //  api!.addToCart();
 
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),

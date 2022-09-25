@@ -1,1 +1,1 @@
-class ApiConstants {  static String get_All_Products = 'http://127.0.0.1:8000/api/product/get-all-products';  static String get_All_Categories  ="http://127.0.0.1:8000/api/category/get-all-categories";}
+class ApiConstants {  static String get_All_Products = 'https://zaynhamza.pythonanywhere.com/api/product/get-all-products';  static String get_All_Categories  ="https://zaynhamza.pythonanywhere.com/api/category/get-all-categories";  static String Domain ="https://zaynhamza.pythonanywhere.com";}
