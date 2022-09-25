@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:ionicons/ionicons.dart';
+import '../../api/api_models.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'model.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key, required this.prodects}) : super(key: key);
-  final Prodect prodects;
+  final ProductModel prodects;
 
   @override
   State<Cart> createState() => _CartState();
@@ -17,18 +19,20 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
   @override
   Widget build(BuildContext context) {
+     ApiCall? api;
+
     return
       Obx((){
         return GestureDetector(
           onTap: (){
             setState(() {
-              widget.prodects.makeAsClicked();
-              Get.to(SingleProdect( prodects: widget.prodects,));
+              api!.makeAsClicked();
+             // Get.to(SingleProdect( prodects: widget.prodects,));
             });
 
           },
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:  EdgeInsets.all(8.0),
             child: Container(
               padding: EdgeInsets.zero,
               decoration: BoxDecoration(
@@ -41,21 +45,21 @@ class _CartState extends State<Cart> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 5),
+                          padding:  EdgeInsets.only(top: 5),
                           child: ElevatedButton(
                             onPressed:(){
-                              widget.prodects.makeAsFav();
+                              api!.makeAsFav();
                             },
-                            child:widget.prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                            child:api!.isFav==false? Icon(Ionicons.heart , color: Colors.purpleAccent) :  Icon(Ionicons.heart, color: Colors.limeAccent),
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
-                              backgroundColor: Color(0XFFE7E7E7),
+                              backgroundColor: Colors.red,//Color(0XFFE7E7E7),
                               fixedSize: const Size(26, 26),
                               shape: const CircleBorder(),
                             ),
                           ),
                         ),
-                        if(widget.prodects.available == true)
+                        if(widget.prodects.isAvailable == true)
                           Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Text(
@@ -68,34 +72,34 @@ class _CartState extends State<Cart> {
                       ],
                     ),
                   ),
-                  if(widget.prodects.available == false)
+                  if(widget.prodects.isAvailable == false)
                     Container(
                         height: 128,
                         width:MediaQuery.of(context).size.width-50 ,
                       margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                       color: Colors.white,
-                      child: Image.asset(Prodect.ImagesList[0])),
-                  if(widget.prodects.available == true)
+                      child: Image.network("http://127.0.0.1:8000"+Prodect.ImagesList[0])),
+                  if(widget.prodects.isAvailable == true)
                     Container(
                       width: 150,
                       height: 110,
                       margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                       color: Colors.white,
-                      child: Image.asset(Prodect.ImagesList[0])),
+                      child: Image.network("http://127.0.0.1:8000"+Prodect.ImagesList[0])),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if(widget.prodects.available == false)
+                      if(widget.prodects.isAvailable == false)
                         Padding(
                         padding: const EdgeInsets.only(top: 10,bottom: 5),
                         child: Container(
                           child: ElevatedButton(
                             onPressed: () {
-                              widget.prodects.addToCart();
-                              widget.prodects.deleteFromCart();
+                              api!.addToCart();
+                              api!.deleteFromCart();
                             },
-                            child:widget.prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                            child:api!.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: Color(0XFFE7E7E7),
@@ -136,7 +140,7 @@ class _CartState extends State<Cart> {
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                      widget.prodects.name.value,
+                                      widget.prodects.title!,
                                       style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                   ),
                                 ),
@@ -144,7 +148,7 @@ class _CartState extends State<Cart> {
                               Align(
                                 alignment: Alignment.bottomRight,
                                 child: Text(
-                                    'د.ع'+'${widget.prodects.price.value}',
+                                    'د.ع'+'${widget.prodects.price}',
                                     style: GoogleFonts.inter(fontSize: 17,color: Colors.black
 
                                     )),

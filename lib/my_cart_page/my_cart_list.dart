@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/my_cart_page/cart.dart';
 import '../home/prodects/model.dart';
 
@@ -14,8 +15,9 @@ class MyCardsList extends StatelessWidget {
     return Obx((){
       return
         ListView(
-          children:
-          Prodect.Prodects.where((e) => e.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
+          // children:
+          // ApiCall.Prodects2.where((e) => e!.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
+          children: ApiCall.Prodects2.where((e) => true).map((e) => Cart1(prodects: e)).toList(),
         );
     }
     );

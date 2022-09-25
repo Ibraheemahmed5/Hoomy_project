@@ -6,17 +6,17 @@ import '../../api/api_Url.dart';
 import '../../api/api_models.dart';
 
 class Prodect {
-  final Rx<String> name;
-  final Rx<int> price;
-  final RxList<String> image_link;
-  final Rx<String> desc;
-  final Rx<String> catigory;
+  final Rx<String> name;//
+  final Rx<int> price;//
+  final RxList<String> image_link;//
+  final Rx<String> desc;//
+  final Rx<String> catigory;//
   final RxBool isFav;
   final RxBool add;
-  final RxBool available;
+  final RxBool available;//
   final RxBool delete_from_cart;
   final RxBool is_clicked;
-  final RxList<int> pcolor;
+  final RxList<int> pcolor;//
   Rx<int> quantity;
 
   Prodect(String name,int price,List<String> image_link, List<int> pcolor,String desc,String catigory,int quantity,
@@ -111,9 +111,17 @@ class Prodect {
     0xff2E924A,
   ].obs;
 
-   static List<Prodect> Prodects2 = [
-
-   ];
+  //
+  // static var Prodects2 = <Prodect1>[];
+  //
+  //
+  // static Get_Prodect() async{
+  //    var data = await ApiCall.Get_Prodect();
+  //    if (data !=null){
+  //      Prodects2.addAll(data);
+  //      print(Prodects2[1].id);
+  //    }
+  //  }
 
 
 

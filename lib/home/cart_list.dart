@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hoomy_project1/home/prodects/home_cart.dart';
+import '../api/Api_calls.dart';
 import 'prodects/model.dart';
 
 class CardsList extends StatelessWidget {
@@ -20,7 +21,7 @@ class CardsList extends StatelessWidget {
       crossAxisCount: 2,
       childAspectRatio: MediaQuery.of(context).size.width /
           550,
-      children: Prodect.Prodects.map((e) => Cart( prodects: e,)).toList(),
+      children: ApiCall.Prodects2.map((e) => Cart( prodects: e,)).toList(),
     ));
 
   }

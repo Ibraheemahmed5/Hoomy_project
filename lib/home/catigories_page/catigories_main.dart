@@ -2,6 +2,7 @@ import 'package:app_popup_menu/app_popup_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 
 import '../../Search_page_/search_page.dart';
@@ -92,8 +93,8 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                           crossAxisCount: 2,
                           childAspectRatio: MediaQuery.of(context).size.width /
                               ((MediaQuery.of(context).size.height) - 250),
-                          children: Prodect.Prodects
-                              .where((e) => e.name
+                          children: ApiCall.Prodects2
+                              .where((e) => e.title!
                               .toLowerCase()
                               .contains(text.value.toLowerCase()))
                               .map((e) => Cart( prodects: e))
