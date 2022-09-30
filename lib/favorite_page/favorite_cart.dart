@@ -96,7 +96,7 @@ class _FavCartState extends State<FavCart> {
                             // prodects.addToCart();
                             // prodects.deleteFromCart();
                           },
-                          child:BackEnd.favList[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                          child:Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,

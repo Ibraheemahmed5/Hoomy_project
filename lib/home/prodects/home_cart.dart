@@ -111,7 +111,7 @@ class _CartState extends State<Cart> {
                                 onPressed: () async {
                                  await BackEnd.add_to_card(id: BackEnd.Prodects3[prodects].id);
                                 },
-                                child:BackEnd.Prodects3[prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                                child:Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
                                   backgroundColor: Color(0XFFE7E7E7),

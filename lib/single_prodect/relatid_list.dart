@@ -10,23 +10,19 @@ class RelatedList extends StatelessWidget {
   static PageController controller = PageController();
   static RxInt currentPage = 0.obs;
   final int prodect;
-
   @override
   Widget build(BuildContext context) {
+    BackEnd.Get_Related_List(BackEnd.Prodects3[prodect].category.title );
     return
       GridView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount:BackEnd.Prodects3.length,
+          itemCount:BackEnd.relatidList.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio:100/ 90,
+            childAspectRatio:110/ 90,
             crossAxisCount: 1,
           ),
           itemBuilder: (BuildContext context, index) {
-            if(BackEnd.Prodects3[prodect].category == BackEnd.Prodects3[index].category && BackEnd.Prodects3[index] != BackEnd.Prodects3[prodect]){
-              return
-                RelatedCart(prodects: index,);
-            }
-            else return SizedBox(height: 0,width: 0,);
+            return RelatedCart(prodects: index);
           });
       // ListView(
       //              scrollDirection: Axis.horizontal,

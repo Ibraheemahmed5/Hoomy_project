@@ -83,17 +83,17 @@ class _SingleProdectState extends State<SingleProdect> {
                     ),
                   ),
                 if( BackEnd.Prodects3[prodects].isAvailable== true)
-                    Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text('h',
-                      // ' ${RelatedList(
-                      //   prodect: prodects,
-                      // ).getTotalPrice()}  :السعر الكلي',
-                      style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    ),
+                   Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(BackEnd.Prodects3[prodects].price.toString(),
+                        // ' ${RelatedList(
+                        //   prodect: prodects,
+                        // ).getTotalPrice()}  :السعر الكلي',
+                        style:
+                            TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
                   ),
-             //   if(prodects.available == false)
+           //   if(prodects.available == false)
                   Padding(
                   padding: const EdgeInsets.only(right: 20, left: 20),
                   child: Button2(
