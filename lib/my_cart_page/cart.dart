@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
@@ -47,8 +48,8 @@ class Cart1 extends StatelessWidget {
                                 elevation: 0,
                                 backgroundColor: Color(0XFFE7E7E7),
                                 onPressed: (){
-                                 // api!.deleteFromCart();
-                                //  api!.addToCart();
+                                BackEnd.delete_from_card(BackEnd.Prodects_cart[prodects].id);
+                                print(BackEnd.Prodects_cart[prodects].id);
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),
                               ),
@@ -70,7 +71,7 @@ class Cart1 extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerRight,
                         child: Padding(
-                          padding: const EdgeInsets.only(bottom: 0),
+                          padding: const EdgeInsets.only(bottom: 10,right: 5),
                           child: Text(
                               BackEnd.Prodects_cart[prodects].product.title,
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
@@ -79,30 +80,35 @@ class Cart1 extends StatelessWidget {
                       ),
                       Align(
                           alignment: Alignment.centerRight,
-                          child: Text(
-                              "د.ع "+'${BackEnd.Prodects_cart[prodects].product.price}',
-                              style: GoogleFonts.inter(fontSize: 18,color: Colors.black
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 20,right: 5),
+                            child: Text(
+                                "د.ع "+'${BackEnd.Prodects_cart[prodects].product.price}',
+                                style: GoogleFonts.inter(fontSize: 18,color: Colors.black
 
-                              )
+                                )
+                            ),
                           ),),
-
-                      // Padding(
-                      //   padding: const EdgeInsets.only(bottom: 10,left: 10),
-                      //   child: ProdectCounter( prodect: prodects,container_color: Colors.white,button_color: Color(0XFFE7E7E7),left_border: 35,right_border: 35,),
-                      // ),
+                       Padding(
+                            padding: const EdgeInsets.only(bottom: 10,left: 10),
+                            child: ProdectCounter( prodect: prodects,container_color: Colors.white,button_color: Color(0XFFE7E7E7),left_border: 35,right_border: 35,),
+                          ),
                       ]
                     ),),
                     Align(
                      alignment: Alignment.centerRight,
                      child: Container(
                        width: 155,
-                       height: 135,
+                       height: 150,
                        decoration:BoxDecoration(
                            color: Colors.white,
-                           borderRadius: BorderRadius.circular(12)
+                           borderRadius: BorderRadius.circular(10)
                        ),
                        margin: const EdgeInsets.only( right: 10, left: 10),
-                       child:  Image.network(ApiConstants.Domain+BackEnd.Prodects_cart[prodects].product.banner,)),
+                       child: ClipRRect(
+                         borderRadius: BorderRadius.circular(10),
+                         child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[prodects].banner,fit: BoxFit.cover),
+                       ),),
                 )
             ],
           ),

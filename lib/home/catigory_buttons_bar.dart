@@ -41,9 +41,8 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
                   text: BackEnd.apiCategory[index].title,
                   onPressed: () {
                     setState(() {
-
                     });
-                    print(BackEnd.apiCategory[index]);
+                    print(BackEnd.apiCategory[index].title);
                     Navigator.pushReplacement<void, void>(
                         context,
                         MaterialPageRoute<void>(

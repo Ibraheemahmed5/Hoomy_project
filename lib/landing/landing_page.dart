@@ -71,7 +71,6 @@ class _LandingState extends State<Landing> {
                         ..onTap = () async{
                         await BackEnd.Get3();
                         await BackEnd.get_Categories();
-
                        // await BackEnd.get_Banners();
                         Future.delayed(const Duration(seconds:1), () {
                           Get.to(HomeMainPage(),transition: Transition.noTransition,duration: Duration(seconds: 2));

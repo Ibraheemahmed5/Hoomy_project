@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:unicons/unicons.dart';
 
+import '../api/api_models.dart';
 import '../home/home_main_page.dart';
 import '../my_cart_page/my_cart_main.dart';
 import '../profile_page/blue_logo.dart';
@@ -13,7 +14,7 @@ import 'NavigationBar_Container_favorit.dart';
 import 'favorite_list.dart';
 
 class FavoritePage extends StatefulWidget {
-  const FavoritePage({Key? key}) : super(key: key);
+  const FavoritePage({Key? key,}) : super(key: key);
 
   @override
   State<FavoritePage> createState() => _FavoritePageState();

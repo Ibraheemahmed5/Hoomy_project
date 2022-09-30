@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:hoomy_project1/profile_page/profile_main_page.dart';
 import 'package:hoomy_project1/splash/splash_screen.dart';
 import 'package:hoomy_project1/test.dart';
+import 'package:hoomy_project1/test2.dart';
 
 import 'package:hoomy_project1/whatsapp/whatsapp_main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -44,8 +45,8 @@ class MyApp extends StatelessWidget {
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       //home: Splash(),
-       //home: Dashboard(),
-      home: Landing(),
+       home: Dashboard(),
+      //home: Landing(),
       //home: Sign_in_main_page(),
       //home: Sign_up_main_page(),
       //home: HomeMainPage(),
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
       //home: whatsapp_main_page(),
       //home: search()
       // home: test8(),
+     // home: test2(),
     );
   }
 }

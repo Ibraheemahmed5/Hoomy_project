@@ -50,9 +50,7 @@ class _CartState extends State<Cart> {
                               padding:  EdgeInsets.only(top: 5),
                               child: ElevatedButton(
                                     onPressed:(){
-                                      setState(() {
-
-                                      });
+                                      setState(() {});
                                       if (BackEnd.Prodects3[prodects].isFav == false)
                                         BackEnd.Prodects3[prodects].isFav = true;
                                       else

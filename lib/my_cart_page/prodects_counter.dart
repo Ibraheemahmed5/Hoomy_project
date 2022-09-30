@@ -2,12 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:unicons/unicons.dart';
+import '../api/Api_calls.dart';
 import '../home/prodects/model.dart';
+import 'my_cart_list.dart';
 
 
 class ProdectCounter extends StatefulWidget {
   const ProdectCounter({Key? key, required this.prodect, required this.container_color,required this.button_color, required this.left_border, required this.right_border}) : super(key: key);
-  final Prodect prodect;
+  final int prodect;
   final Color container_color;
   final Color button_color;
   final double left_border;
@@ -18,7 +20,7 @@ class ProdectCounter extends StatefulWidget {
 }
 
 class _ProdectCounterState extends State<ProdectCounter> {
-  final Prodect prodect ;
+  final int prodect ;
   final Color container_color;
   final Color button_color;
   final double left_border;
@@ -27,21 +29,15 @@ class _ProdectCounterState extends State<ProdectCounter> {
   _ProdectCounterState(this.prodect, this.button_color, this.container_color, this.left_border,this.right_border);
 
   void add() {
-    setState(() {
-      prodect.toggleDone();
-    });
+     BackEnd.Prodects_cart[prodect].quantity++;
   }
 
-  void minus() {
-    setState(() {
-      if (prodect.quantity.value != 1)  prodect.decreaseDown();
-    });
-
+   void minus() {
+    BackEnd.Prodects_cart[prodect].quantity--;
   }
   @override
   Widget build(BuildContext context) {
-    return  Obx(() {
-      return Align(
+    return Align(
         alignment: Alignment.bottomLeft,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,7 +65,7 @@ class _ProdectCounterState extends State<ProdectCounter> {
                 Container(
                       width: 40,
                       child: Center(
-                        child: Text('${prodect.quantity.value}',
+                        child: Text('${BackEnd.Prodects_cart[prodect].quantity}',
                             style: new TextStyle(fontSize: 24)),
                       ),
                   ),
@@ -90,8 +86,6 @@ class _ProdectCounterState extends State<ProdectCounter> {
           ],
         ),
       );
-    }
-    );
   }
 }
 

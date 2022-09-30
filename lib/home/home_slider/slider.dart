@@ -74,7 +74,7 @@ class _HomeSliderState extends State<HomeSlider> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                              for(int i = 0; i<BackEnd.Prodects3.length; i++)
+                              for(int i = 0; i<4; i++)
                                 //if(BackEnd.Prodects3[i].isFeatured == true)
                                   if( i == _currentPage )
                                     SlideDots(true)

@@ -83,7 +83,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                       child: Padding(
                         padding:
                         const EdgeInsets.only(left: 10, right: 10, top: 5),
-                        child: CatigoriesList( text: text2,),
+                        child: CatigoriesList(text:text2),
                       )),
                 ),
 

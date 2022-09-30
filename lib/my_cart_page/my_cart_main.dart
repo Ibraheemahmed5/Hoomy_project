@@ -64,7 +64,7 @@ class _MyCartState extends State<MyCart> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(
-                          ' ${MyCardsList().getCartTotalPrice()}  :السعر الكلي',
+                          ' ${MyCardsList().getCartTotalPrice().value.ceil().toString()} :السعر الكلي',
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold),
                         ),

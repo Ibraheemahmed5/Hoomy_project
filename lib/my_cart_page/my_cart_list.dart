@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/my_cart_page/cart.dart';
 import '../home/prodects/model.dart';
@@ -16,7 +17,7 @@ class MyCardsList extends StatelessWidget {
       child: GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
       crossAxisCount: 1,
-      childAspectRatio:MediaQuery.of(context).size.width / 180,
+      childAspectRatio:MediaQuery.of(context).size.width / 215,
     ),
         itemCount: BackEnd.Prodects_cart.length,
         itemBuilder: (BuildContext context, index) {
@@ -40,13 +41,13 @@ class MyCardsList extends StatelessWidget {
     // );
   }
 
-    getCartTotalPrice(){
+    Rx<double>getCartTotalPrice(){
       Rx<double> total = 0.0.obs;
-      if(Prodect.Prodects.isNotEmpty) {
-        Prodect.Prodects.where((e) => e.add.value).forEach((element){
-          total += element.price.value * element.quantity.value;
+      if(BackEnd.Prodects_cart.isNotEmpty) {
+        BackEnd.Prodects_cart.forEach((element){
+          total += element.product.price * element.quantity;
         });
       }
-      return total.ceil().toString();
+      return total;
   }
 }

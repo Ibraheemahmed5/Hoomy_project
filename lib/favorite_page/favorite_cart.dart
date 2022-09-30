@@ -46,12 +46,12 @@ class _FavCartState extends State<FavCart> {
                         child: ElevatedButton(
                           onPressed:(){
                             setState(() {});
-                            if (BackEnd.Prodects3[widget.prodects].isFav == false)
-                              BackEnd.Prodects3[widget.prodects].isFav = true;
+                            if (BackEnd.favList[widget.prodects].isFav == false)
+                              BackEnd.favList[widget.prodects].isFav = true;
                             else
-                              BackEnd.Prodects3[widget.prodects].isFav = false;
+                              BackEnd.favList[widget.prodects].isFav = false;
                           },
-                          child: BackEnd.Prodects3[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                          child:BackEnd.favList[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
@@ -61,7 +61,7 @@ class _FavCartState extends State<FavCart> {
                         ),
                       ),
                     ),
-                    if(BackEnd.Prodects3[widget.prodects].isAvailable==false)
+                    if(BackEnd.favList[widget.prodects].isAvailable==false)
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(
@@ -79,12 +79,12 @@ class _FavCartState extends State<FavCart> {
                     color: Colors.white,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[widget.prodects].banner,fit: BoxFit.cover),
+                    child: Image.network(ApiConstants.Domain+BackEnd.favList[widget.prodects].banner,fit: BoxFit.cover),
                   ),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    if(BackEnd.Prodects3[widget.prodects].isAvailable==true)
+                    if(BackEnd.favList[widget.prodects].isAvailable==true)
                       Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: Container(
@@ -96,7 +96,7 @@ class _FavCartState extends State<FavCart> {
                             // prodects.addToCart();
                             // prodects.deleteFromCart();
                           },
-                          child: BackEnd.Prodects3[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                          child:BackEnd.favList[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
@@ -118,7 +118,7 @@ class _FavCartState extends State<FavCart> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    BackEnd.Prodects3[widget.prodects].title,
+                                    BackEnd.favList[widget.prodects].title,
                                     style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                 ),
                               ),
@@ -126,7 +126,7 @@ class _FavCartState extends State<FavCart> {
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
-                                  'د.ع'+'${ BackEnd.Prodects3[widget.prodects].price}',
+                                  'د.ع'+'${BackEnd.favList[widget.prodects].price}',
                                   style: GoogleFonts.inter(fontSize: 17,color: Colors.black)),
                             )
                           ],
