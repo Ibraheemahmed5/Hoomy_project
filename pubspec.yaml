@@ -60,6 +60,8 @@ dependencies:
   flutter_statusbarcolor_ns: ^0.4.0
   dio: ^4.0.6
   http: ^0.13.5
+  shared_preferences: ^2.0.15
+  get_storage: ^2.0.3
 
 
 dev_dependencies:
@@ -94,6 +96,9 @@ flutter:
      - photo/img.png
      - photo/Messeng.png
      - photo/search.png
+     - photo/slideList1.png
+     - photo/slideList2.png
+     - photo/slideList3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

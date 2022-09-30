@@ -5,7 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../api/api_Url.dart';
+import '../../api/api_models.dart';
 import '../../single_prodect/single_prodect_main.dart';
+import 'model.dart';
 
 class Cart extends StatefulWidget {
   const Cart({Key? key, required this.prodects}) : super(key: key);
@@ -108,9 +110,8 @@ class _CartState extends State<Cart> {
                             padding: const EdgeInsets.only(top: 10,bottom: 5),
                             child: Container(
                               child: ElevatedButton(
-                                onPressed: () {
-                                  BackEnd.Prodects3[prodects].addToCart();
-                                  BackEnd.Prodects3[prodects].deleteFromCart();
+                                onPressed: () async {
+                                 await BackEnd.add_to_card(id: BackEnd.Prodects3[prodects].id);
                                 },
                                 child:BackEnd.Prodects3[prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                                 style: ElevatedButton.styleFrom(

@@ -2,6 +2,7 @@ import 'package:app_popup_menu/app_popup_menu.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hoomy_project1/NavigationBar/NavigationBar_defult.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 
@@ -105,7 +106,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
           );
         }),
       ),
-      bottomNavigationBar:NavigationBar_home(),
+      bottomNavigationBar:NavigationBar_defult(),
     );
   }
 }

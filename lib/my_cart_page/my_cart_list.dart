@@ -18,14 +18,13 @@ class MyCardsList extends StatelessWidget {
       crossAxisCount: 1,
       childAspectRatio:MediaQuery.of(context).size.width / 180,
     ),
-        itemCount: BackEnd.Prodects3.length,
+        itemCount: BackEnd.Prodects_cart.length,
         itemBuilder: (BuildContext context, index) {
-          if(BackEnd.Prodects3[index].add == true){
-            return Cart1(
+        return
+             Cart1(
           prodects: index,
     );
-          }
-          return SizedBox(height: 0,);
+
     }
     )
     );

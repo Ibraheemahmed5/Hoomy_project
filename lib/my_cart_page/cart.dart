@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
+import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
 import '../api/api_Url.dart';
 
 
@@ -71,7 +72,7 @@ class Cart1 extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 0),
                           child: Text(
-                              BackEnd.Prodects3[prodects].title,
+                              BackEnd.Prodects_cart[prodects].product.title,
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
                           ),
                         ),
@@ -79,7 +80,7 @@ class Cart1 extends StatelessWidget {
                       Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                              "د.ع "+'${BackEnd.Prodects3[prodects].price}',
+                              "د.ع "+'${BackEnd.Prodects_cart[prodects].product.price}',
                               style: GoogleFonts.inter(fontSize: 18,color: Colors.black
 
                               )
@@ -101,7 +102,7 @@ class Cart1 extends StatelessWidget {
                            borderRadius: BorderRadius.circular(12)
                        ),
                        margin: const EdgeInsets.only( right: 10, left: 10),
-                       child:  Image.network(ApiConstants.Domain+BackEnd.Prodects3[prodects].banner)),
+                       child:  Image.network(ApiConstants.Domain+BackEnd.Prodects_cart[prodects].product.banner,)),
                 )
             ],
           ),

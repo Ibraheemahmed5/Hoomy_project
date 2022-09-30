@@ -24,11 +24,15 @@ class SlideItem extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            slideList[index].text,
-            style: TextStyle(
-              fontSize: 22,
-              color: Theme.of(context).primaryColor,
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Text(
+              slideList[index].text,
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ),
         ],
