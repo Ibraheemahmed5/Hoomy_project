@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hoomy_project1/api/Api_calls.dart';
+import '../../api/api_Url.dart';
 import '../../slider/models/slider.dart';
-import 'model.dart';
 
 class HomeSlideItem extends StatelessWidget {
   final int index;
@@ -8,7 +9,7 @@ class HomeSlideItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+      return Padding(
       padding: const EdgeInsets.only(top: 0),
       child: Container(
         width: 341,
@@ -16,8 +17,8 @@ class HomeSlideItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           image: DecorationImage(
-            image: AssetImage(homeslideList[index].imageUrl),
-            fit: BoxFit.cover,
+           image:NetworkImage(ApiConstants.Domain+BackEnd.Prodects3[index].banner ),
+            fit: BoxFit.fitHeight,
           ),
         ),
       ),

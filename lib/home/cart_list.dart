@@ -19,8 +19,6 @@ class _CardsListState extends State<CardsList> {
   Widget build(BuildContext context) {
     return Container(
         child: GridView.builder(
-
-
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio:MediaQuery.of(context).size.width / 550,
@@ -42,6 +40,7 @@ class _CardsListState extends State<CardsList> {
             //       )).toList(),
             // )
 
-            ));
+            )
+    );
   }
 }

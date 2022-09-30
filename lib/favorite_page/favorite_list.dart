@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../api/Api_calls.dart';
 import '../home/prodects/model.dart';
 import 'favorite_cart.dart';
 
@@ -11,16 +12,19 @@ class FavoriteList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
-      return
-        GridView.count(
-          crossAxisCount: 2,
-          childAspectRatio: MediaQuery.of(context).size.width /550,
-
-      children:
-          Prodect.Prodects.where((e) => e.isFav.value).map((e) => FavCart(prodects:e)).toList(),
-        );
-    }
-    );
+    return  Container(
+      child: GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 2,
+      childAspectRatio:MediaQuery.of(context).size.width / 550,
+    ),
+    itemCount: BackEnd.Prodects3.length,
+    itemBuilder: (BuildContext context, index) {
+      if(BackEnd.Prodects3[index].isFav == true){
+        return FavCart(
+          prodects: index,
+        );}
+      return Container(child: SizedBox.shrink());
+      }));
   }
 }

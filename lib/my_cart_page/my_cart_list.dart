@@ -12,15 +12,33 @@ class MyCardsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
-      return
-        ListView(
-          // children:
-          // ApiCall.Prodects2.where((e) => e!.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
-          children: []
-        );
-    }
+    return Container(
+      child: GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      crossAxisCount: 1,
+      childAspectRatio:MediaQuery.of(context).size.width / 180,
+    ),
+        itemCount: BackEnd.Prodects3.length,
+        itemBuilder: (BuildContext context, index) {
+          if(BackEnd.Prodects3[index].add == true){
+            return Cart1(
+          prodects: index,
     );
+          }
+          return SizedBox(height: 0,);
+    }
+    )
+    );
+    // Obx((){
+    //   return
+    //     ListView(
+    //       // children:
+    //       // ApiCall.Prodects2.where((e) => e!.add.value && e.delete_from_cart.value).map((e) => Cart1(prodects:e)).toList(),
+    //       children: [
+    //                  ]
+    //     );
+    // }
+    // );
   }
 
     getCartTotalPrice(){

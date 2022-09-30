@@ -2,25 +2,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoomy_project1/api/api_Url.dart';
 import 'package:hoomy_project1/single_prodect/single_prodect_main.dart';
 import 'package:ionicons/ionicons.dart';
+import '../api/Api_calls.dart';
 import '../home/prodects/model.dart';
 
 
 class RelatedCart extends StatelessWidget {
   const RelatedCart({Key? key, required this.prodects}) : super(key: key);
-  final Prodect prodects;
+  final int prodects;
   @override
   Widget build(BuildContext context) {
     return
-      Obx((){
-        return GestureDetector(
+          GestureDetector(
           onTap: (){
         //    prodects.makeAsClicked();
             Navigator.pushReplacement<void, void>(
                 context,
                 MaterialPageRoute<void>(
-                builder: (BuildContext context) =>  SingleProdect(prodects: prodects,)));
+                builder: (BuildContext context) =>  SingleProdect(prodects: BackEnd.Prodects3[prodects],)));
        //     Get.to(SingleProdect(prodects: prodects));
            // prodects.makeAsClicked();
           },
@@ -42,21 +43,21 @@ class RelatedCart extends StatelessWidget {
                         alignment: Alignment.topLeft,
                         child:
                         Container(
-                          child: ElevatedButton(
-                            onPressed:(){
-                              prodects.makeAsFav();
-                            },
-                            child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
-                            style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Color(0XFFE7E7E7),
-                              fixedSize: const Size(26, 26),
-                              shape: const CircleBorder(),
-                            ),
-                          ),
+                          // child: ElevatedButton(
+                          //   onPressed:(){
+                          //   //  prodects.makeAsFav();
+                          //   },
+                          // //  child:==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                          //   style: ElevatedButton.styleFrom(
+                          //     elevation: 0,
+                          //     backgroundColor: Color(0XFFE7E7E7),
+                          //     fixedSize: const Size(26, 26),
+                          //     shape: const CircleBorder(),
+                          //   ),
+                          // ),
                         ),
                       ),
-                      if(prodects.available == true)
+                      if( BackEnd.Prodects3[prodects].isAvailable== false)
                         Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Text(
@@ -69,32 +70,33 @@ class RelatedCart extends StatelessWidget {
                   Container(
                       width: 180,
                       height: 128,
-                      margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
+                      margin: const EdgeInsets.only(top: 20, right: 10, left: 10),
                       color: Colors.white,
-                      child: Image.asset(Prodect.ImagesList[0])),
+                      child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[prodects].banner)),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if(prodects.available == false)
+                      if( BackEnd.Prodects3[prodects].isAvailable== true)
                         Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Container(
-                          child: ElevatedButton(
-                            onPressed: () {
-                              prodects.addToCart();
-                              prodects.deleteFromCart();
-                            },
-                            child:prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
-                            style: ElevatedButton.styleFrom(
-                              elevation: 0,
-                              backgroundColor: Color(0XFFE7E7E7),
-                              fixedSize: const Size(26, 26),
-                              shape: const CircleBorder(),
-                            ),
+                          // child: ElevatedButton(
+                          //   onPressed: () {
+                          //     // prodects.addToCart();
+                          //     // prodects.deleteFromCart();
+                          //   },
+                          //   child:,
+                          //   prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                          //   style: ElevatedButton.styleFrom(
+                          //     elevation: 0,
+                          //     backgroundColor: Color(0XFFE7E7E7),
+                          //     fixedSize: const Size(26, 26),
+                          //     shape: const CircleBorder(),
+                          //   ),
                           ),
                         ),
-                      ),
+                      ]),
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(right: 10),
@@ -107,7 +109,7 @@ class RelatedCart extends StatelessWidget {
                                 child: Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                      prodects.name.value,
+                                      BackEnd.Prodects3[prodects].title,
                                       style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                   ),
                                 ),
@@ -115,7 +117,7 @@ class RelatedCart extends StatelessWidget {
                               Align(
                                 alignment: Alignment.bottomRight,
                                 child: Text(
-                                    'د.ع'+'${prodects.price.value}',
+                                    'د.ع'+'${BackEnd.Prodects3[prodects].price}',
                                     style: GoogleFonts.inter(fontSize: 17,color: Colors.black
                                     )
                                 ),
@@ -126,14 +128,9 @@ class RelatedCart extends StatelessWidget {
                       ),
                     ],
                   )
-                ],
               ),
             ),
-          ),
-        );
-      },
-      );
-
+          );
   }
 }
 

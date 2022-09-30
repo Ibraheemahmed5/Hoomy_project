@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/home/home_slider/slide_item.dart';
+import 'package:hoomy_project1/home/home_slider/slider_list.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
 import '../../slider/models/slider.dart';
@@ -61,8 +63,8 @@ class _HomeSliderState extends State<HomeSlider> {
                     scrollDirection: Axis.horizontal,
                     controller: _pageController,
                     onPageChanged: _onPageChanged,
-                    itemCount: slideList.length,
-                    itemBuilder: (ctx, i) => HomeSlideItem(i),
+                    itemCount: BackEnd.Prodects3.length,
+                    itemBuilder: (ctx, i) => SliderList(prodect: i,),
                   ),
                   Stack(
                     children: <Widget>[
@@ -72,11 +74,12 @@ class _HomeSliderState extends State<HomeSlider> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            for(int i = 0; i<slideList.length; i++)
-                              if( i == _currentPage )
-                                SlideDots(true)
-                              else
-                                SlideDots(false)
+                              for(int i = 0; i<BackEnd.Prodects3.length; i++)
+                                //if(BackEnd.Prodects3[i].isFeatured == true)
+                                  if( i == _currentPage )
+                                    SlideDots(true)
+                                  else
+                                    SlideDots(false)
                           ],
                         ),
                       )

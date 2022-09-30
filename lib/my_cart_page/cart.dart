@@ -1,25 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
-import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
-import '../api/api_models.dart';
-import '../home/prodects/model.dart';
-import '../single_prodect/single_prodect_main.dart';
+import '../api/api_Url.dart';
+
 
 
 class Cart1 extends StatelessWidget {
   const Cart1({Key? key, required this.prodects}) : super(key: key);
 
 
-  final ProductModel prodects;
+  final int prodects;
   @override
   Widget build(BuildContext context) {
-
     return
-      Obx((){
-        return
           GestureDetector(
             onTap: (){
             //  api!.makeAsClicked();
@@ -54,13 +48,14 @@ class Cart1 extends StatelessWidget {
                                 onPressed: (){
                                  // api!.deleteFromCart();
                                 //  api!.addToCart();
-
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),
                               ),
                           ),
                           // child: ElevatedButton(
-                          //   onPressed: () {},
+                          //   onPressed: () {
+                          //
+                          //   },
                           //   child:Icon( prodects.isFav==false? Icons.favorite : Icons.favorite, color: Color.fromRGBO(69, 185, 238, 1)),
                           //   style: ElevatedButton.styleFrom(
                           //     elevation: 0,
@@ -76,7 +71,7 @@ class Cart1 extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 0),
                           child: Text(
-                              prodects.title!,
+                              BackEnd.Prodects3[prodects].title,
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
                           ),
                         ),
@@ -84,7 +79,7 @@ class Cart1 extends StatelessWidget {
                       Align(
                           alignment: Alignment.centerRight,
                           child: Text(
-                              "د.ع "+'${prodects.price.toString()}',
+                              "د.ع "+'${BackEnd.Prodects3[prodects].price}',
                               style: GoogleFonts.inter(fontSize: 18,color: Colors.black
 
                               )
@@ -106,14 +101,12 @@ class Cart1 extends StatelessWidget {
                            borderRadius: BorderRadius.circular(12)
                        ),
                        margin: const EdgeInsets.only( right: 10, left: 10),
-                       child: Image.asset(prodects.productImage![0].images!)),
+                       child:  Image.network(ApiConstants.Domain+BackEnd.Prodects3[prodects].banner)),
                 )
             ],
           ),
           ),
         ));
-      },
-      );
 
   }
 }

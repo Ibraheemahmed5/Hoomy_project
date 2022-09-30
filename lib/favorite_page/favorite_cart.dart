@@ -2,24 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoomy_project1/api/api_Url.dart';
+import '../api/Api_calls.dart';
 import '../home/prodects/model.dart';
 import 'package:ionicons/ionicons.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
-class FavCart extends StatelessWidget {
+class FavCart extends StatefulWidget {
   const FavCart({Key? key, required this.prodects}) : super(key: key);
 
-  final Prodect prodects;
+  final int prodects;
+
+  @override
+  State<FavCart> createState() => _FavCartState();
+}
+
+class _FavCartState extends State<FavCart> {
   @override
   Widget build(BuildContext context) {
     return
-      Obx((){
-        return
           GestureDetector(
               onTap: (){
-                prodects.makeAsClicked();
-                Get.to(SingleProdect(prodects: prodects,),);
+                // prodects.makeAsClicked();
+                 Get.to(SingleProdect(prodects: widget.prodects,),);
               },
           child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -39,9 +45,13 @@ class FavCart extends StatelessWidget {
                       Container(
                         child: ElevatedButton(
                           onPressed:(){
-                            prodects.makeAsFav();
+                            setState(() {});
+                            if (BackEnd.Prodects3[widget.prodects].isFav == false)
+                              BackEnd.Prodects3[widget.prodects].isFav = true;
+                            else
+                              BackEnd.Prodects3[widget.prodects].isFav = false;
                           },
-                          child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                          child: BackEnd.Prodects3[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
@@ -51,7 +61,7 @@ class FavCart extends StatelessWidget {
                         ),
                       ),
                     ),
-                    if(prodects.available == true)
+                    if(BackEnd.Prodects3[widget.prodects].isAvailable==false)
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(
@@ -67,20 +77,26 @@ class FavCart extends StatelessWidget {
                     width:MediaQuery.of(context).size.width-50 ,
                     margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                     color: Colors.white,
-                    child:Image.asset(Prodect.ImagesList[0])),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[widget.prodects].banner,fit: BoxFit.cover),
+                  ),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    if(prodects.available == false)
+                    if(BackEnd.Prodects3[widget.prodects].isAvailable==true)
                       Padding(
                       padding: const EdgeInsets.only(top: 30),
                       child: Container(
                         child: ElevatedButton(
                           onPressed: () {
-                            prodects.addToCart();
-                            prodects.deleteFromCart();
+                            setState(() {
+
+                            });
+                            // prodects.addToCart();
+                            // prodects.deleteFromCart();
                           },
-                          child:prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                          child: BackEnd.Prodects3[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
@@ -102,7 +118,7 @@ class FavCart extends StatelessWidget {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    prodects.name.value,
+                                    BackEnd.Prodects3[widget.prodects].title,
                                     style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                 ),
                               ),
@@ -110,7 +126,7 @@ class FavCart extends StatelessWidget {
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
-                                  'د.ع'+'${prodects.price.value}',
+                                  'د.ع'+'${ BackEnd.Prodects3[widget.prodects].price}',
                                   style: GoogleFonts.inter(fontSize: 17,color: Colors.black)),
                             )
                           ],
@@ -123,9 +139,6 @@ class FavCart extends StatelessWidget {
             ),
           ),
         ),);
-      },
-
-      );
   }
 }
 /**/

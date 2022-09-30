@@ -6,6 +6,7 @@ import 'package:hoomy_project1/single_prodect/page_model.dart';
 import 'package:hoomy_project1/single_prodect/relatid_list.dart';
 import 'package:hoomy_project1/single_prodect/test.dart';
 import 'package:ionicons/ionicons.dart';
+import '../api/Api_calls.dart';
 import '../home/catigories_page/test.dart';
 import '../home/home_main_page.dart';
 import '../home/prodects/model.dart';
@@ -18,14 +19,14 @@ import 'images/images_list.dart';
 
 class SingleProdect extends StatefulWidget {
   const SingleProdect({Key? key, required this.prodects}) : super(key: key);
-  final Prodect prodects;
+  final int prodects;
 
   @override
   State<SingleProdect> createState() => _SingleProdectState(prodects);
 }
 
 class _SingleProdectState extends State<SingleProdect> {
-  final Prodect prodects;
+  final int prodects;
   _SingleProdectState(this.prodects);
 
   @override
@@ -44,9 +45,10 @@ class _SingleProdectState extends State<SingleProdect> {
             },
           ),
           Expanded(
-            child: ListView(children: [
-              Center(child: test(im: 0,)),
-
+            child: ListView(
+            children: [
+              Center(
+                  child:  test( p: prodects,im:0)),
               PageModel(
                 prodects: prodects,
               )
@@ -72,7 +74,7 @@ class _SingleProdectState extends State<SingleProdect> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                if(prodects.available == true)
+                if( BackEnd.Prodects3[prodects].isAvailable== false)
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Text(
@@ -80,21 +82,18 @@ class _SingleProdectState extends State<SingleProdect> {
                         style: GoogleFonts.inter(fontSize: 20,color: Colors.red,fontWeight: FontWeight.bold)
                     ),
                   ),
-                if(prodects.available == false)
-                  Obx(() {
-                  return
+                if( BackEnd.Prodects3[prodects].isAvailable== true)
                     Padding(
                     padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      ' ${RelatedList(
-                        prodect: prodects,
-                      ).getTotalPrice()}  :السعر الكلي',
+                    child: Text('h',
+                      // ' ${RelatedList(
+                      //   prodect: prodects,
+                      // ).getTotalPrice()}  :السعر الكلي',
                       style:
                           TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
-                  );
-                }),
-                if(prodects.available == false)
+                  ),
+             //   if(prodects.available == false)
                   Padding(
                   padding: const EdgeInsets.only(right: 20, left: 20),
                   child: Button2(

@@ -133,13 +133,19 @@ class _HomeMainPageState extends State<HomeMainPage> {
                                 left: 10, right: 10, top: 5),
                             child: Container(
                                 child:
-
-                                ListView(
-                                  children: Prodect.Prodects.where((e) => e.name.value
-                                      .toLowerCase()
-                                      .contains(text.value.toLowerCase()))
-                                      .map((e) => SearchCart(prodects: e))
-                                      .toList(),
+                                ListView.builder(
+                                  itemCount:BackEnd.Prodects3.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    if( BackEnd.Prodects3[index].title.toLowerCase().contains(text.value.toLowerCase())){
+                                    return SearchCart(prodects: index);
+                                    }
+                                    return SizedBox(height: 0);
+                                  },
+                                  // children: BackEnd.Prodects3.where((e) => e.title
+                                  //     .toLowerCase()
+                                  //     .contains(text.value.toLowerCase()))
+                                  //     .map((e) => SearchCart(prodects: e))
+                                  //     .toList(),
                                 )
                             )
                         )),

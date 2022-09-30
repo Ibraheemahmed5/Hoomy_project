@@ -3,7 +3,6 @@
 // import 'package:get/get.dart';
 // import 'package:google_fonts/google_fonts.dart';
 // import 'package:hoomy_project1/home/prodects/home_cart.dart';
-// import 'package:hoomy_project1/home/prodects/model.dart';
 //
 // import 'cart_list.dart';
 // import 'home_slider/slider.dart';
