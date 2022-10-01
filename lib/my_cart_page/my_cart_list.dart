@@ -45,7 +45,7 @@ class MyCardsList extends StatelessWidget {
       Rx<double> total = 0.0.obs;
       if(BackEnd.Prodects_cart.isNotEmpty) {
         BackEnd.Prodects_cart.forEach((element){
-          total += element.product.price * element.quantity;
+          total += (element.product.price * element.quantity);
         });
       }
       return total;

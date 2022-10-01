@@ -3,6 +3,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:unicons/unicons.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp/whatsapp.dart';
+import '../api/Api_calls.dart';
 import '../favorite_page/favorite_page_main.dart';
 import '../home/cart_list.dart';
 import '../home/home_main_page.dart';
@@ -42,9 +43,9 @@ class _MyCartState extends State<MyCart> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Hoomy_logo_blue(
-                onPressed: () {},
-              ),
+              Hoomy_logo_blue(onPressed: () {
+                Navigator.of(context).pop();
+              }),
               Text(
                 'السلة',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
@@ -64,7 +65,9 @@ class _MyCartState extends State<MyCart> {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(
-                          ' ${MyCardsList().getCartTotalPrice().value.ceil().toString()} :السعر الكلي',
+                          textDirection: TextDirection.rtl,
+
+                          ' السعر الكلي:  ${MyCardsList().getCartTotalPrice().value.ceil().toString()} دع',
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.bold),
                         ),
@@ -75,9 +78,15 @@ class _MyCartState extends State<MyCart> {
                       child: Button2(
                         text: 'اتمام الطلب',
                         onPressed: () {
-                          setState(() {
-                            print(prodect.quantity.value);
-                            print(prodect.name.value);
+                          setState(() async {
+                            await BackEnd.create();
+                            await BackEnd.checkout();
+
+
+                            print(BackEnd.Prodects_cart);
+                            //print(prodect.name.value);
+
+
                           });
                           Get.to(whatsapp_main_page(
                             text: text,

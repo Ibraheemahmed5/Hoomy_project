@@ -30,9 +30,9 @@ class _FavoritePageState extends State<FavoritePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Hoomy_logo_blue(
-                onPressed: () {},
-              ),
+              Hoomy_logo_blue(onPressed: () {
+                Navigator.of(context).pop();
+              }),
               Text(
                 'المفضلات',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),

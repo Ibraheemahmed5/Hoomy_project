@@ -29,11 +29,11 @@ class _ProdectCounterState extends State<ProdectCounter> {
   _ProdectCounterState(this.prodect, this.button_color, this.container_color, this.left_border,this.right_border);
 
   void add() {
-     BackEnd.Prodects_cart[prodect].quantity++;
+     BackEnd.Prodects_cart[prodect].quantity +1;
   }
 
    void minus() {
-    BackEnd.Prodects_cart[prodect].quantity--;
+    BackEnd.Prodects_cart[prodect].quantity -1;
   }
   @override
   Widget build(BuildContext context) {

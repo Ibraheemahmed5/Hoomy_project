@@ -69,9 +69,9 @@ class _LandingState extends State<Landing> {
                       text: 'الدخول كزائر',
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async{
-                        await BackEnd.Get3();
                         await BackEnd.get_Categories();
-                        Future.delayed(const Duration(seconds:1), () {
+                         await BackEnd.Get3();
+                        Future.delayed(const Duration(seconds:3), () {
                           Get.to(HomeMainPage(),transition: Transition.noTransition,duration: Duration(seconds: 2));
                         });
                         },

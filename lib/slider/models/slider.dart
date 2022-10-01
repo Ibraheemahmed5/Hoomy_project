@@ -8,13 +8,16 @@ class Slide {
 }
 
 final slideList = [
-  Slide(imageUrl: 'photo/slideList3.png', text: 'Wellcome'),
+  Slide(imageUrl: 'photo/slideList3.png',
+      text: ' اهلاً وسهلاً '),
 
 
 
-  Slide(imageUrl: 'photo/slideList2.png', text: 'Furniture Store'),
+  Slide(imageUrl: 'photo/slideList2.png',
+      text: ''),
 
 
 
-  Slide(imageUrl: 'photo/slideList1.png', text: 'Wellcome3'),
+  Slide(imageUrl: 'photo/slideList1.png',
+      text: ''),
 ];
