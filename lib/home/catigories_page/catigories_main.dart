@@ -29,7 +29,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
   @override
   Widget build(BuildContext context) {
     final TextEditingController searchController =
-    TextEditingController(text: "");
+        TextEditingController(text: "");
     final RxBool isEmpty1 = true.obs;
     final RxString text = searchController.text.obs;
 
@@ -82,8 +82,8 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                               topRight: Radius.circular(30))),
                       child: Padding(
                         padding:
-                        const EdgeInsets.only(left: 10, right: 10, top: 5),
-                        child: CatigoriesList(text:text2),
+                            const EdgeInsets.only(left: 10, right: 10, top: 5),
+                        child: CatigoriesList(text: text2),
                       )),
                 ),
 
@@ -106,7 +106,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
           );
         }),
       ),
-      bottomNavigationBar:NavigationBar_defult(),
+      bottomNavigationBar: NavigationBar_defult(),
     );
   }
 }

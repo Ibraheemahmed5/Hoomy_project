@@ -5,20 +5,27 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
 import 'package:ionicons/ionicons.dart';
 import '../api/Api_calls.dart';
+import '../api/api_Url.dart';
 import '../home/prodects/model.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
-class SearchCart extends StatelessWidget {
+class SearchCart extends StatefulWidget {
   const SearchCart({Key? key, required this.prodects}) : super(key: key);
 
 
   final int prodects;
+
+  @override
+  State<SearchCart> createState() => _SearchCartState();
+}
+
+class _SearchCartState extends State<SearchCart> {
   @override
   Widget build(BuildContext context) {
+    RxBool x = false.obs;
     return
-      Obx((){
-        return
+
           GestureDetector(
               onTap: (){
                 // prodects.makeAsClicked();
@@ -27,7 +34,7 @@ class SearchCart extends StatelessWidget {
               child:Padding(
                 padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
                 child: Container(
-                  height: 170,
+                  height: 180,
                   width:  MediaQuery.of(context).size.width ,
                   padding: EdgeInsets.zero,
                   decoration: BoxDecoration(
@@ -48,19 +55,28 @@ class SearchCart extends StatelessWidget {
                                   children: [
                                     Align(
                                       alignment: Alignment.topLeft,
-                                      child:Container(
-                                        width: 36,
-                                        child:FloatingActionButton(
-                                          elevation: 0,
-                                          backgroundColor: Color(0XFFE7E7E7),
-                                          onPressed: (){
-                                        //    prodects.makeAsFav();
+                                      child:Padding(
+                                        padding:  EdgeInsets.only(top: 5),
+                                        child: ElevatedButton(
+                                          onPressed:(){
+                                            setState(() {});
+                                            if (BackEnd.Prodects3[widget.prodects].isFav == false)
+                                              BackEnd.Prodects3[widget.prodects].isFav = true;
+                                            else
+                                              BackEnd.Prodects3[widget.prodects].isFav = false;
                                           },
-                                      //    child:prodects.isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                                          child: BackEnd.Prodects3[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                                          //     child:Icon(Ionicons.heart , color: Colors.red) ,
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            backgroundColor:Color(0XFFE7E7E7),
+                                            fixedSize: const Size(26, 26),
+                                            shape: const CircleBorder(),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                 //   if(prodects.available == true)
+                                    if(BackEnd.Prodects3[widget.prodects].isAvailable == false)
                                     Align(
                                       alignment: Alignment.topRight,
                                       child: Padding(
@@ -79,7 +95,7 @@ class SearchCart extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 0),
                                   child: Text(
-                                      BackEnd.Prodects3[prodects].title,
+                                      BackEnd.Prodects3[widget.prodects].title,
                                       style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold)
                                   ),
                                 ),
@@ -87,7 +103,7 @@ class SearchCart extends StatelessWidget {
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    "د.ع "+'${BackEnd.Prodects3[prodects].price}',
+                                    "د.ع "+'${BackEnd.Prodects3[widget.prodects].price}',
                                     style: GoogleFonts.inter(fontSize: 18,color: Colors.black
 
                                     )
@@ -96,14 +112,17 @@ class SearchCart extends StatelessWidget {
                                 Padding(
                                 padding: const EdgeInsets.only(left: 10),
                                 child: Container(
-                                  width: 36,
-                                  child:FloatingActionButton(
-                                    elevation: 0,
-                                    backgroundColor: Color(0XFFE7E7E7),
-                                    onPressed: (){
-                                  //    prodects.addToCart();
+                                  child: ElevatedButton(
+                                    onPressed: () async {
+                                      await BackEnd.add_to_card(id: BackEnd.Prodects3[widget.prodects].id);
                                     },
-                                 //   child:prodects.add==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                                    child:Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                                    style: ElevatedButton.styleFrom(
+                                      elevation: 0,
+                                      backgroundColor: Color(0XFFE7E7E7),
+                                      fixedSize: const Size(26, 26),
+                                      shape: const CircleBorder(),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -119,14 +138,13 @@ class SearchCart extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(12)
                             ),
                             margin: const EdgeInsets.only( right: 10, left: 10),
-                            child: Image.asset(Prodect.ImagesList[0])),
+                            child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[widget.prodects].banner,fit: BoxFit.cover)),
                       )
                     ],
                   ),
                 ),
               ));
-      },
-      );
+
 
   }
 }

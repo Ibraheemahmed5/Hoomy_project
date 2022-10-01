@@ -8,7 +8,7 @@ import '../../api/api_Url.dart';
 import '../../api/api_models.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'model.dart';
-
+import 'package:auto_size_text/auto_size_text.dart';
 class Cart extends StatefulWidget {
   const Cart({Key? key, required this.prodects}) : super(key: key);
   final int prodects;
@@ -133,7 +133,10 @@ class _CartState extends State<Cart> {
                                     padding: const EdgeInsets.only(bottom: 3),
                                     child: Align(
                                       alignment: Alignment.centerRight,
-                                      child: Text(BackEnd.Prodects3[prodects].title,
+                                      child: Text(
+                                        //maxLines: 0,
+
+                                          BackEnd.Prodects3[prodects].title.substring(0,6),
                                           style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                       ),
                                     ),

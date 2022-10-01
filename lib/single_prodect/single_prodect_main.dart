@@ -55,57 +55,57 @@ class _SingleProdectState extends State<SingleProdect> {
             ]
                 ),
           ),
-          Container(
-            height: 60,
-            decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    spreadRadius: 4,
-                    blurRadius: 3,
-                    offset: Offset(0, 0), // changes x,y position of shadow
-                  ),
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25))),
-            child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                if( BackEnd.Prodects3[prodects].isAvailable== false)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Text(
-                        ' غير متوفر',
-                        style: GoogleFonts.inter(fontSize: 20,color: Colors.red,fontWeight: FontWeight.bold)
-                    ),
-                  ),
-                if( BackEnd.Prodects3[prodects].isAvailable== true)
-                   Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(BackEnd.Prodects3[prodects].price.toString(),
-                        // ' ${RelatedList(
-                        //   prodect: prodects,
-                        // ).getTotalPrice()}  :السعر الكلي',
-                        style:
-                            TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                      ),
-                  ),
-           //   if(prodects.available == false)
-                  Padding(
-                  padding: const EdgeInsets.only(right: 20, left: 20),
-                  child: Button2(
-                    text: 'اتمام الطلب',
-                    onPressed: () {},
-                  ),
-                )
-              ],
-            ),
-          )
+
         ],
       )),
+
+
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                spreadRadius: 4,
+                blurRadius: 3,
+                offset: Offset(0, 0), // changes x,y position of shadow
+              ),
+            ],
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25))),
+        child:
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              if( BackEnd.Prodects3[prodects].isAvailable== false)
+                Text(
+                    ' غير متوفر',
+                    style: GoogleFonts.inter(fontSize: 20,color: Colors.red,fontWeight: FontWeight.bold)
+                ),
+              if( BackEnd.Prodects3[prodects].isAvailable== true)
+                Text(
+                  textDirection: TextDirection.rtl,
+
+                  "${BackEnd.Prodects3[prodects].price.toString()}  د.ع",
+                  // ' ${RelatedList(
+                  //   prodect: prodects,
+                  // ).getTotalPrice()}  :السعر الكلي',
+                  style:
+                  TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+              //   if(prodects.available == false)
+              Button2(
+                text: 'اتمام الطلب',
+                onPressed: () {},
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

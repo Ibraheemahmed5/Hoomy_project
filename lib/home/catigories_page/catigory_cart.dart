@@ -117,7 +117,7 @@ class _CatCartState extends State<CatCart> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    BackEnd.categoryList[widget.prodects].title,
+                                    BackEnd.categoryList[widget.prodects].title.substring(0,6),
                                     style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
                                 ),
                               ),
