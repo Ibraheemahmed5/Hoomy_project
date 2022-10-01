@@ -21,7 +21,7 @@ class _CardsListState extends State<CardsList> {
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio:MediaQuery.of(context).size.width / 550,
+              childAspectRatio:MediaQuery.of(context).size.width / 620,
             ),
             itemCount: BackEnd.Prodects3.length,
             itemBuilder: (BuildContext context, index) {
