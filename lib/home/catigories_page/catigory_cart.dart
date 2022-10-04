@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/api_Url.dart';
 import '../../api/Api_calls.dart';
+import '../../help/text_style.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -65,7 +66,7 @@ class _CatCartState extends State<CatCart> {
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(
                             ' غير متوفر',
-                            style: GoogleFonts.inter(fontSize: 14,color: Colors.red,fontWeight: FontWeight.bold)
+                            style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.red, fontWeight: FontWeight.w600)
                         ),
                       ),
                   ],
@@ -126,7 +127,7 @@ class _CatCartState extends State<CatCart> {
                               alignment: Alignment.bottomRight,
                               child: Text(
                                   'د.ع'+'${BackEnd.categoryList[widget.prodects].price}',
-                                  style: GoogleFonts.inter(fontSize: 17,color: Colors.black)),
+                                  style: Text_Style.getstyle(fontsize: 17, ColorText: Colors.black, fontWeight: FontWeight.w400)),
                             )
                           ],
                         ),

@@ -10,6 +10,7 @@ import 'package:hoomy_project1/home/search_bar.dart';
 import 'package:hoomy_project1/Search_page_/search_page.dart';
 import '../Search_page_/search_cart.dart';
 import '../api/Api_calls.dart';
+import '../help/text_style.dart';
 import 'NavigationBar_home.dart';
 import 'cart_list.dart';
 import 'catigory_buttons_bar.dart';
@@ -94,10 +95,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                           alignment: Alignment.centerRight,
                           child: Text(
                             "الشائع",
-                            style: GoogleFonts.inter(
-                                fontSize: 25,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                            style: Text_Style.getstyle(fontsize: 18, ColorText: Colors.black, fontWeight: FontWeight.w700)
                           ),
                         ),
                       ),

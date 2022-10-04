@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:unicons/unicons.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp/whatsapp.dart';
@@ -43,14 +44,35 @@ class _MyCartState extends State<MyCart> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Hoomy_logo_blue(onPressed: () {
-                Navigator.of(context).pop();
-              }),
-              Text(
-                'السلة',
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+
+                  Hoomy_logo_blue(onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+                  Padding(
+                      padding: const EdgeInsets.only(right: 15,top: 15),
+
+                    child: Text(
+                      'السلة',
+                      style: GoogleFonts.cairo(
+                        textStyle:
+                        TextStyle(
+                            fontSize: 25,
+                            color: Colors.black,
+                            letterSpacing: 1.5,
+                            fontWeight: FontWeight.bold
+                        ),
+                      )
+                    ),
+                  ),
+                ],
               ),
+
+
               Expanded(child: MyCardsList()),
+
               Container(
                 height: 60,
                 decoration: BoxDecoration(
@@ -59,22 +81,22 @@ class _MyCartState extends State<MyCart> {
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Obx(() {
                       return Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(
                           textDirection: TextDirection.rtl,
-
                           ' السعر الكلي:  ${MyCardsList().getCartTotalPrice().value.ceil().toString()} دع',
                           style: TextStyle(
-                              fontSize: 22, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                       );
                     }),
                     Padding(
-                      padding: const EdgeInsets.only(right: 20, left: 20),
+                      padding: const EdgeInsets.only(right: 10, left: 0),
                       child: Button2(
                         text: 'اتمام الطلب',
                         onPressed: () {
@@ -82,11 +104,8 @@ class _MyCartState extends State<MyCart> {
                             await BackEnd.create();
                             await BackEnd.checkout();
 
-
                             print(BackEnd.Prodects_cart);
                             //print(prodect.name.value);
-
-
                           });
                           Get.to(whatsapp_main_page(
                             text: text,
@@ -97,9 +116,11 @@ class _MyCartState extends State<MyCart> {
                   ],
                 ),
               )
+
             ],
           ),
         ),
-        bottomNavigationBar: NavigationBar_cart());
+        bottomNavigationBar: NavigationBar_cart()
+    );
   }
 }

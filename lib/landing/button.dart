@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoomy_project1/help/Colors.dart';
+
+import '../help/text_style.dart';
 
 class Button1 extends StatelessWidget {
   final String text;
@@ -25,7 +28,7 @@ final void Function() onPressed;
       borderRadius: BorderRadius.circular(18)
       ),
       child: Text(
-        text,style: GoogleFonts.inter(fontSize: 25,color: Colors.black),
+        text, style: Text_Style.getstyle(fontsize: 20, ColorText: Colors.white, fontWeight:FontWeight.w700)
         ),
     ));
 

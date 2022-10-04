@@ -7,28 +7,25 @@ import '../home/prodects/model.dart';
 
 class MyCardsList extends StatelessWidget {
   const MyCardsList({
-    Key? key,}) : super(key: key);
+    Key? key,
+  }) : super(key: key);
   static PageController controller = PageController();
   static RxInt currentPage = 0.obs;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 1,
-      childAspectRatio:MediaQuery.of(context).size.width / 215,
-    ),
-        itemCount: BackEnd.Prodects_cart.length,
-        itemBuilder: (BuildContext context, index) {
-        return
-             Cart1(
-          prodects: index,
-    );
-
-    }
-    )
-    );
+        child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1,
+              childAspectRatio: MediaQuery.of(context).size.width / 215,
+            ),
+            itemCount: BackEnd.Prodects_cart.length,
+            itemBuilder: (BuildContext context, index) {
+              return Cart1(
+                prodects: index,
+              );
+            }));
     // Obx((){
     //   return
     //     ListView(
@@ -41,13 +38,13 @@ class MyCardsList extends StatelessWidget {
     // );
   }
 
-    Rx<double>getCartTotalPrice(){
-      Rx<double> total = 0.0.obs;
-      if(BackEnd.Prodects_cart.isNotEmpty) {
-        BackEnd.Prodects_cart.forEach((element){
-          total += (element.product.price * element.quantity);
-        });
-      }
-      return total;
+  Rx<double> getCartTotalPrice() {
+    Rx<double> total = 0.0.obs;
+    if (BackEnd.Prodects_cart.isNotEmpty) {
+      BackEnd.Prodects_cart.forEach((element) {
+        total += (element.product.price * element.quantity);
+      });
+    }
+    return total;
   }
 }

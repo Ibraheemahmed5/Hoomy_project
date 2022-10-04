@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/Search_page_/search_page.dart';
 import 'package:unicons/unicons.dart';
 
+import '../help/text_style.dart';
+
 class SearchBar extends StatefulWidget {
   SearchBar({
     Key? key,
@@ -38,13 +40,14 @@ class _SearchBarState extends State<SearchBar> {
             height: 60,
             child:
             TextField(
+
               autofocus: false,
                 onChanged: (text) {
                   widget.onChanged!(text);
                 },
                 textDirection: TextDirection.rtl,
                 controller: widget.searchController,
-                style: GoogleFonts.inter(fontSize: 18, color: Colors.black),
+                style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.black, fontWeight: FontWeight.w400),
                 decoration: InputDecoration(
                     hintTextDirection: TextDirection.rtl,
                     fillColor: Color.fromRGBO(238, 238, 238, 1),
@@ -68,8 +71,7 @@ class _SearchBarState extends State<SearchBar> {
                           : Color(0xff45B9EE),
                     ),
                     hintText: "     بحث...",
-                    hintStyle: GoogleFonts.inter(
-                        fontSize: 15, color: Color.fromRGBO(129, 129, 129, 1))),
+                    hintStyle: Text_Style.getstyle(fontsize: 15, ColorText: Colors.black, fontWeight: FontWeight.w600)),
                ),
 
 

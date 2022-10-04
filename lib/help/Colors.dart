@@ -1,0 +1,1 @@
+import 'dart:ui';class Colorsapp{  static Color mainColor = Color(0xff45B9EE);}

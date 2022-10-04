@@ -14,7 +14,7 @@ class Button2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(bottom: 5),
-        width: 150,
+        width: 130,
         height: 40,
         child:  RawMaterialButton(
           onPressed: () {

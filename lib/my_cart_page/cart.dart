@@ -22,8 +22,9 @@ class Cart1 extends StatelessWidget {
           //Get.to(SingleProdect(prodects: prodects,));
         },
         child:Padding(
-          padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
+          padding: const EdgeInsets.only(top: 15,left: 15,right: 15),
           child: Container(
+
             height: 165,
             width:  MediaQuery.of(context).size.width ,
             padding: EdgeInsets.zero,
