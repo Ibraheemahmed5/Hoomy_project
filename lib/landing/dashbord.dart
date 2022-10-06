@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
 
+import '../help/Colors.dart';
 import '../slider/models/slider.dart';
 import 'landing_page.dart';
 
@@ -103,6 +104,7 @@ class _DashboardState extends State<Dashboard> {
                   children: <Widget>[
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          backgroundColor: Colorsapp.mainColor,
                           fixedSize: const Size(65, 65),
                           shape: const CircleBorder(),
                         ),
@@ -112,7 +114,9 @@ class _DashboardState extends State<Dashboard> {
                               duration: Duration(seconds: 1));
                           setState(() {});
                         },
-                        child: Icon(Icons.arrow_forward_ios)),
+                        child: Icon(Icons.arrow_forward_ios,
+                        color:Colors.white,
+                        )),
                   ],
                 ),
               )

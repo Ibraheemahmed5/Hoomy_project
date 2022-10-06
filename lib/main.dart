@@ -21,13 +21,8 @@ import 'landing/landing_page.dart';
 
 import 'package:get/get.dart' hide Response;
 
-
-
-
-
-void main()    {
-
- WidgetsFlutterBinding.ensureInitialized();
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarIconBrightness: Brightness.dark,
@@ -37,16 +32,15 @@ void main()    {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-     //home: Splash(),
-       //home: Dashboard(),
+      //home: MainScreen(),
+      //home: Dashboard(),
       home: Landing(),
       //home: Sign_in_main_page(),
       //home: Sign_up_main_page(),

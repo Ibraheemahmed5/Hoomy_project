@@ -27,9 +27,13 @@ final void Function() onPressed;
       shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(18)
       ),
-      child: Text(
-        text, style: Text_Style.getstyle(fontsize: 20, ColorText: Colors.white, fontWeight:FontWeight.w700)
-        ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 5),
+        child: Text(
+          text,
+            style: Text_Style.getstyle(fontsize: 20, ColorText: Colors.white, fontWeight:FontWeight.w700)
+          ),
+      ),
     ));
 
 }}

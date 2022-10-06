@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../help/Colors.dart';
+import '../help/text_style.dart';
 import 'models/slider.dart';
 
 class SlideItem extends StatelessWidget {
@@ -8,14 +10,14 @@ class SlideItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 300,
-            height: 250,
+            width: MediaQuery.of(context).size.width,
+            height: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               image: DecorationImage(
@@ -28,11 +30,7 @@ class SlideItem extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Text(
               slideList[index].text,
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.w500,
-                color: Theme.of(context).primaryColor,
-              ),
+              style: Text_Style.getstyle(fontsize: 30, ColorText: Colorsapp.mainColor, fontWeight: FontWeight.w500)
             ),
           ),
         ],

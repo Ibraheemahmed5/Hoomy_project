@@ -20,11 +20,13 @@ class Landing extends StatefulWidget {
   State<Landing> createState() => _LandingState();
 }
 
-
 class _LandingState extends State<Landing> {
+  final RxBool delay1 = true.obs;
+
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colorsapp.mainColor, animate: false);
+    FlutterStatusbarcolor.setStatusBarColor(Colorsapp.mainColor,
+        animate: false);
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -51,10 +53,11 @@ class _LandingState extends State<Landing> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
-                    child: Text(
-                      'اهلاً وسهلاً ',
-                      style: Text_Style.getstyle(fontsize: 25, ColorText: Colorsapp.mainColor,fontWeight:FontWeight.w700)
-                    ),
+                    child: Text('اهلاً وسهلاً ',
+                        style: Text_Style.getstyle(
+                            fontsize: 25,
+                            ColorText: Colorsapp.mainColor,
+                            fontWeight: FontWeight.w700)),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 100),
@@ -83,6 +86,7 @@ class _LandingState extends State<Landing> {
                           text: 'الدخول كزائر',
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
+                            delay1.value=false;
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
@@ -90,6 +94,12 @@ class _LandingState extends State<Landing> {
                                     transition: Transition.noTransition,
                                     duration: Duration(seconds: 2));
                               });
+                            Future.delayed(const Duration(seconds: 3), () {
+                              delay1.value = true;
+                              print("هذا الدلي بل اويت${delay1.value}");
+
+
+                            });
                             },
                           style: GoogleFonts.cairo(
                             textStyle: TextStyle(
@@ -97,7 +107,18 @@ class _LandingState extends State<Landing> {
                                 color: Colorsapp.mainColor,
                                 letterSpacing: 1),
                           ),
-                        ))
+                        )),
+                        Obx(
+                           () {
+                            return delay1.value == false
+                                ? Padding(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: CircularProgressIndicator(
+                                color: Colorsapp.mainColor,
+                              ),
+                            ):Container();
+                          }
+                        )
                       ],
                     ),
                   ),
