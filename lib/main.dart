@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      //home: MainScreen(),
+      //home: Splash(),
       //home: Dashboard(),
       home: Landing(),
       //home: Sign_in_main_page(),
@@ -51,10 +51,11 @@ class MyApp extends StatelessWidget {
       //home: MyApp1(),
       //home: MyCart(),
       // home: FavoritePage(),
-      //home: whatsapp_main_page(),
+      //home: whatsapp_main_page(text: 'ييي',),
       //home: search()
       // home: test8(),
       //home: About_us(),
+      //home: MyApp4(),
     );
   }
 }

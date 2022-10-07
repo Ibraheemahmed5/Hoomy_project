@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/api_Url.dart';
 import '../../api/Api_calls.dart';
+import '../../help/Colors.dart';
 import '../../help/text_style.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'package:ionicons/ionicons.dart';
@@ -51,7 +52,7 @@ class _CatCartState extends State<CatCart> {
                             else
                               BackEnd.categoryList[widget.prodects].isFav = false;
                           },
-                          child:BackEnd.categoryList[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                          child:BackEnd.categoryList[widget.prodects].isFav==false? Icon(Ionicons.heart , color: Colorsapp.mainColor) :  Icon(Ionicons.heart, color: Color(0XFFFF0000)),
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
@@ -96,7 +97,7 @@ class _CatCartState extends State<CatCart> {
                               // prodects.addToCart();
                               // prodects.deleteFromCart();
                             },
-                            child: BackEnd.categoryList[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Color.fromRGBO(69, 185, 238, 1)) :  Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                            child: BackEnd.categoryList[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Colorsapp.mainColor) :  Icon(Ionicons.cart , color:Colorsapp.mainColor),
                             style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: Colors.white,
@@ -118,15 +119,22 @@ class _CatCartState extends State<CatCart> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    BackEnd.categoryList[widget.prodects].title.substring(0,6),
-                                    style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
+                                    textDirection: TextDirection.rtl,
+
+                                    "${BackEnd.categoryList[widget.prodects].title.substring(0,6)}...",
+                                    style:Text_Style.getstyle(
+                                        fontsize: 16,
+                                        ColorText: Colors.black,
+                                        fontWeight: FontWeight.w500)
                                 ),
                               ),
                             ),
                             Align(
                               alignment: Alignment.bottomRight,
                               child: Text(
-                                  'د.ع'+'${BackEnd.categoryList[widget.prodects].price}',
+                                  textDirection: TextDirection.rtl,
+
+                                  '${BackEnd.categoryList[widget.prodects].price} د.ع ',
                                   style: Text_Style.getstyle(fontsize: 17, ColorText: Colors.black, fontWeight: FontWeight.w400)),
                             )
                           ],

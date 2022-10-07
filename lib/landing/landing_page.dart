@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:loading_animations/loading_animations.dart';
 
 import '../help/Colors.dart';
 import '../Sign_in_page/sing_in_main_page.dart';
@@ -113,12 +115,23 @@ class _LandingState extends State<Landing> {
                             return delay1.value == false
                                 ? Padding(
                               padding: const EdgeInsets.only(top: 20),
-                              child: CircularProgressIndicator(
-                                color: Colorsapp.mainColor,
+                              child:LoadingBouncingGrid.circle(
+                                  size: 50,
+                                  backgroundColor: Colorsapp.mainColor
                               ),
                             ):Container();
                           }
-                        )
+                        ),
+
+                        //
+                        // LoadingJumpingLine.square(
+                        //   size: 50,
+                        //   backgroundColor: Colorsapp.mainColor
+                        // ),
+
+
+
+
                       ],
                     ),
                   ),

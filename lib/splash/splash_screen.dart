@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:get/get.dart';
@@ -22,7 +23,7 @@ class _SplashState extends State<Splash> {
   Future delay() async {
     await Future.delayed(const Duration(seconds: 3));
 
-    Get.off(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
+   // Get.off(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
 
 
   }
@@ -30,24 +31,14 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
 
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Center(
-              child: Image.asset(
-                'photo/hoomy1.png',
-                width: 270,
-                height: 300,
-              ),
-            ),
-            CircularProgressIndicator(
-              backgroundColor: Color(0xff45B9EE),
-              color: Colors.white,
-            )
-          ],
-        ));
+    return AnimatedSplashScreen(
+      duration: 3000,
+      splash: Image.asset("photo/hoomy1.png"),
+      nextScreen: Dashboard(),
+      splashTransition: SplashTransition.fadeTransition,
+
+      backgroundColor: Colors.white,
+      splashIconSize: 150,
+    );
   }
 }
