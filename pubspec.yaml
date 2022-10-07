@@ -114,6 +114,8 @@ flutter:
      - photo/slideList1.png
      - photo/slideList2.png
      - photo/slideList3.png
+     - photo/Empty-bro.png
+     - photo/Team work-amico.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

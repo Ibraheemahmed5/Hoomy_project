@@ -53,10 +53,16 @@ class _CartState extends State<Cart> {
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {});
+
+
                           if (BackEnd.Prodects3[prodects].isFav == false)
                             BackEnd.Prodects3[prodects].isFav = true;
                           else
                             BackEnd.Prodects3[prodects].isFav = false;
+
+                          print(BackEnd.favList);
+
+
                         },
                         child: BackEnd.Prodects3[prodects].isFav == false
                             ? Icon(Ionicons.heart,
