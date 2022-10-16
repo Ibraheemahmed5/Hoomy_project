@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:loading_animations/loading_animations.dart';
 
+import '../Hoomy_main_page.dart';
 import '../help/Colors.dart';
 import '../Sign_in_page/sing_in_main_page.dart';
 import '../Sign_up_page/Sign_up_main_page.dart';
@@ -92,7 +93,7 @@ class _LandingState extends State<Landing> {
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
-                                Get.to(HomeMainPage(),
+                                Get.to(Hoomy_main_page(),
                                     transition: Transition.noTransition,
                                     duration: Duration(seconds: 2));
                               });

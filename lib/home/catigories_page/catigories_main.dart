@@ -106,7 +106,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
           );
         }),
       ),
-      bottomNavigationBar: NavigationBar_defult(),
+      //bottomNavigationBar: NavigationBar_defult(),
     );
   }
 }

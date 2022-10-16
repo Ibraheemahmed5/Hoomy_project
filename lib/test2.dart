@@ -1,44 +1,113 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:hoomy_project1/api/Api_calls.dart';
-// import 'package:hoomy_project1/single_prodect/related_cart.dart';
-// import 'package:hoomy_project1/test.dart';
-// import '../home/prodects/model.dart';
-//
-// class test2 extends StatelessWidget {
-//
-//   test2({Key? key}) : super(key: key);
-//   static PageController controller = PageController();
-//   static RxInt currentPage = 0.obs;
-//
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return
-//     Scaffold(
-//       body:
-//       Column(
-//         children: [
-//           Expanded(
-//             child: ListView(
-//                          scrollDirection: Axis.vertical,
-//                           children:
-//                               BackEnd.Prodects3.map((a) => test(b: a)).toList()),
-//           ),
-//         ],
-//       ),
-//     );
-//     // Prodect.Prodects.where((a) =>
-//     // a.catigory.value.contains(prodect.catigory.value)
-//     //     && a != prodect).map((e) =>
-//     //     RelatedCart(prodects:e)).toList()
-//
-//   }
-//
-// // getTotalPrice(){
-// //   Rx<double> total = 0.0.obs;
-// //       total += prodect.price.value * prodect.quantity.value;
-// //   return total.ceil().toString();
-// // }
-//
-// }
+import 'dart:async';
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:appcheck/appcheck.dart';
+
+class AppCheckExample extends StatefulWidget {
+  const AppCheckExample({Key? key}) : super(key: key);
+
+  @override
+  State<AppCheckExample> createState() => _AppCheckExampleState();
+}
+
+class _AppCheckExampleState extends State<AppCheckExample> {
+  List<AppInfo>? installedApps;
+  List<AppInfo> iOSApps = [
+    AppInfo(appName: "Calendar", packageName: "calshow://"),
+    AppInfo(appName: "Facebook", packageName: "fb://"),
+    AppInfo(appName: "واتساب", packageName: "whatsapp://"),
+  ];
+
+  @override
+  void initState() {
+    getApps();
+    super.initState();
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> getApps() async {
+    List<AppInfo>? installedApps;
+
+    if (Platform.isAndroid) {
+      const package = "com.google.android.apps.maps";
+      installedApps = await AppCheck.getInstalledApps();
+      for(var i = 0 ;i<installedApps!.length;i++){
+        if(installedApps.toString()[i]=="واتساب للأعمال"){
+          debugPrint("3333333333333${installedApps.toString()[i]}\n");
+
+        }
+      }
+
+
+      await AppCheck.checkAvailability(package).then(
+            (app) => debugPrint("appp${app.toString()}\n"),
+      );
+
+      await AppCheck.isAppEnabled(package).then(
+            (enabled) => enabled
+            ? debugPrint('$package enabled99999999999\n')
+            : debugPrint('$package disabled22222222222\n'),
+      );
+
+      installedApps?.sort(
+            (a, b) => a.appName!.toLowerCase().compareTo(b.appName!.toLowerCase()),
+      );
+    } else if (Platform.isIOS) {
+      // iOS doesn't allow to get installed apps.
+      installedApps = iOSApps;
+
+      await AppCheck.checkAvailability("calshow://").then(
+            (app) => debugPrint(app.toString()),
+      );
+    }
+
+    setState(() {
+      installedApps = installedApps;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(title: const Text('AppCheck Example App')),
+        body: installedApps != null && installedApps!.isNotEmpty
+            ? ListView.builder(
+          itemCount: installedApps!.length,
+          itemBuilder: (context, index) {
+            final app = installedApps![index];
+
+            return ListTile(
+              title: Text(app.appName ?? app.packageName),
+              subtitle: Text(
+                (app.isSystemApp ?? false) ? 'System App' : 'User App',
+              ),
+              trailing: IconButton(
+                icon: const Icon(Icons.open_in_new),
+                onPressed: () {
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  AppCheck.launchApp(app.packageName).then((_) {
+                    debugPrint(
+                      "${app.appName ?? app.packageName} launched!",
+                    );
+                  }).catchError((err) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                        "${app.appName ?? app.packageName} not found!",
+                      ),
+                    ));
+                    debugPrint(err.toString());
+                  });
+                },
+              ),
+            );
+          },
+        )
+            : const Center(child: Text('N0000o installed apps found!')),
+      ),
+    );
+  }
+}
+

@@ -134,6 +134,6 @@ class _MyCartState extends State<MyCart> {
             ],
           ),
         ),
-        bottomNavigationBar: NavigationBar_cart());
+  );
   }
 }

@@ -81,6 +81,6 @@ class _FavoritePageState extends State<FavoritePage> {
             ],
           ),
         ),
-        bottomNavigationBar: NavigationBar_favorite());
+    );
   }
 }

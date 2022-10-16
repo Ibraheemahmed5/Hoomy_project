@@ -154,7 +154,6 @@ class _HomeMainPageState extends State<HomeMainPage> {
           )
 
       ),
-      bottomNavigationBar: NavigationBar_home(),
     );
   }
 }
