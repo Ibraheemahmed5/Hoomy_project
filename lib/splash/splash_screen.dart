@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
   Future delay() async {
     await Future.delayed(const Duration(seconds: 3));
 
-   // Get.off(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
+    Get.off(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
 
 
   }

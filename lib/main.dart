@@ -4,10 +4,8 @@ import 'package:hoomy_project1/profile_page/profile_main_page.dart';
 import 'package:hoomy_project1/splash/splash_screen.dart';
 import 'package:hoomy_project1/test.dart';
 import 'package:hoomy_project1/test2.dart';
-
 import 'package:hoomy_project1/whatsapp/whatsapp_main_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'Hoomy_main_page.dart';
 import 'Search_page_/search_page.dart';
 import 'Sign_in_page/sing_in_main_page.dart';
@@ -52,7 +50,7 @@ class MyApp extends StatelessWidget {
       //home: MyApp1(),
       //home: MyCart(),
       // home: FavoritePage(),
-    // home: whatsapp_main_page(text: 'ييي',),
+      // home: whatsapp_main_page(text: 'ييي',),
       //home: search()
       // home: test8(),
       //home: About_us(),

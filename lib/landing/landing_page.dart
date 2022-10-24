@@ -70,7 +70,7 @@ class _LandingState extends State<Landing> {
                           text: 'تسجيل دخول',
                           onPressed: () {
                             print("تسجيل الدخول");
-                            Get.to(Sign_in_main_page(),
+                            Get.offAll(Sign_in_main_page(),
                                 transition: Transition.noTransition,
                                 duration: Duration(seconds: 1));
                           },
@@ -79,7 +79,7 @@ class _LandingState extends State<Landing> {
                           text: 'انشاء حساب',
                           onPressed: () {
                             print("انشاء حساب");
-                            Get.to(Sign_up_main_page(),
+                            Get.offAll(Sign_up_main_page(),
                                 transition: Transition.noTransition,
                                 duration: Duration(seconds: 1));
                           },
@@ -93,7 +93,7 @@ class _LandingState extends State<Landing> {
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
-                                Get.to(Hoomy_main_page(),
+                                Get.offAll(Hoomy_main_page(),
                                     transition: Transition.noTransition,
                                     duration: Duration(seconds: 2));
                               });
