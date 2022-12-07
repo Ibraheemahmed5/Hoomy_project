@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
+import 'package:loading_animations/loading_animations.dart';
 
 import '../help/Colors.dart';
 import '../slider/models/slider.dart';
@@ -19,6 +20,7 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
   int _currentPage = 0;
   final PageController _pageController = PageController(initialPage: 0);
+  final RxBool delay1 = true.obs;
 
   @override
   void initState() {
@@ -98,7 +100,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 100),
+                padding: const EdgeInsets.only(bottom: 0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
@@ -108,18 +110,63 @@ class _DashboardState extends State<Dashboard> {
                           fixedSize: const Size(65, 65),
                           shape: const CircleBorder(),
                         ),
-                        onPressed: () {
-                          Get.to(Landing(),
-                              transition: Transition.noTransition,
-                              duration: Duration(seconds: 1));
-                          setState(() {});
+                        onPressed: () async {
+                          delay1.value=false;
+
+                          Future.delayed(const Duration(seconds: 3), () {
+                            Get.offAll(Landing(),
+                                transition: Transition.noTransition,
+                                duration: Duration(seconds: 2));
+                            setState(() {});
+                          });
+                          Future.delayed(const Duration(seconds: 3), () {
+                            delay1.value = true;
+                            print("هذا الدلي بل اويت${delay1.value}");
+
+
+                          });
+
+
+
+
                         },
                         child: Icon(Icons.arrow_forward_ios,
                         color:Colors.white,
                         )),
+
+
+
+
+
+
+
+
+
+
+
+
                   ],
                 ),
-              )
+              ),
+              Obx(
+                      () {
+                    return delay1.value == false
+                        ? Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child:LoadingBouncingGrid.circle(
+                          size: 50,
+                          backgroundColor: Colorsapp.mainColor
+                      ),
+                    ):Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                      ),
+                    );
+                  }
+              ),
+
             ],
           ),
         ),

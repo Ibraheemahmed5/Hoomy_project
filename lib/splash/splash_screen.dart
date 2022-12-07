@@ -17,13 +17,13 @@ class _SplashState extends State<Splash> {
   late RxBool swich = false.obs;
   void initState() {
     super.initState();
-    delay();
+    //delay();
   }
 
   Future delay() async {
     await Future.delayed(const Duration(seconds: 3));
 
-    Get.off(Dashboard(),transition: Transition.cupertinoDialog,duration: Duration(seconds: 2));
+    Get.off(Dashboard(),transition: Transition.noTransition,duration: Duration(seconds: 2));
 
 
   }
