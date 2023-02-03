@@ -47,11 +47,9 @@ class _MyCartState extends State<MyCart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Hoomy_logo_blue(onPressed: () {
-                    Navigator.of(context).pop();
-                  }),
+
                   Padding(
-                    padding: const EdgeInsets.only(right: 0, top: 10),
+                    padding: const EdgeInsets.only(right: 0, top: 20),
                     child: Text(
                       'السلة',
                       style: Text_Style.getstyle(
@@ -69,6 +67,7 @@ class _MyCartState extends State<MyCart> {
                         children: [
                           Image.asset("photo/Empty-bro.png"),
                           Text(
+                            textAlign: TextAlign.center,
                             "لا يوجد منتجات في السلة ",
                             style: Text_Style.getstyle(
                                 fontsize: 25,

@@ -153,7 +153,7 @@ class _CartState extends State<Cart> {
                               child: Text(
                                   textDirection: TextDirection.rtl,
 
-                                  //maxLines: 0,
+
 
                                   "${BackEnd.Prodects3[prodects].title.substring(0, 6)}...",
                                   style: Text_Style.getstyle(

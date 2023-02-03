@@ -80,7 +80,7 @@ class _DashboardState extends State<Dashboard> {
                         alignment: AlignmentDirectional.topStart,
                         children: <Widget>[
                           Container(
-                            margin: const EdgeInsets.only(bottom: 35),
+                            margin: const EdgeInsets.only(bottom: 0),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,9 +100,9 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: 0),
+                padding: const EdgeInsets.only(top: 0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(

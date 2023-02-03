@@ -19,6 +19,7 @@ import 'favorite_list.dart';
 class FavoritePage extends StatefulWidget {
   const FavoritePage({
     Key? key,
+
   }) : super(key: key);
 
   @override
@@ -35,11 +36,9 @@ class _FavoritePageState extends State<FavoritePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Hoomy_logo_blue(onPressed: () {
-                Navigator.of(context).pop();
-              }),
+
               Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding: const EdgeInsets.only(top: 20),
                 child: Text(
                   'المفضلات',
                   style: Text_Style.getstyle(
@@ -66,9 +65,12 @@ class _FavoritePageState extends State<FavoritePage> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+
                     children: [
                       Image.asset("photo/Empty-bro.png"),
                       Text(
+                        textAlign: TextAlign.center,
                         "لا يوجد منتجات مفضلة ",
                         style: Text_Style.getstyle(
                             fontsize: 25,

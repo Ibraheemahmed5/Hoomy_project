@@ -14,10 +14,8 @@ final slideList = [
 
 
   Slide(imageUrl: 'photo/slideList2.png',
-      text: ''),
-
+      text: ' اهلاً وسهلاً '),
 
 
   Slide(imageUrl: 'photo/slideList1.png',
-      text: ''),
-];
+      text: ' اهلاً وسهلاً '),];

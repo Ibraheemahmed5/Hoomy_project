@@ -7,6 +7,7 @@ import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 
 import '../../Search_page_/search_page.dart';
+import '../../help/Colors.dart';
 import '../../profile_page/blue_logo.dart';
 import '../NavigationBar_home.dart';
 import '../catigory_buttons_bar.dart';
@@ -34,6 +35,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
     final RxString text = searchController.text.obs;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Obx(() {
           return Column(
@@ -46,20 +48,25 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SearchBar(
-                      searchController: searchController,
-                      onPressed: () {
-                        Get.to(Search_page());
-                      },
-                      onChanged: (String text1) {
-                        text.value = text1;
+                    Row(
+                      children: [
 
-                        if (text.value == "") {
-                          isEmpty1.value = true;
-                        } else {
-                          isEmpty1.value = false;
-                        }
-                      },
+                        SearchBar(
+                          searchController: searchController,
+                          onPressed: () {
+                            Get.to(Search_page());
+                          },
+                          onChanged: (String text1) {
+                            text.value = text1;
+
+                            if (text.value == "") {
+                              isEmpty1.value = true;
+                            } else {
+                              isEmpty1.value = false;
+                            }
+                          },
+                        ),
+                      ],
                     ),
                     if (text.value.isEmpty)
                       Container(

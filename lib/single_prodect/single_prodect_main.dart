@@ -6,6 +6,7 @@ import 'package:hoomy_project1/single_prodect/page_model.dart';
 import 'package:hoomy_project1/single_prodect/relatid_list.dart';
 import 'package:hoomy_project1/single_prodect/test.dart';
 import 'package:ionicons/ionicons.dart';
+import '../Hoomy_main_page.dart';
 import '../api/Api_calls.dart';
 import '../home/catigories_page/test.dart';
 import '../home/home_main_page.dart';
@@ -40,7 +41,7 @@ class _SingleProdectState extends State<SingleProdect> {
         children: [
           Hoomy_logo_blue(
             onPressed: () {
-              Get.to(HomeMainPage());
+              Get.to(Hoomy_main_page());
               //prodects.makeAsClicked();
             },
           ),

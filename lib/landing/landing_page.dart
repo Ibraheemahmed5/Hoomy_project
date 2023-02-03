@@ -58,12 +58,12 @@ class _LandingState extends State<Landing> {
                     padding: const EdgeInsets.only(top: 20),
                     child: Text('اهلاً وسهلاً ',
                         style: Text_Style.getstyle(
-                            fontsize: 25,
+                            fontsize: 35,
                             ColorText: Colorsapp.mainColor,
                             fontWeight: FontWeight.w700)),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 100),
+                    padding: const EdgeInsets.only(top: 50),
                     child: Column(
                       children: [
                         Button1(
@@ -84,12 +84,15 @@ class _LandingState extends State<Landing> {
                                 duration: Duration(seconds: 1));
                           },
                         ),
-                        RichText(
+                        if(delay1.value == true)
+                          RichText(
                             text: TextSpan(
                           text: 'الدخول كزائر',
                           recognizer: TapGestureRecognizer()
                             ..onTap = () async {
-                            delay1.value=false;
+                              print("هذا الدلي بل اويت${delay1.value}");
+
+                              delay1.value=false;
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
