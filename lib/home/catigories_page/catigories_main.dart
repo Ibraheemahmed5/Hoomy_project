@@ -42,6 +42,7 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Text("data"),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                 child: Column(

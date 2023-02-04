@@ -58,7 +58,7 @@ class _MyCartState extends State<MyCart> {
                           fontWeight: FontWeight.w700),
                     ),
                   ),
-                 if(BackEnd.Prodects_cart.isNotEmpty)
+                 //if(BackEnd.Prodects_cart.isNotEmpty)
                   Expanded(child: MyCardsList()),
                   if(BackEnd.Prodects_cart.isEmpty)
                     Padding(

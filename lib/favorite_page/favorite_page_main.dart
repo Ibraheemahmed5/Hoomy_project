@@ -55,7 +55,7 @@ class _FavoritePageState extends State<FavoritePage> {
               //   height: 20, // The divider's height extent.
               // ),
 
-              if (BackEnd.favList.isNotEmpty)
+              //if (BackEnd.favList.isNotEmpty)
                 Expanded(
                     child: Padding(
                   padding: const EdgeInsets.only(top: 10),
