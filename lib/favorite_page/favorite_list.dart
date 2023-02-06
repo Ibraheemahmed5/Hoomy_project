@@ -26,6 +26,8 @@ class FavoriteList extends StatelessWidget {
           prodects: index,
         );}
       return SizedBox(height: 0,width: 0,);
-      }));
+      }
+      )
+    );
   }
 }

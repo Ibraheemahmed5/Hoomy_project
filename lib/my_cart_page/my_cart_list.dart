@@ -14,6 +14,7 @@ class MyCardsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BackEnd.Get_cart();
     return Container(
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
