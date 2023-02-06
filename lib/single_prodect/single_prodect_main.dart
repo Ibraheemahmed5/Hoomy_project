@@ -8,6 +8,7 @@ import 'package:hoomy_project1/single_prodect/test.dart';
 import 'package:ionicons/ionicons.dart';
 import '../Hoomy_main_page.dart';
 import '../api/Api_calls.dart';
+import '../help/text_style.dart';
 import '../home/catigories_page/test.dart';
 import '../home/home_main_page.dart';
 import '../home/prodects/model.dart';
@@ -41,7 +42,7 @@ class _SingleProdectState extends State<SingleProdect> {
         children: [
           Hoomy_logo_blue(
             onPressed: () {
-              Get.to(Hoomy_main_page());
+              Get.to(Hoomy_main_page(index1: 0,));
               //prodects.makeAsClicked();
             },
           ),
@@ -95,13 +96,14 @@ class _SingleProdectState extends State<SingleProdect> {
                   // ' ${RelatedList(
                   //   prodect: prodects,
                   // ).getTotalPrice()}  :السعر الكلي',
-                  style:
-                  TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style:Text_Style.getstyle(fontsize: 22, ColorText: Colors.black, fontWeight: FontWeight.w700)
                 ),
               //   if(prodects.available == false)
               Button2(
                 text: 'اتمام الطلب',
-                onPressed: () {},
+                onPressed: () {
+
+                },
               )
             ],
           ),
