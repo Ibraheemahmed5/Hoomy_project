@@ -96,15 +96,15 @@ class _LandingState extends State<Landing> {
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
-                                Get.offAll(Hoomy_main_page(index1: 0,),
+                                Get.offAll(Hoomy_main_page(),
                                     transition: Transition.noTransition,
                                     duration: Duration(seconds: 2));
+                                print(BackEnd.categoryList);
+
                               });
                             Future.delayed(const Duration(seconds: 3), () {
                               delay1.value = true;
                               print("هذا الدلي بل اويت${delay1.value}");
-
-
                             });
                             },
                           style: GoogleFonts.cairo(

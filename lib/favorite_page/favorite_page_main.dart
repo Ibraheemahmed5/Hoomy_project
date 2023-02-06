@@ -29,14 +29,34 @@ class FavoritePage extends StatefulWidget {
 class _FavoritePageState extends State<FavoritePage> {
   @override
   Widget build(BuildContext context) {
+    BackEnd.Get_Fav_List();
     return Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Column(
+        body:
+        SafeArea(
+          child:
+          BackEnd.favList.length == 0?
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("photo/Empty-bro.png"),
+                Text(
+                  textAlign: TextAlign.center,
+                  "لا يوجد منتجات مفضلة ",
+                  style: Text_Style.getstyle(
+                      fontsize: 25,
+                      ColorText: Colors.black,
+                      fontWeight: FontWeight.w600),
+                )
+              ],
+            ),
+          ):
+          Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Text(
@@ -47,42 +67,17 @@ class _FavoritePageState extends State<FavoritePage> {
                       fontWeight: FontWeight.w700),
                 ),
               ),
-              // Divider(
-              //   thickness: 2, // thickness of the line
-              //   indent: 20, // empty space to the leading edge of divider.
-              //   endIndent: 20, // empty space to the trailing edge of the divider.
-              //   color: Colorsapp.mainColor, // The color to use when painting the line.
-              //   height: 20, // The divider's height extent.
-              // ),
-
-              //if (BackEnd.favList.isNotEmpty)
-                Expanded(
-                    child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: FavoriteList(),
-                )),
-              if (BackEnd.favList.isEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-
-                    children: [
-                      Image.asset("photo/Empty-bro.png"),
-                      Text(
-                        textAlign: TextAlign.center,
-                        "لا يوجد منتجات مفضلة ",
-                        style: Text_Style.getstyle(
-                            fontsize: 25,
-                            ColorText: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      )
-                    ],
-                  ),
-                ),
+              Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: FavoriteList(),
+                  )
+              )
             ],
           ),
         ),
     );
   }
 }
+
+

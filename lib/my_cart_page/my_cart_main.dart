@@ -38,6 +38,7 @@ class _MyCartState extends State<MyCart> {
 
   @override
   Widget build(BuildContext context) {
+    BackEnd.Get_cart();
     return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -47,7 +48,6 @@ class _MyCartState extends State<MyCart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
                   Padding(
                     padding: const EdgeInsets.only(right: 0, top: 20),
                     child: Text(
@@ -58,9 +58,7 @@ class _MyCartState extends State<MyCart> {
                           fontWeight: FontWeight.w700),
                     ),
                   ),
-                 //if(BackEnd.Prodects_cart.isNotEmpty)
-                  Expanded(child: MyCardsList()),
-                  if(BackEnd.Prodects_cart.isEmpty)
+                  BackEnd.Prodects_cart.length == 0 ?
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
@@ -76,13 +74,10 @@ class _MyCartState extends State<MyCart> {
                           )
                         ],
                       ),
-                    ),
-
-
+                    ):
+                  Expanded(child: MyCardsList()),
                 ],
               ),
-
-
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(

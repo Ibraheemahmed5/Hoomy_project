@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/api_Url.dart';
 import '../api/Api_calls.dart';
-import '../home/prodects/model.dart';
 import 'package:ionicons/ionicons.dart';
 import '../single_prodect/single_prodect_main.dart';
 
@@ -138,7 +137,8 @@ class _FavCartState extends State<FavCart> {
               ],
             ),
           ),
-        ),);
+         ),
+       );
   }
 }
 /**/
