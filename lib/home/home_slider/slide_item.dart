@@ -17,7 +17,7 @@ class HomeSlideItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           image: DecorationImage(
-           image:NetworkImage(ApiConstants.Domain+BackEnd.Prodects3[index].banner ),
+           image:NetworkImage(ApiConstants.Domain+BackEnd.Prodects3[index].banner),
             fit: BoxFit.fitHeight,
           ),
         ),

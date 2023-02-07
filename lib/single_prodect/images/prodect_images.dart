@@ -36,7 +36,7 @@ class _ProdectImagesState extends State<ProdectImages> {
             margin: EdgeInsets.only(left: 20),
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.black,width: 0),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(10),
     ),
             child: Material(
               child: InkWell(
@@ -49,7 +49,7 @@ class _ProdectImagesState extends State<ProdectImages> {
                 },
                 borderRadius: BorderRadius.circular(10),
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(10),
                     child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[p].productImage[im].image,fit: BoxFit.cover,),
                 ),
               ),
@@ -79,11 +79,11 @@ class _ProdectImagesState extends State<ProdectImages> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
+                    borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       img,
-                      width: 200,
-                      height: 200,
+                      width: 220,
+                      height: 220,
                     ),
                   ),
                 ],

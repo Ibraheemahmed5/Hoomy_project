@@ -18,7 +18,7 @@ class ProdectColors extends StatelessWidget {
       height: 35,
       margin: EdgeInsets.only(left: 20),
       decoration: BoxDecoration(
-          border: Border.all(width: 1.5, color: Colors.black),
+          border: Border.all(width: 1, color: Colors.black26),
           color: Color(int.parse(BackEnd.Prodects3[p].colors[color].colorCode)),
           shape: BoxShape.circle),
     );

@@ -48,6 +48,12 @@ class _HomeSliderState extends State<HomeSlider> {
 
   @override
   Widget build(BuildContext context) {
+    int c=0;
+    for(int i=0; i < BackEnd.Prodects3.length; i++){
+    if(BackEnd.Prodects3[i].isFeatured == true){
+      c= c+1;
+    }
+  }
     return  Padding(
         padding: const EdgeInsets.only(left: 0,right: 0,bottom: 0,top: 5),
         child: Column(
@@ -74,8 +80,7 @@ class _HomeSliderState extends State<HomeSlider> {
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                              for(int i = 0; i<4; i++)
-                                //if(BackEnd.Prodects3[i].isFeatured == true)
+                              for(int i = 0; i<c; i++)
                                   if( i == _currentPage )
                                     SlideDots(true)
                                   else
