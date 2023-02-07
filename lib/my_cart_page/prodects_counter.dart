@@ -29,12 +29,18 @@ class _ProdectCounterState extends State<ProdectCounter> {
   _ProdectCounterState(this.prodect, this.button_color, this.container_color, this.left_border,this.right_border);
 
   void add() {
-     BackEnd.Prodects_cart[prodect].quantity +1;
+    print(MyCardsList.cartList[prodect].quantity);
+    MyCardsList.cartList[prodect].quantity =MyCardsList.cartList[prodect].quantity+1;
+    print(MyCardsList.cartList[prodect].quantity);
   }
 
    void minus() {
-    BackEnd.Prodects_cart[prodect].quantity -1;
-  }
+    print(MyCardsList.cartList[prodect].quantity);
+    if(MyCardsList.cartList[prodect].quantity > 1)
+    MyCardsList.cartList[prodect].quantity =MyCardsList.cartList[prodect].quantity-1;
+    print(MyCardsList.cartList[prodect].quantity);
+
+   }
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -58,14 +64,19 @@ class _ProdectCounterState extends State<ProdectCounter> {
                     child: FloatingActionButton(
                       elevation: 0,
                       backgroundColor:button_color,
-                      onPressed: add,
+                      onPressed: (){
+                        add();
+                        setState(() {
+
+                        });
+                      },
                       child: Icon(Icons.add,
                         color: Colors.black,),
                     ),),
                 Container(
                       width: 40,
                       child: Center(
-                        child: Text('${BackEnd.Prodects_cart[prodect].quantity}',
+                        child: Text('${MyCardsList.cartList[prodect].quantity}',
                             style: new TextStyle(fontSize: 24)),
                       ),
                   ),
@@ -75,7 +86,12 @@ class _ProdectCounterState extends State<ProdectCounter> {
                     child: FloatingActionButton(
                       elevation: 0,
                       backgroundColor: button_color,
-                      onPressed: minus,
+                      onPressed: (){
+                        minus();
+                        setState(() {
+
+                        });
+                      },
                       child: Icon(Icons.remove,
                         color: Colors.black,),
                     ),

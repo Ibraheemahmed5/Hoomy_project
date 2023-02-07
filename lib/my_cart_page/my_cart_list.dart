@@ -11,7 +11,7 @@ class MyCardsList extends StatelessWidget {
   }) : super(key: key);
   static PageController controller = PageController();
   static RxInt currentPage = 0.obs;
-
+  static List cartList = [];
   @override
   Widget build(BuildContext context) {
     BackEnd.Get_cart();
@@ -21,10 +21,16 @@ class MyCardsList extends StatelessWidget {
               crossAxisCount: 1,
               childAspectRatio: MediaQuery.of(context).size.width / 215,
             ),
-            itemCount: BackEnd.Prodects_cart.length,
+            itemCount: MyCardsList.cartList.length,
             itemBuilder: (BuildContext context, index) {
-              return Cart1(
-                prodects: index,
+              if (MyCardsList.cartList[index].inCart == true) {
+                return Cart1(
+                  prodects: index,
+                );
+              }
+              return SizedBox(
+                height: 0,
+                width: 0,
               );
             }));
     // Obx((){
@@ -41,11 +47,13 @@ class MyCardsList extends StatelessWidget {
 
   Rx<double> getCartTotalPrice() {
     Rx<double> total = 0.0.obs;
-    if (BackEnd.Prodects_cart.isNotEmpty) {
-      BackEnd.Prodects_cart.forEach((element) {
-        total += (element.product.price * element.quantity);
-      });
+    for(int i = 0 ; i < MyCardsList.cartList.length; i++){
+    if (MyCardsList.cartList[i].inCart == true) {
+      //MyCardsList.cartList[prodect].quantity * MyCardsList.cartList[i].price
+      total += MyCardsList.cartList[i].price * MyCardsList.cartList[i].quantity;
+    }
     }
     return total;
+
   }
 }

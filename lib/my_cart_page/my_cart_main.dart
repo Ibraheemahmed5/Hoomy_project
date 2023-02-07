@@ -38,7 +38,6 @@ class _MyCartState extends State<MyCart> {
 
   @override
   Widget build(BuildContext context) {
-    BackEnd.Get_cart();
     return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -48,6 +47,7 @@ class _MyCartState extends State<MyCart> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+
                   Padding(
                     padding: const EdgeInsets.only(right: 0, top: 20),
                     child: Text(
@@ -58,26 +58,28 @@ class _MyCartState extends State<MyCart> {
                           fontWeight: FontWeight.w700),
                     ),
                   ),
-                  BackEnd.Prodects_cart.length == 0 ?
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          Image.asset("photo/Empty-bro.png"),
-                          Text(
-                            textAlign: TextAlign.center,
-                            "لا يوجد منتجات في السلة ",
-                            style: Text_Style.getstyle(
-                                fontsize: 25,
-                                ColorText: Colors.black,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                    ):
+                  // BackEnd.Prodects_cart.length == 0 ?
+                  //   Padding(
+                  //     padding: const EdgeInsets.symmetric(horizontal: 20),
+                  //     child: Column(
+                  //       children: [
+                  //         Image.asset("photo/Empty-bro.png"),
+                  //         Text(
+                  //           textAlign: TextAlign.center,
+                  //           "لا يوجد منتجات في السلة ",
+                  //           style: Text_Style.getstyle(
+                  //               fontsize: 25,
+                  //               ColorText: Colors.black,
+                  //               fontWeight: FontWeight.w600),
+                  //         )
+                  //       ],
+                  //     ),
+                  //   ):
                   Expanded(child: MyCardsList()),
                 ],
               ),
+
+
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(

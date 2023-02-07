@@ -7,6 +7,7 @@ import 'package:ionicons/ionicons.dart';
 import '../../api/api_Url.dart';
 import '../../api/api_models.dart';
 import '../../help/text_style.dart';
+import '../../my_cart_page/my_cart_list.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'model.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -125,8 +126,21 @@ class _CartState extends State<Cart> {
                       child: Container(
                         child: ElevatedButton(
                           onPressed: () async {
-                            await BackEnd.add_to_card(
-                                id: BackEnd.Prodects3[prodects].id);
+                    /*        await BackEnd.add_to_card(
+                                id: BackEnd.Prodects3[prodects].id);*/
+                            if (BackEnd.Prodects3[prodects].inCart == false){
+                              BackEnd.Prodects3[prodects].inCart = true;
+                              BackEnd.Prodects3[prodects].quantity = 1;
+                              MyCardsList.cartList.add(BackEnd.Prodects3[prodects]);
+                            }
+                            else{
+                              BackEnd.Prodects3[prodects].inCart = false;
+                              MyCardsList.cartList.remove(BackEnd.Prodects3[prodects]);
+
+                            }
+
+                            print(BackEnd.Prodects3[prodects].inCart);
+                            print(MyCardsList.cartList);
                           },
                           child: Icon(Ionicons.cart,
                               color: Color.fromRGBO(69, 185, 238, 1)),
@@ -152,10 +166,7 @@ class _CartState extends State<Cart> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                   textDirection: TextDirection.rtl,
-
-
-
-                                  "${BackEnd.Prodects3[prodects].title.substring(0, 6)}...",
+                                  "${BackEnd.Prodects3[prodects].title.substring(0, BackEnd.Prodects3[prodects].title.toString().length > 6 ?6:BackEnd.Prodects3[prodects].title.toString().length)}...",
                                   style: Text_Style.getstyle(
                                       fontsize: 16,
                                       ColorText: Colors.black,

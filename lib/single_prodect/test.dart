@@ -22,12 +22,12 @@ class test extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50.0),
+              borderRadius: BorderRadius.circular(15.0),
             ),
             height: 250,
             child:
             ClipRRect(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(15),
                 child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[p].banner,fit: BoxFit.cover),
             ),)
         ],

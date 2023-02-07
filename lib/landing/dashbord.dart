@@ -54,7 +54,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setStatusBarColor(Colors.white, animate: true);
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -111,7 +110,7 @@ class _DashboardState extends State<Dashboard> {
                           shape: const CircleBorder(),
                         ),
                         onPressed: () async {
-                          delay1.value=false;
+                          delay1.value = false;
 
                           Future.delayed(const Duration(seconds: 3), () {
                             Get.offAll(Landing(),
@@ -122,51 +121,30 @@ class _DashboardState extends State<Dashboard> {
                           Future.delayed(const Duration(seconds: 3), () {
                             delay1.value = true;
                             print("هذا الدلي بل اويت${delay1.value}");
-
-
                           });
-
-
-
-
                         },
-                        child: Icon(Icons.arrow_forward_ios,
-                        color:Colors.white,
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
                         )),
-
-
-
-
-
-
-
-
-
-
-
-
                   ],
                 ),
               ),
-              Obx(
-                      () {
-                    return delay1.value == false
-                        ? Padding(
-                      padding: const EdgeInsets.only(top: 50),
-                      child:LoadingBouncingGrid.circle(
-                          size: 50,
-                          backgroundColor: Colorsapp.mainColor
-                      ),
-                    ):Padding(
-                      padding: const EdgeInsets.only(top: 50),
-                      child: Container(
-                        width: 50,
-                        height: 50,
-                      ),
-                    );
-                  }
-              ),
-
+              Obx(() {
+                return delay1.value == false
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: LoadingBouncingGrid.circle(
+                            size: 50, backgroundColor: Colorsapp.mainColor),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.only(top: 50),
+                        child: Container(
+                          width: 50,
+                          height: 50,
+                        ),
+                      );
+              }),
             ],
           ),
         ),

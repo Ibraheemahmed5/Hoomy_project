@@ -3,23 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
+import 'package:hoomy_project1/my_cart_page/my_cart_list.dart';
 import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
 import '../api/api_Url.dart';
+import '../single_prodect/single_prodect_main.dart';
 
 
 
 class Cart1 extends StatelessWidget {
   const Cart1({Key? key, required this.prodects}) : super(key: key);
-
-
   final int prodects;
+
   @override
   Widget build(BuildContext context) {
     return
           GestureDetector(
             onTap: (){
             //  api!.makeAsClicked();
-          //Get.to(SingleProdect(prodects: prodects,));
+         // Get.to(SingleProdect(prodects: prodects,));
         },
         child:Padding(
           padding: const EdgeInsets.only(top: 15,left: 15,right: 15),
@@ -49,8 +50,11 @@ class Cart1 extends StatelessWidget {
                                 elevation: 0,
                                 backgroundColor: Color(0XFFE7E7E7),
                                 onPressed: (){
-                                BackEnd.delete_from_card(BackEnd.Prodects_cart[prodects].id);
-                                print(BackEnd.Prodects_cart[prodects].id);
+                                  print(MyCardsList.cartList[prodects].id);
+                                  print(MyCardsList.cartList);
+                                  MyCardsList.cartList.remove(MyCardsList.cartList[prodects]);
+                               //   BackEnd.delete_from_card(MyCardsList.cartList[prodects].id);
+                                  print(MyCardsList.cartList[prodects].id);
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),
                               ),
@@ -74,7 +78,7 @@ class Cart1 extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 10,right: 5),
                           child: Text(
-                              BackEnd.Prodects_cart[prodects].product.title,
+                              MyCardsList.cartList[prodects].title.substring(0,MyCardsList.cartList[prodects].title.toString().length > 10 ?10:BackEnd.Prodects3[prodects].title.toString().length),
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
                           ),
                         ),
@@ -84,7 +88,7 @@ class Cart1 extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 20,right: 5),
                             child: Text(
-                                "د.ع "+'${BackEnd.Prodects_cart[prodects].product.price}',
+                                "د.ع "+'${MyCardsList.cartList[prodects].price}',
                                 style: GoogleFonts.inter(fontSize: 18,color: Colors.black
 
                                 )
@@ -108,7 +112,7 @@ class Cart1 extends StatelessWidget {
                        margin: const EdgeInsets.only( right: 10, left: 10),
                        child: ClipRRect(
                          borderRadius: BorderRadius.circular(10),
-                         child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[prodects].banner,fit: BoxFit.cover),
+                         child: Image.network(ApiConstants.Domain+MyCardsList.cartList[prodects].banner,fit: BoxFit.cover),
                        ),),
                 )
             ],
