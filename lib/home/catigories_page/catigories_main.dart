@@ -39,73 +39,112 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Obx(() {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          return Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
 
-                    SearchBar(
-                      searchController: searchController,
-                      onPressed: () {
-                        Get.to(Search_page());
-                      },
-                      onChanged: (String text1) {
-                        text.value = text1;
+                        SearchBar(
+                          searchController: searchController,
+                          onPressed: () {
+                            Get.to(Search_page());
+                          },
+                          onChanged: (String text1) {
+                            text.value = text1;
 
-                        if (text.value == "") {
-                          isEmpty1.value = true;
-                        } else {
-                          isEmpty1.value = false;
-                        }
-                      },
+                            if (text.value == "") {
+                              isEmpty1.value = true;
+                            } else {
+                              isEmpty1.value = false;
+                            }
+                          },
+                        ),
+                        if (text.value.isEmpty)
+                          Container(
+                            color: Colors.white30,
+                            height: 55,
+                            child: CatigoryButtonsBar(),
+                          ),
+                      ],
                     ),
-                    if (text.value.isEmpty)
-                      Container(
-                        color: Colors.white30,
-                        height: 55,
-                        child: CatigoryButtonsBar(),
-                      ),
-                  ],
-                ),
-              ),
-              ////
-              if (text.value.isEmpty)
-                Flexible(
-                  child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30))),
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(left: 10, right: 10, top: 5),
-                        child: CatigoriesList(text: text2),
-                      )),
-                ),
+                  ),
+                  ////
+                  if (text.value.isEmpty)
+                    Flexible(
+                      child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(30),
+                                  topRight: Radius.circular(30))),
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: 10, right: 10, top: 5),
+                            child: CatigoriesList(text: text2),
+                          )),
+                    ),
 
-              // if (text.value.isNotEmpty)
-              //   Expanded(
-              //       child: Container(
-              //           child: GridView.count(
-              //             crossAxisCount: 2,
-              //             childAspectRatio: MediaQuery.of(context).size.width /
-              //                 ((MediaQuery.of(context).size.height) - 250),
-              //             children: ApiCall.Prodects2
-              //                 .where((e) => e.title!
-              //                 .toLowerCase()
-              //                 .contains(text.value.toLowerCase()))
-              //                 .map((e) => Cart( prodects: e))
-              //                 .toList(),
-              //           ))),
-              ////
+                  // if (text.value.isNotEmpty)
+                  //   Expanded(
+                  //       child: Container(
+                  //           child: GridView.count(
+                  //             crossAxisCount: 2,
+                  //             childAspectRatio: MediaQuery.of(context).size.width /
+                  //                 ((MediaQuery.of(context).size.height) - 250),
+                  //             children: ApiCall.Prodects2
+                  //                 .where((e) => e.title!
+                  //                 .toLowerCase()
+                  //                 .contains(text.value.toLowerCase()))
+                  //                 .map((e) => Cart( prodects: e))
+                  //                 .toList(),
+                  //           ))),
+                  ////
+                ],
+              ),
+
+
+              Align(
+                alignment: Alignment.bottomLeft,
+                child:
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colorsapp.mainColor,
+                        borderRadius: BorderRadius.circular(30)
+                    ),
+                    width: 60,
+                  height: 60,
+                    child:Padding(
+                      padding: const EdgeInsets.only(right: 5),
+                      child: IconButton(
+                        onPressed: () {
+                          print("object");
+                          Get.to(Hoomy_main_page(index1: 0,));
+                        },
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_sharp,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+                    ),
+
+
+
+                  ),
+                ),
+              )
+
             ],
           );
         }),
