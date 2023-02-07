@@ -91,11 +91,11 @@ class _SearchCartState extends State<SearchCart> {
                                 ),
                               ),
                               Align(
-                                alignment: Alignment.centerRight,
+                                alignment: Alignment.centerLeft,
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 0),
                                   child: Text(
-                                      BackEnd.Prodects3[widget.prodects].title,
+                                      "  ${BackEnd.Prodects3[widget.prodects].title.substring(0, 12)}...",
                                       style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold)
                                   ),
                                 ),

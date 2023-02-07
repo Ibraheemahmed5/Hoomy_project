@@ -8,6 +8,7 @@ import 'package:hoomy_project1/single_prodect/test.dart';
 import 'package:ionicons/ionicons.dart';
 import '../Hoomy_main_page.dart';
 import '../api/Api_calls.dart';
+import '../help/text_style.dart';
 import '../home/catigories_page/test.dart';
 import '../home/home_main_page.dart';
 import '../home/prodects/model.dart';
@@ -41,7 +42,7 @@ class _SingleProdectState extends State<SingleProdect> {
         children: [
           Hoomy_logo_blue(
             onPressed: () {
-              Get.to(Hoomy_main_page());
+              Get.to(Hoomy_main_page(index1: 0,));
               //prodects.makeAsClicked();
             },
           ),
@@ -85,7 +86,10 @@ class _SingleProdectState extends State<SingleProdect> {
               if( BackEnd.Prodects3[prodects].isAvailable== false)
                 Text(
                     ' غير متوفر',
-                    style: GoogleFonts.inter(fontSize: 20,color: Colors.red,fontWeight: FontWeight.bold)
+                    style: Text_Style.getstyle(
+                        fontsize: 18,
+                        ColorText: Colors.red,
+                        fontWeight: FontWeight.bold)
                 ),
               if( BackEnd.Prodects3[prodects].isAvailable== true)
                 Text(
@@ -96,7 +100,10 @@ class _SingleProdectState extends State<SingleProdect> {
                   //   prodect: prodects,
                   // ).getTotalPrice()}  :السعر الكلي',
                   style:
-                  TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  Text_Style.getstyle(
+                      fontsize: 22,
+                      ColorText: Colors.black,
+                      fontWeight: FontWeight.bold)
                 ),
               //   if(prodects.available == false)
               Button2(

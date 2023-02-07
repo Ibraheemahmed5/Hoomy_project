@@ -28,7 +28,7 @@ class test extends StatelessWidget {
             child:
             ClipRRect(
             borderRadius: BorderRadius.circular(15),
-                child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[p].banner,fit: BoxFit.cover),
+                child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[p].productImage[0].image,fit: BoxFit.contain),
             ),)
         ],
       ),

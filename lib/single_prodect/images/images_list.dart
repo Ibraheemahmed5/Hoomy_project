@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:hoomy_project1/home/prodects/model.dart';
 import 'package:hoomy_project1/single_prodect/images/prodect_images.dart';
 
@@ -12,18 +13,17 @@ class ImagesList extends StatelessWidget {
   final int prodect;
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: GridView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount:BackEnd.Prodects3[prodect].productImage.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              childAspectRatio:160/ 180,
-            ),
-            itemBuilder: (BuildContext context, index) {
-          return
-              ProdectImages( p:prodect,im: index,);
-            }));
+    return GridView.builder(
+    scrollDirection: Axis.horizontal,
+    itemCount:BackEnd.Prodects3[prodect].productImage.length,
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 1,
+          childAspectRatio:160/ 180,
+        ),
+        itemBuilder: (BuildContext context, index) {
+      return
+          ProdectImages( p:prodect,im: index,);
+        });
   }
 }
 // ListView.builder(

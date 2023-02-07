@@ -82,7 +82,7 @@ class _CartState extends State<Cart> {
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Text(' غير متوفر',
-                            style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.red, fontWeight: FontWeight.w600)),
+                            style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.red, fontWeight: FontWeight.bold)),
                       ),
                   ],
                 ),
@@ -99,23 +99,23 @@ class _CartState extends State<Cart> {
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                         ApiConstants.Domain +
-                            BackEnd.Prodects3[prodects].banner,
-                        fit: BoxFit.cover),
+                            BackEnd.Prodects3[prodects].productImage[0].image,
+                        fit: BoxFit.contain),
                   ),
                 ),
               if (BackEnd.Prodects3[prodects].isAvailable == false)
                 Container(
                     width: 150,
-                    height: 110,
+                    height: 130,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(40),
-                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+
                     ),
                     margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                     child: Image.network(
                         ApiConstants.Domain +
-                            BackEnd.Prodects3[prodects].banner,
-                        fit: BoxFit.cover)),
+                            BackEnd.Prodects3[prodects].productImage[0].image,
+                        fit: BoxFit.contain)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -80,7 +80,7 @@ class _CatCartState extends State<CatCart> {
                   color: Colors.white,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network(ApiConstants.Domain+BackEnd.categoryList[widget.prodects].banner,fit: BoxFit.cover),
+                    child: Image.network(ApiConstants.Domain+BackEnd.categoryList[widget.prodects].productImage[0].image,fit: BoxFit.contain),
                   ),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -121,7 +121,7 @@ class _CatCartState extends State<CatCart> {
                                 child: Text(
                                     textDirection: TextDirection.rtl,
 
-                                    "${BackEnd.categoryList[widget.prodects].title.substring(0,6)}...",
+                                    "${BackEnd.Prodects3[widget.prodects].title.substring(0,BackEnd.Prodects3[widget.prodects].title.toString().length>8?8:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
                                     style:Text_Style.getstyle(
                                         fontsize: 16,
                                         ColorText: Colors.black,

@@ -96,7 +96,7 @@ class _LandingState extends State<Landing> {
                               await BackEnd.get_Categories();
                               await BackEnd.Get3();
                               Future.delayed(const Duration(seconds: 3), () {
-                                Get.offAll(Hoomy_main_page(),
+                                Get.offAll(Hoomy_main_page(index1: 0,),
                                     transition: Transition.noTransition,
                                     duration: Duration(seconds: 2));
                                 print(BackEnd.categoryList);

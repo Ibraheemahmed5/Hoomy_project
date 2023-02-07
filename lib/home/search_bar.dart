@@ -47,7 +47,7 @@ class _SearchBarState extends State<SearchBar> {
                 },
                 textDirection: TextDirection.rtl,
                 controller: widget.searchController,
-                style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.black, fontWeight: FontWeight.w400),
+                style: Text_Style.getstyle(fontsize: 18, ColorText: Colors.black, fontWeight: FontWeight.w400),
                 decoration: InputDecoration(
                     hintTextDirection: TextDirection.rtl,
                     fillColor: Color.fromRGBO(238, 238, 238, 1),

@@ -6,6 +6,7 @@ import 'package:hoomy_project1/NavigationBar/NavigationBar_defult.dart';
 import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/home/search_bar.dart';
 
+import '../../Hoomy_main_page.dart';
 import '../../Search_page_/search_page.dart';
 import '../../help/Colors.dart';
 import '../../profile_page/blue_logo.dart';
@@ -42,32 +43,27 @@ class _CatigoriesPageState extends State<CatigoriesPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("data"),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 15),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      children: [
 
-                        SearchBar(
-                          searchController: searchController,
-                          onPressed: () {
-                            Get.to(Search_page());
-                          },
-                          onChanged: (String text1) {
-                            text.value = text1;
+                    SearchBar(
+                      searchController: searchController,
+                      onPressed: () {
+                        Get.to(Search_page());
+                      },
+                      onChanged: (String text1) {
+                        text.value = text1;
 
-                            if (text.value == "") {
-                              isEmpty1.value = true;
-                            } else {
-                              isEmpty1.value = false;
-                            }
-                          },
-                        ),
-                      ],
+                        if (text.value == "") {
+                          isEmpty1.value = true;
+                        } else {
+                          isEmpty1.value = false;
+                        }
+                      },
                     ),
                     if (text.value.isEmpty)
                       Container(

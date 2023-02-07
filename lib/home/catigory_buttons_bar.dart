@@ -33,26 +33,30 @@ class _CatigoryButtonsBarState extends State<CatigoryButtonsBar> {
 
       children: [
         Expanded(
-          child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: BackEnd.apiCategory.length,
-              itemBuilder: (BuildContext context, index) {
-                return CatigoryButtons(
-                  text: BackEnd.apiCategory[index].title,
-                  onPressed: () {
-                    setState(() {
-                    });
-                    print(BackEnd.apiCategory[index].title);
-                    Navigator.pushReplacement<void, void>(
-                        context,
-                        MaterialPageRoute<void>(
-                        builder: (BuildContext context) =>  CatigoriesPage(text:BackEnd.apiCategory[index].title),
-                      ),
-                    );
-                  },
-                );
-                index = index1.value;
-              }),
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: BackEnd.apiCategory.length,
+                itemBuilder: (BuildContext context, index) {
+                  return CatigoryButtons(
+                    text: BackEnd.apiCategory[index].title,
+                    onPressed: () {
+                      setState(() {
+                      });
+                      print(BackEnd.apiCategory[index].title);
+                      Get.offAll(CatigoriesPage(text:BackEnd.apiCategory[index].title),transition: Transition.noTransition,duration: Duration(seconds: 1));
+                      // Navigator.pushReplacement<void, void>(
+                      //     context,
+                      //     MaterialPageRoute<void>(
+                      //     builder: (BuildContext context) =>  CatigoriesPage(text:BackEnd.apiCategory[index].title),
+                      //   ),
+                      // );
+                    },
+                  );
+                  index = index1.value;
+                }),
+          ),
         ),
       ],
     );

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hoomy_project1/api/api_Url.dart';
 import '../api/Api_calls.dart';
 import 'package:ionicons/ionicons.dart';
+import '../help/text_style.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
@@ -78,7 +79,7 @@ class _FavCartState extends State<FavCart> {
                     color: Colors.white,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
-                    child: Image.network(ApiConstants.Domain+BackEnd.favList[widget.prodects].banner,fit: BoxFit.cover),
+                    child: Image.network(ApiConstants.Domain+BackEnd.favList[widget.prodects].productImage[0].image,fit: BoxFit.contain),
                   ),),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,8 +118,11 @@ class _FavCartState extends State<FavCart> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    BackEnd.favList[widget.prodects].title,
-                                    style: GoogleFonts.inter(fontSize: 19,color: Colors.black)
+                                    "${BackEnd.favList[widget.prodects].title.substring(0, BackEnd.Prodects3[widget.prodects].title.toString().length>8?8:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
+                                    style: Text_Style.getstyle(
+                                        fontsize: 20,
+                                        ColorText: Colors.black,
+                                        fontWeight: FontWeight.bold)
                                 ),
                               ),
                             ),

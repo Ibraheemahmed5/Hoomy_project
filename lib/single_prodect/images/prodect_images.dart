@@ -72,9 +72,9 @@ class _ProdectImagesState extends State<ProdectImages> {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
               ),
-              padding: EdgeInsets.all(15),
-              height: 250,
-              width: MediaQuery.of(context).size.width * 0.7,
+              padding: EdgeInsets.all(10),
+              height: MediaQuery.of(context).size.height/3,
+              width: MediaQuery.of(context).size.width * 0.8,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
@@ -82,8 +82,9 @@ class _ProdectImagesState extends State<ProdectImages> {
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
                       img,
-                      width: 220,
-                      height: 220,
+                      fit: BoxFit.contain,
+                      height: MediaQuery.of(context).size.height/3.4,
+                      width: MediaQuery.of(context).size.width * 0.8,
                     ),
                   ),
                 ],
