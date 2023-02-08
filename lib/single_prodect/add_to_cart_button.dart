@@ -4,14 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../api/Api_calls.dart';
 import '../help/text_style.dart';
-import 'my_cart_list.dart';
 
-class Button2 extends StatelessWidget {
+class Button3 extends StatelessWidget {
   final String text;
   final void Function() onPressed;
 
 
-  Button2 ({Key? key,
+  Button3 ({Key? key,
     required this.text, required this.onPressed,
   }) : super(key: key);
 
@@ -19,7 +18,7 @@ class Button2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(bottom: 5),
-        width: 135,
+        width: 200,
         height: 40,
         child:  RawMaterialButton(
           onPressed: () {
@@ -32,8 +31,8 @@ class Button2 extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 7),
             child: Text(
-              text,style: Text_Style.getstyle(
-                fontsize: 20,
+                text,style: Text_Style.getstyle(
+                fontsize: 21,
                 ColorText: Colors.black,
                 fontWeight: FontWeight.bold)
             ),

@@ -28,9 +28,9 @@ late final Prodect prodect;
 
 class _MyCartState extends State<MyCart> {
   String text =
-      "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${BackEnd.Prodects_cart.where((e) => e.add.value).map((e) => ({
+      "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
             "اسم الامنتج :${e.title}\n"
-                "العدد :${e.quantity.value}\n"
+                "العدد :${e.quantity}\n"
                 "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
                 "\n"
                 "\n"
@@ -58,23 +58,23 @@ class _MyCartState extends State<MyCart> {
                           fontWeight: FontWeight.w700),
                     ),
                   ),
-                  // BackEnd.Prodects_cart.length == 0 ?
-                  //   Padding(
-                  //     padding: const EdgeInsets.symmetric(horizontal: 20),
-                  //     child: Column(
-                  //       children: [
-                  //         Image.asset("photo/Empty-bro.png"),
-                  //         Text(
-                  //           textAlign: TextAlign.center,
-                  //           "لا يوجد منتجات في السلة ",
-                  //           style: Text_Style.getstyle(
-                  //               fontsize: 25,
-                  //               ColorText: Colors.black,
-                  //               fontWeight: FontWeight.w600),
-                  //         )
-                  //       ],
-                  //     ),
-                  //   ):
+                  MyCardsList.cartList.length == 0 ?
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          Image.asset("photo/Empty-bro.png"),
+                          Text(
+                            textAlign: TextAlign.center,
+                            "لا يوجد منتجات في السلة ",
+                            style: Text_Style.getstyle(
+                                fontsize: 25,
+                                ColorText: Colors.black,
+                                fontWeight: FontWeight.w600),
+                          )
+                        ],
+                      ),
+                    ):
                   Expanded(child: MyCardsList()),
                 ],
               ),
@@ -111,15 +111,24 @@ class _MyCartState extends State<MyCart> {
                           text: 'اتمام الطلب',
                           onPressed: () {
                             setState(()  {
-                               BackEnd.create();
+                              print(MyCardsList.cartList[0].quantity);
+                              print(MyCardsList.cartList[0].title);
+                              print(  "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
+                                "اسم الامنتج :${e.title}\n"
+                                    "العدد :${e.quantity}\n"
+                                    "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
+                                    "\n"
+                                    "\n"
+                              }))}");
+/*                               BackEnd.create();
                                BackEnd.checkout();
 
                               print(BackEnd.Prodects_cart);
-                              //print(prodect.name.value);
+                              //print(prodect.name.value);*/
                             });
-                            Get.to(whatsapp_main_page(
+                           /* Get.to(whatsapp_main_page(
                               text: text,
-                            ));
+                            ));*/
                           },
                         ),
                       )

@@ -22,7 +22,7 @@ class test extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(15),
             ),
             height: 250,
             child:

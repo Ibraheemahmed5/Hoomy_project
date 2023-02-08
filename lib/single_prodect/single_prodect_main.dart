@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hoomy_project1/single_prodect/add_to_cart_button.dart';
 import 'package:hoomy_project1/single_prodect/page_model.dart';
 import 'package:hoomy_project1/single_prodect/relatid_list.dart';
 import 'package:hoomy_project1/single_prodect/test.dart';
@@ -14,6 +15,7 @@ import '../home/home_main_page.dart';
 import '../home/prodects/model.dart';
 import '../home/test.dart';
 import '../my_cart_page/make_order_button.dart';
+import '../my_cart_page/my_cart_list.dart';
 import '../my_cart_page/prodects_counter.dart';
 import '../profile_page/blue_logo.dart';
 import 'colors/colors_list.dart';
@@ -81,13 +83,13 @@ class _SingleProdectState extends State<SingleProdect> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if( BackEnd.Prodects3[prodects].isAvailable== false)
                 Text(
                     ' غير متوفر',
                     style: Text_Style.getstyle(
-                        fontsize: 18,
+                        fontsize: 20,
                         ColorText: Colors.red,
                         fontWeight: FontWeight.bold)
                 ),
@@ -106,9 +108,24 @@ class _SingleProdectState extends State<SingleProdect> {
                       fontWeight: FontWeight.bold)
                 ),
               //   if(prodects.available == false)
-              Button2(
-                text: 'اتمام الطلب',
-                onPressed: () {},
+              if (BackEnd.Prodects3[prodects].isAvailable == true)
+                Button3(
+                text: 'أضافة الى السلة ',
+                onPressed: () {
+                  if (BackEnd.Prodects3[prodects].inCart == false){
+                    BackEnd.Prodects3[prodects].inCart = true;
+                    BackEnd.Prodects3[prodects].quantity = 1;
+                    MyCardsList.cartList.add(BackEnd.Prodects3[prodects]);
+                  }
+                  else{
+                    BackEnd.Prodects3[prodects].inCart = false;
+                    MyCardsList.cartList.remove(BackEnd.Prodects3[prodects]);
+
+                  }
+
+                  print(BackEnd.Prodects3[prodects].inCart);
+                  print(MyCardsList.cartList);
+                },
               )
             ],
           ),
