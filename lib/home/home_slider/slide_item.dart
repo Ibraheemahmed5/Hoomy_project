@@ -12,13 +12,13 @@ class HomeSlideItem extends StatelessWidget {
       return Padding(
       padding: const EdgeInsets.only(top: 0),
       child: Container(
-        width: 341,
-        height: 177,
+        width: MediaQuery.of(context).size.width/1.05,
+        height: MediaQuery.of(context).size.height/5,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           image: DecorationImage(
            image:NetworkImage(ApiConstants.Domain+BackEnd.Prodects3[index].banner),
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.contain,
           ),
         ),
       ),

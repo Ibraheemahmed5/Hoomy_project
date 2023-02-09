@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hoomy_project1/profile_page/profile_main_page.dart';
 import 'package:hoomy_project1/splash/splash_screen.dart';
 import 'package:hoomy_project1/test.dart';
@@ -18,7 +19,7 @@ import 'home/home_main_page.dart';
 import 'landing/dashbord.dart';
 import 'landing/landing_page.dart';
 
-import 'package:get/get.dart' hide Response;
+//import 'package:get/get.dart' hide Response;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +31,6 @@ void main() {
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 
-  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +38,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-     home: Splash(),
+
+     home: Scaffold(backgroundColor: Colors.green,),
       //home: Dashboard(),
       //home: Landing(),
       //home: Sign_in_main_page(),

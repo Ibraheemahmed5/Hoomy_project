@@ -6,6 +6,7 @@ import 'package:hoomy_project1/home/home_slider/slide_item.dart';
 import 'package:hoomy_project1/home/home_slider/slider_list.dart';
 import 'package:hoomy_project1/slider/slides_dots.dart';
 import 'package:hoomy_project1/slider/slides_item.dart';
+import '../../help/Colors.dart';
 import '../../slider/models/slider.dart';
 
 class HomeSlider extends StatefulWidget {
@@ -54,47 +55,37 @@ class _HomeSliderState extends State<HomeSlider> {
       c= c+1;
     }
   }
-    return  Padding(
-        padding: const EdgeInsets.only(left: 0,right: 0,bottom: 0,top: 5),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              width: 600,
-              height: 120,
-              child: Stack(
-                alignment: AlignmentDirectional.bottomCenter,
+    return  Container(
+
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height/7,
+      child: Stack(
+        alignment: AlignmentDirectional.bottomCenter,
+        children: <Widget>[
+          PageView.builder(
+            scrollDirection: Axis.horizontal,
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            itemCount: BackEnd.Prodects3.length,
+            itemBuilder: (ctx, i) => SliderList(prodect: i,),
+          ),
+          Stack(
+            children: <Widget>[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  PageView.builder(
-                    scrollDirection: Axis.horizontal,
-                    controller: _pageController,
-                    onPageChanged: _onPageChanged,
-                    itemCount: BackEnd.Prodects3.length,
-                    itemBuilder: (ctx, i) => SliderList(prodect: i,),
-                  ),
-                  Stack(
-                    children: <Widget>[
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                              for(int i = 0; i<c; i++)
-                                  if( i == _currentPage )
-                                    SlideDots(true)
-                                  else
-                                    SlideDots(false)
-                          ],
-                        ),
-                      )
-                    ],
-                  )
+                    for(int i = 0; i<c; i++)
+                        if( i == _currentPage )
+                          SlideDots(true)
+                        else
+                          SlideDots(false)
                 ],
-              ),
-            ),
-          ],
-        ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

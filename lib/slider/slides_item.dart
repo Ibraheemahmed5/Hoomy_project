@@ -17,17 +17,17 @@ class SlideItem extends StatelessWidget {
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 200,
+            height: MediaQuery.of(context).size.height/3,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18),
               image: DecorationImage(
                 image: AssetImage(slideList[index].imageUrl),
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.only(top: 70),
             child: Text(
               slideList[index].text,
               style: Text_Style.getstyle(fontsize: 30, ColorText: Colorsapp.mainColor, fontWeight: FontWeight.w500)

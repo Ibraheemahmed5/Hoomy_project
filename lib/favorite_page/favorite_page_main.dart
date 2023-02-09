@@ -39,9 +39,22 @@ class _FavoritePageState extends State<FavoritePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset("photo/Empty-bro.png"),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text(
+                    'المفضلات',
+                    style: Text_Style.getstyle(
+                        fontsize: 28,
+                        ColorText: Colors.black,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 90),
+                  child: Image.asset("photo/Empty-bro.png"),
+                ),
                 Text(
                   textAlign: TextAlign.center,
                   "لا يوجد منتجات مفضلة ",

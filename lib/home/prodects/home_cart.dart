@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,52 +40,68 @@ class _CartState extends State<Cart> {
       child: Padding(
         padding: EdgeInsets.all(8.0),
         child: Container(
+
           padding: EdgeInsets.zero,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(18)),
           child: Column(
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 5),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          setState(() {});
-                          if (BackEnd.Prodects3[prodects].isFav == false)
-                            BackEnd.Prodects3[prodects].isFav = true;
-                          else
-                            BackEnd.Prodects3[prodects].isFav = false;
-                            print(BackEnd.favList);
-                        },
-                        child: BackEnd.Prodects3[prodects].isFav == false
-                            ? Icon(Ionicons.heart,
-                                color: Color.fromRGBO(69, 185, 238, 1))
-                            : Icon(Ionicons.heart, color: Color(0XFFFF0000)),
-                        //     child:Icon(Ionicons.heart , color: Colors.red) ,
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: Color(0XFFE7E7E7),
-                          fixedSize: const Size(26, 26),
-                          shape: const CircleBorder(),
-                        ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 7),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {});
+
+
+                        if (BackEnd.Prodects3[prodects].isFav == false)
+                          BackEnd.Prodects3[prodects].isFav = true;
+                        else
+                          BackEnd.Prodects3[prodects].isFav = false;
+
+                        print(BackEnd.favList);
+
+
+                      },
+                      child: BackEnd.Prodects3[prodects].isFav == false
+                          ? Icon(Ionicons.heart,
+                              color: Color.fromRGBO(69, 185, 238, 1))
+                          : Icon(Ionicons.heart, color: Color(0XFFFF0000)),
+                      //     child:Icon(Ionicons.heart , color: Colors.red) ,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Color(0XFFE7E7E7),
+                        fixedSize: const Size(26, 26),
+                        shape: const CircleBorder(),
                       ),
                     ),
-                    if (BackEnd.Prodects3[prodects].isAvailable == false)
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Text(' غير متوفر',
-                            style: Text_Style.getstyle(fontsize: 14, ColorText: Colors.red, fontWeight: FontWeight.bold)),
-                      ),
-                  ],
-                ),
+                  ),
+                  if (BackEnd.Prodects3[prodects].isAvailable == false)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Text(' غير متوفر',
+                          style: Text_Style.getstyle(fontsize: MediaQuery.of(context).size.width/30, ColorText: Colors.red, fontWeight: FontWeight.bold)),
+                    ),
+                ],
               ),
+
+
+
+
+
+
+
+
+
+
               if (BackEnd.Prodects3[prodects].isAvailable == true)
                 Container(
-                  height: 128,
-                  width: MediaQuery.of(context).size.width - 50,
+
+                  height: MediaQuery.of(context).size.height/6,
+                  width: MediaQuery.of(context).size.width,
                   margin: const EdgeInsets.only(top: 0, right: 10, left: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -99,8 +116,8 @@ class _CartState extends State<Cart> {
                 ),
               if (BackEnd.Prodects3[prodects].isAvailable == false)
                 Container(
-                    width: 150,
-                    height: 130,
+                    height: MediaQuery.of(context).size.height/6,
+                    width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
 
@@ -109,17 +126,14 @@ class _CartState extends State<Cart> {
                     child: Image.network(
                         ApiConstants.Domain +
                             BackEnd.Prodects3[prodects].productImage[0].image,
-                        fit: BoxFit.contain)),
+                        fit: BoxFit.fitWidth)),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  if (BackEnd.Prodects3[prodects].isAvailable == true)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, bottom: 5),
-                      child: Container(
-                        child: ElevatedButton(
-                          onPressed: () async {
+                  BackEnd.Prodects3[prodects].isAvailable == true?
+                    Container(
+                      child: ElevatedButton(
+                        onPressed: () async {
                     /*        await BackEnd.add_to_card(
                                 id: BackEnd.Prodects3[prodects].id);*/
                             //BackEnd.Prodects3[prodects].inCart = false;
@@ -160,39 +174,49 @@ class _CartState extends State<Cart> {
                             shape: const CircleBorder(),
                           ),*/
                         ),
-                      ),
-                    ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 10),
+                      ) :Container(
+                    width: MediaQuery.of(context).size.width/5,
+                    height: MediaQuery.of(context).size.height/15,
+
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 0),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height/15,
+                      width: MediaQuery.of(context).size.width/4.5,
+                      //color: Colors.amber,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 5,top: 9),
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                  textDirection: TextDirection.rtl,
-                                  "${BackEnd.Prodects3[prodects].title.substring(0, BackEnd.Prodects3[prodects].title.toString().length > 6 ?6:BackEnd.Prodects3[prodects].title.toString().length)}...",
-                                  style: Text_Style.getstyle(
-                                      fontsize: 16,
-                                      ColorText: Colors.black,
-                                      fontWeight: FontWeight.w500)),
-                            ),
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                                textDirection: TextDirection.rtl,
+                                "${BackEnd.Prodects3[prodects].title.substring(0, BackEnd.Prodects3[prodects].title.toString().length > 6 ?6:BackEnd.Prodects3[prodects].title.toString().length)}..",
+                                style: Text_Style.getstyle(
+                                    fontsize: MediaQuery.of(context).size.width/28,
+                                    ColorText: Colors.black,
+                                    fontWeight: FontWeight.w500)),
                           ),
                           Align(
                             alignment: Alignment.bottomRight,
                             child: Text(
                                 textDirection: TextDirection.rtl,
                                 '${BackEnd.Prodects3[prodects].price} د.ع ',
-                                style: Text_Style.getstyle(fontsize: 17, ColorText: Colors.black, fontWeight: FontWeight.w400)),
+                                style: Text_Style.getstyle(fontsize: MediaQuery.of(context).size.width/35, ColorText: Colors.black, fontWeight: FontWeight.bold)),
                           )
                         ],
                       ),
                     ),
                   ),
+
+                  SizedBox(
+                    width: 5,
+                  )
+
+
+
                 ],
               )
             ],

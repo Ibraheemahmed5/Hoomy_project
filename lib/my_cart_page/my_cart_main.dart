@@ -112,22 +112,18 @@ class _MyCartState extends State<MyCart> {
                               setState(()  {
                                 print(MyCardsList.cartList[0].quantity);
                                 print(MyCardsList.cartList[0].title);
-                                print(  "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
+                                text=(  "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
                                   "اسم الامنتج :${e.title}\n"
                                       "العدد :${e.quantity}\n"
-                                      "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
+                                      "السعر الكلي  :${MyCardsList().getCartTotalPrice().value.ceil().toString()+"دينار عراقي"}\n"
                                       "\n"
                                       "\n"
                                 }))}");
-/*                               BackEnd.create();
-                             BackEnd.checkout();
 
-                            print(BackEnd.Prodects_cart);
-                            //print(prodect.name.value);*/
                               });
-                              /* Get.to(whatsapp_main_page(
+                              Get.to(whatsapp_main_page(
                             text: text,
-                          ));*/
+                          ));
                             },
                           ),
                         )

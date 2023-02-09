@@ -74,7 +74,7 @@ class _DashboardState extends State<Dashboard> {
                       itemBuilder: (ctx, i) => SlideItem(i),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 300),
+                      padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height/5.5),
                       child: Stack(
                         alignment: AlignmentDirectional.topStart,
                         children: <Widget>[
@@ -98,37 +98,35 @@ class _DashboardState extends State<Dashboard> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colorsapp.mainColor,
-                          fixedSize: const Size(65, 65),
-                          shape: const CircleBorder(),
-                        ),
-                        onPressed: () async {
-                          delay1.value = false;
 
-                          Future.delayed(const Duration(seconds: 3), () {
-                            Get.offAll(Landing(),
-                                transition: Transition.noTransition,
-                                duration: Duration(seconds: 2));
-                            setState(() {});
-                          });
-                          Future.delayed(const Duration(seconds: 3), () {
-                            delay1.value = true;
-                            print("هذا الدلي بل اويت${delay1.value}");
-                          });
-                        },
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                        )),
-                  ],
-                ),
+
+
+
+              Container(
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colorsapp.mainColor,
+                      fixedSize: const Size(65, 65),
+                      shape: const CircleBorder(),
+                    ),
+                    onPressed: () async {
+                      delay1.value = false;
+
+                      Future.delayed(const Duration(seconds: 3), () {
+                        Get.offAll(Landing(),
+                            transition: Transition.noTransition,
+                            duration: Duration(seconds: 2));
+                        setState(() {});
+                      });
+                      Future.delayed(const Duration(seconds: 3), () {
+                        delay1.value = true;
+                        print("هذا الدلي بل اويت${delay1.value}");
+                      });
+                    },
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                    )),
               ),
               Obx(() {
                 return delay1.value == false

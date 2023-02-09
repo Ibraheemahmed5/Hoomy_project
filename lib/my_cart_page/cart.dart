@@ -58,7 +58,7 @@ class _Cart1State extends State<Cart1> {
                                 onPressed: (){
                                   //setState(() {});
                                   print(MyCardsList.cartList[widget.prodects].inCart );
-                                  MyCardsList.cartList[widget.prodects].inCart = false.obs;
+                                  MyCardsList.cartList[widget.prodects].inCart = false;
                                   MyCardsList.cartList.remove(BackEnd.Prodects3[widget.prodects]);
                                   print(MyCardsList.cartList[widget.prodects].inCart );
 
