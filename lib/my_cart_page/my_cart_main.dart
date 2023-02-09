@@ -41,98 +41,98 @@ class _MyCartState extends State<MyCart> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: Stack(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
 
-                  Padding(
-                    padding: const EdgeInsets.only(right: 0, top: 20),
-                    child: Text(
-                      'السلة',
-                      style: Text_Style.getstyle(
-                          fontsize: 28,
-                          ColorText: Colors.black,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ),
-                  MyCardsList.cartList.length == 0 ?
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          Image.asset("photo/Empty-bro.png"),
-                          Text(
-                            textAlign: TextAlign.center,
-                            "لا يوجد منتجات في السلة ",
-                            style: Text_Style.getstyle(
-                                fontsize: 25,
-                                ColorText: Colors.black,
-                                fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                    ):
-                  Expanded(child: MyCardsList()),
-                ],
+              Padding(
+                padding: const EdgeInsets.only(right: 0, top: 20),
+                child: Text(
+                  'السلة',
+                  style: Text_Style.getstyle(
+                      fontsize: 28,
+                      ColorText: Colors.black,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
-
-
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width-10,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(25),
-                          topRight: Radius.circular(25))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+              MyCardsList.cartList.length == 0 ?
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
                     children: [
-                      Obx(() {
-                        return Padding(
-                          padding: const EdgeInsets.only(left: 0),
-                          child: Text(
-                            textDirection: TextDirection.rtl,
-                            ' السعر الكلي:  ${MyCardsList().getCartTotalPrice().value.ceil().toString()} دع',
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
-                          ),
-                        );
-                      }),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 0, left: 0),
-                        child: Button2(
-                          text: 'اتمام الطلب',
-                          onPressed: () {
-                            setState(()  {
-                              print(MyCardsList.cartList[0].quantity);
-                              print(MyCardsList.cartList[0].title);
-                              print(  "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
-                                "اسم الامنتج :${e.title}\n"
-                                    "العدد :${e.quantity}\n"
-                                    "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
-                                    "\n"
-                                    "\n"
-                              }))}");
-/*                               BackEnd.create();
-                               BackEnd.checkout();
-
-                              print(BackEnd.Prodects_cart);
-                              //print(prodect.name.value);*/
-                            });
-                           /* Get.to(whatsapp_main_page(
-                              text: text,
-                            ));*/
-                          },
-                        ),
+                      Image.asset("photo/Empty-bro.png"),
+                      Text(
+                        textAlign: TextAlign.center,
+                        "لا يوجد منتجات في السلة ",
+                        style: Text_Style.getstyle(
+                            fontsize: 25,
+                            ColorText: Colors.black,
+                            fontWeight: FontWeight.w600),
                       )
                     ],
+                  ),
+                ):
+              Expanded(child: MyCardsList()),
+              Padding(
+                padding: const EdgeInsets.only(top:5),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width-10,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(color: Colors.black12,spreadRadius: 3,blurRadius: 7,offset: Offset(0,4)),
+                      ],
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25),
+                            topRight: Radius.circular(25))),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Obx(() {
+                          return Padding(
+                            padding: const EdgeInsets.only(left: 0),
+                            child: Text(
+                              textDirection: TextDirection.rtl,
+                              ' السعر الكلي:  ${MyCardsList().getCartTotalPrice().value.ceil().toString()} دع',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold),
+                            ),
+                          );
+                        }),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 0, left: 0),
+                          child: Button2(
+                            text: 'اتمام الطلب',
+                            onPressed: () {
+                              setState(()  {
+                                print(MyCardsList.cartList[0].quantity);
+                                print(MyCardsList.cartList[0].title);
+                                print(  "\nمرحباً ارغب بشراء المنتجات الاتية :     \n\n ${MyCardsList.cartList.map((e) => ({
+                                  "اسم الامنتج :${e.title}\n"
+                                      "العدد :${e.quantity}\n"
+                                      "السعر الكلي  :${" 2000000 " "دينار عراقي"}\n"
+                                      "\n"
+                                      "\n"
+                                }))}");
+/*                               BackEnd.create();
+                             BackEnd.checkout();
+
+                            print(BackEnd.Prodects_cart);
+                            //print(prodect.name.value);*/
+                              });
+                              /* Get.to(whatsapp_main_page(
+                            text: text,
+                          ));*/
+                            },
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )

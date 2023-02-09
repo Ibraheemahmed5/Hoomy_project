@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,16 +53,11 @@ class _CartState extends State<Cart> {
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {});
-
-
                           if (BackEnd.Prodects3[prodects].isFav == false)
                             BackEnd.Prodects3[prodects].isFav = true;
                           else
                             BackEnd.Prodects3[prodects].isFav = false;
-
-                          print(BackEnd.favList);
-
-
+                            print(BackEnd.favList);
                         },
                         child: BackEnd.Prodects3[prodects].isFav == false
                             ? Icon(Ionicons.heart,
@@ -128,6 +122,11 @@ class _CartState extends State<Cart> {
                           onPressed: () async {
                     /*        await BackEnd.add_to_card(
                                 id: BackEnd.Prodects3[prodects].id);*/
+                            //BackEnd.Prodects3[prodects].inCart = false;
+                            setState(() {});
+
+                            print(BackEnd.Prodects3[prodects].inCart);
+
                             if (BackEnd.Prodects3[prodects].inCart == false){
                               BackEnd.Prodects3[prodects].inCart = true;
                               BackEnd.Prodects3[prodects].quantity = 1;
@@ -136,20 +135,30 @@ class _CartState extends State<Cart> {
                             else{
                               BackEnd.Prodects3[prodects].inCart = false;
                               MyCardsList.cartList.remove(BackEnd.Prodects3[prodects]);
-
                             }
 
                             print(BackEnd.Prodects3[prodects].inCart);
                             print(MyCardsList.cartList);
                           },
-                          child: Icon(Ionicons.cart,
-                              color: Color.fromRGBO(69, 185, 238, 1)),
+                          child: BackEnd.Prodects3[prodects].inCart == false
+                              ? Icon(Ionicons.cart,
+                              color: Color.fromRGBO(69, 185, 238, 1))
+                              : Icon(Ionicons.cart, color: Colors.red),
+                          //     child:Icon(Ionicons.heart , color: Colors.red) ,
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Color(0XFFE7E7E7),
                             fixedSize: const Size(26, 26),
                             shape: const CircleBorder(),
                           ),
+                       /*   child: Icon(Ionicons.cart,
+                              color: Color.fromRGBO(69, 185, 238, 1)),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: Color(0XFFE7E7E7),
+                            fixedSize: const Size(26, 26),
+                            shape: const CircleBorder(),
+                          ),*/
                         ),
                       ),
                     ),

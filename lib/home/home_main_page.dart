@@ -108,7 +108,7 @@ class _HomeMainPageState extends State<HomeMainPage> {
                         width: double.infinity,
                         decoration: BoxDecoration(
                             color: Color(0XFFE1F8FF),
-                            borderRadius: BorderRadius.only(
+                        borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30),
                                 topRight: Radius.circular(30))),
                         child: Padding(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,14 +5,21 @@ import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:hoomy_project1/my_cart_page/my_cart_list.dart';
 import 'package:hoomy_project1/my_cart_page/prodects_counter.dart';
 import '../api/api_Url.dart';
+import '../help/text_style.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
 
-class Cart1 extends StatelessWidget {
+
+class Cart1 extends StatefulWidget {
   const Cart1({Key? key, required this.prodects}) : super(key: key);
   final int prodects;
 
+  @override
+  State<Cart1> createState() => _Cart1State();
+}
+
+class _Cart1State extends State<Cart1> {
   @override
   Widget build(BuildContext context) {
     return
@@ -50,11 +56,12 @@ class Cart1 extends StatelessWidget {
                                 elevation: 0,
                                 backgroundColor: Color(0XFFE7E7E7),
                                 onPressed: (){
-                                  print(MyCardsList.cartList[prodects].id);
-                                  print(MyCardsList.cartList);
-                                  MyCardsList.cartList.remove(MyCardsList.cartList[prodects]);
-                               //   BackEnd.delete_from_card(MyCardsList.cartList[prodects].id);
-                                  print(MyCardsList.cartList[prodects].id);
+                                  //setState(() {});
+                                  print(MyCardsList.cartList[widget.prodects].inCart );
+                                  MyCardsList.cartList[widget.prodects].inCart = false.obs;
+                                  MyCardsList.cartList.remove(BackEnd.Prodects3[widget.prodects]);
+                                  print(MyCardsList.cartList[widget.prodects].inCart );
+
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),
                               ),
@@ -78,7 +85,7 @@ class Cart1 extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(bottom: 10,right: 5),
                           child: Text(
-                              MyCardsList.cartList[prodects].title.substring(0,MyCardsList.cartList[prodects].title.toString().length > 10 ?10:BackEnd.Prodects3[prodects].title.toString().length),
+                              MyCardsList.cartList[widget.prodects].title.substring(0,MyCardsList.cartList[widget.prodects].title.toString().length > 4 ?4:BackEnd.Prodects3[widget.prodects].title.toString().length),
                               style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold )
                           ),
                         ),
@@ -88,15 +95,14 @@ class Cart1 extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 20,right: 5),
                             child: Text(
-                                "د.ع "+'${MyCardsList.cartList[prodects].price}',
-                                style: GoogleFonts.inter(fontSize: 18,color: Colors.black
-
-                                )
+                                '${MyCardsList.cartList[widget.prodects].price}'+" د.ع ",
+                                textDirection: TextDirection.rtl,
+                                style: Text_Style.getstyle(fontsize: 17, ColorText: Colors.black, fontWeight: FontWeight.w400)),
                             ),
-                          ),),
+                          ),
                        Padding(
                             padding: const EdgeInsets.only(bottom: 10,left: 10),
-                            child: ProdectCounter( prodect: prodects,container_color: Colors.white,button_color: Color(0XFFE7E7E7),left_border: 35,right_border: 35,),
+                            child: ProdectCounter( prodect: widget.prodects,container_color: Colors.white,button_color: Color(0XFFE7E7E7),left_border: 35,right_border: 35,),
                           ),
                       ]
                     ),),
@@ -112,7 +118,9 @@ class Cart1 extends StatelessWidget {
                        margin: const EdgeInsets.only( right: 10, left: 10),
                        child: ClipRRect(
                          borderRadius: BorderRadius.circular(10),
-                         child: Image.network(ApiConstants.Domain+MyCardsList.cartList[prodects].banner,fit: BoxFit.cover),
+                         child: Image.network(ApiConstants.Domain +
+                             MyCardsList.cartList[widget.prodects].productImage[0].image,
+                             fit: BoxFit.contain),
                        ),),
                 )
             ],
