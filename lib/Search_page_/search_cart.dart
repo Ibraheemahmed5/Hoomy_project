@@ -7,6 +7,7 @@ import 'package:ionicons/ionicons.dart';
 import '../api/Api_calls.dart';
 import '../api/api_Url.dart';
 import '../home/prodects/model.dart';
+import '../my_cart_page/my_cart_list.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
@@ -30,6 +31,8 @@ class _SearchCartState extends State<SearchCart> {
               onTap: (){
                 // prodects.makeAsClicked();
                 // Get.to(SingleProdect(prodects: prodects,));
+                Get.to(SingleProdect(prodects: widget.prodects,),);
+
               },
               child:Padding(
                 padding: const EdgeInsets.only(top: 20,left: 15,right: 15),
@@ -91,11 +94,12 @@ class _SearchCartState extends State<SearchCart> {
                                 ),
                               ),
                               Align(
-                                alignment: Alignment.centerLeft,
+                                alignment: Alignment.centerRight,
                                 child: Padding(
                                   padding: const EdgeInsets.only(bottom: 0),
                                   child: Text(
-                                      "  ${BackEnd.Prodects3[widget.prodects].title.substring(0, 12)}...",
+                                      "${BackEnd.Prodects3[widget.prodects].title.substring(0, BackEnd.Prodects3[widget.prodects].title.toString().length>5?5:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
+                                      textDirection: TextDirection.rtl,
                                       style: GoogleFonts.inter(fontSize: 19,color: Colors.black,fontWeight:FontWeight.bold)
                                   ),
                                 ),
@@ -103,9 +107,9 @@ class _SearchCartState extends State<SearchCart> {
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    "د.ع "+'${BackEnd.Prodects3[widget.prodects].price}',
+                                    "${BackEnd.Prodects3[widget.prodects].price.toString().substring(0, BackEnd.Prodects3[widget.prodects].price.toString().length>5?5:BackEnd.Prodects3[widget.prodects].price.toString().length)}..."+"د.ع ",
+                                    textDirection: TextDirection.rtl,
                                     style: GoogleFonts.inter(fontSize: 18,color: Colors.black
-
                                     )
                                 ),),
                          //     if(prodects.available == false)
@@ -114,9 +118,27 @@ class _SearchCartState extends State<SearchCart> {
                                 child: Container(
                                   child: ElevatedButton(
                                     onPressed: () async {
-                                      await BackEnd.add_to_card(id: BackEnd.Prodects3[widget.prodects].id);
+                                      setState(() {});
+
+                                      print(BackEnd.Prodects3[widget.prodects].inCart);
+
+                                      if (BackEnd.Prodects3[widget.prodects].inCart == false){
+                                        BackEnd.Prodects3[widget.prodects].inCart = true;
+                                        BackEnd.Prodects3[widget.prodects].quantity = 1;
+                                        MyCardsList.cartList.add(BackEnd.Prodects3[widget.prodects]);
+                                      }
+                                      else{
+                                        BackEnd.Prodects3[widget.prodects].inCart = false;
+                                        MyCardsList.cartList.removeAt(widget.prodects);
+                                      }
+
+                                      print(BackEnd.Prodects3[widget.prodects].inCart);
+                                      print(MyCardsList.cartList);
                                     },
-                                    child:Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                                    child: BackEnd.Prodects3[widget.prodects].inCart == false
+                                        ?
+                                    Icon(Ionicons.cart_outline , color:Color.fromRGBO(69, 185, 238, 1)):
+                                    Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
                                     style: ElevatedButton.styleFrom(
                                       elevation: 0,
                                       backgroundColor: Color(0XFFE7E7E7),
@@ -138,8 +160,8 @@ class _SearchCartState extends State<SearchCart> {
                                 borderRadius: BorderRadius.circular(12)
                             ),
                             margin: const EdgeInsets.only( right: 10, left: 10),
-                            child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[widget.prodects].banner,fit: BoxFit.cover)),
-                      )
+                          child: Image.network(ApiConstants.Domain+BackEnd.Prodects3[widget.prodects].productImage[0].image,fit: BoxFit.contain),
+                      ))
                     ],
                   ),
                 ),

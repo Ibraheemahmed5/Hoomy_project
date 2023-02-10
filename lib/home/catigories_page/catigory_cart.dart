@@ -6,6 +6,8 @@ import 'package:hoomy_project1/api/api_Url.dart';
 import '../../api/Api_calls.dart';
 import '../../help/Colors.dart';
 import '../../help/text_style.dart';
+import '../../my_cart_page/my_cart_list.dart';
+import '../../single_prodect/Catigories_single_prodect/Single_main.dart';
 import '../../single_prodect/single_prodect_main.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -24,9 +26,14 @@ class _CatCartState extends State<CatCart> {
   Widget build(BuildContext context) {
     return
       GestureDetector(
-        onTap: (){
-          // prodects.makeAsClicked();
-          Get.to(SingleProdect(prodects: widget.prodects,),);
+        onTap: () {
+          //    prodects.makeAsClicked();
+          Navigator.pushReplacement<void, void>(
+              context,
+              MaterialPageRoute<void>(
+                  builder: (BuildContext context) => SingleProdectCat(
+                    prodects: widget.prodects,
+                  )));
         },
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -91,14 +98,25 @@ class _CatCartState extends State<CatCart> {
                         child: Container(
                           child: ElevatedButton(
                             onPressed: () {
-                              setState(() {
+                              setState(() {});
 
-                              });
-                              // prodects.addToCart();
-                              // prodects.deleteFromCart();
+                              print(BackEnd.categoryList[widget.prodects].inCart);
+
+                              if (BackEnd.categoryList[widget.prodects].inCart == false){
+                                BackEnd.categoryList[widget.prodects].inCart = true;
+                                BackEnd.categoryList[widget.prodects].quantity = 1;
+                                MyCardsList.cartList.add(BackEnd.categoryList[widget.prodects]);
+                              }
+                              else{
+                                BackEnd.categoryList[widget.prodects].inCart = false;
+                                MyCardsList.cartList.remove(BackEnd.categoryList[widget.prodects]);
+                              }
+
                             },
-                            child: BackEnd.categoryList[widget.prodects].isFav==false? Icon(Ionicons.cart_outline, color: Colorsapp.mainColor) :  Icon(Ionicons.cart , color:Colorsapp.mainColor),
-                            style: ElevatedButton.styleFrom(
+                            child:BackEnd.categoryList[widget.prodects].inCart == false
+                                ?
+                            Icon(Ionicons.cart_outline , color:Color.fromRGBO(69, 185, 238, 1)):
+                            Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),                            style: ElevatedButton.styleFrom(
                               elevation: 0,
                               backgroundColor: Colors.white,
                               fixedSize: const Size(26, 26),
@@ -121,7 +139,7 @@ class _CatCartState extends State<CatCart> {
                                 child: Text(
                                     textDirection: TextDirection.rtl,
 
-                                    "${BackEnd.Prodects3[widget.prodects].title.substring(0,BackEnd.Prodects3[widget.prodects].title.toString().length>8?8:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
+                                    "${BackEnd.categoryList[widget.prodects].title.substring(0,BackEnd.categoryList[widget.prodects].title.toString().length>8?8:BackEnd.categoryList[widget.prodects].title.toString().length)}...",
                                     style:Text_Style.getstyle(
                                         fontsize: 16,
                                         ColorText: Colors.black,

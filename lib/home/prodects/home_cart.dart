@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +5,7 @@ import 'package:hoomy_project1/api/Api_calls.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../api/api_Url.dart';
 import '../../api/api_models.dart';
+import '../../favorite_page/favorite_list.dart';
 import '../../help/text_style.dart';
 import '../../my_cart_page/my_cart_list.dart';
 import '../../single_prodect/single_prodect_main.dart';
@@ -55,16 +55,14 @@ class _CartState extends State<Cart> {
                     child: ElevatedButton(
                       onPressed: () {
                         setState(() {});
-
-
-                        if (BackEnd.Prodects3[prodects].isFav == false)
+                        if (BackEnd.Prodects3[prodects].isFav == false){
                           BackEnd.Prodects3[prodects].isFav = true;
-                        else
+                          FavoriteList.favList.add(BackEnd.Prodects3[prodects]);}
+                        else{
                           BackEnd.Prodects3[prodects].isFav = false;
-
+                          FavoriteList.favList.remove(BackEnd.Prodects3[prodects]);}
+                        print(FavoriteList.favList);
                         print(BackEnd.favList);
-
-
                       },
                       child: BackEnd.Prodects3[prodects].isFav == false
                           ? Icon(Ionicons.heart,
@@ -155,9 +153,9 @@ class _CartState extends State<Cart> {
                             print(MyCardsList.cartList);
                           },
                           child: BackEnd.Prodects3[prodects].inCart == false
-                              ? Icon(Ionicons.cart,
+                              ? Icon(Ionicons.cart_outline,
                               color: Color.fromRGBO(69, 185, 238, 1))
-                              : Icon(Ionicons.cart, color: Colors.red),
+                              : Icon(Ionicons.cart, color: Color.fromRGBO(69, 185, 238, 1)),
                           //     child:Icon(Ionicons.heart , color: Colors.red) ,
                           style: ElevatedButton.styleFrom(
                             elevation: 0,

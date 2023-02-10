@@ -30,7 +30,7 @@ void main() {
   ));
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-
+runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,8 +38,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-
-     home: Scaffold(backgroundColor: Colors.green,),
+        home:Splash(),
       //home: Dashboard(),
       //home: Landing(),
       //home: Sign_in_main_page(),

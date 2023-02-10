@@ -10,9 +10,11 @@ class FavoriteList extends StatelessWidget {
     Key? key,}) : super(key: key);
   static PageController controller = PageController();
   static RxInt currentPage = 0.obs;
+  static List favList = [];
+
   @override
   Widget build(BuildContext context) {
-    BackEnd.Get_Fav_List();
+    //BackEnd.Get_Fav_List();
     return  Container(
       child: GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

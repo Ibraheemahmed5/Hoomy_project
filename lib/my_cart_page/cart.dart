@@ -59,8 +59,9 @@ class _Cart1State extends State<Cart1> {
                                   //setState(() {});
                                   print(MyCardsList.cartList[widget.prodects].inCart );
                                   MyCardsList.cartList[widget.prodects].inCart = false;
-                                  MyCardsList.cartList.remove(BackEnd.Prodects3[widget.prodects]);
+                                  MyCardsList.cartList.remove(MyCardsList.cartList[widget.prodects]);
                                   print(MyCardsList.cartList[widget.prodects].inCart );
+                                  print(MyCardsList.cartList );
 
                                 },
                                 child:Icon(Icons.clear_rounded,color: Colors.black,),

@@ -12,7 +12,7 @@ class RelatedList extends StatelessWidget {
   final int prodect;
   @override
   Widget build(BuildContext context) {
-    BackEnd.Get_Related_List(BackEnd.Prodects3[prodect].category.title );
+    BackEnd.Get_Related_List(BackEnd.Prodects3[prodect].category.title);
     return
       GridView.builder(
           scrollDirection: Axis.horizontal,
@@ -22,8 +22,15 @@ class RelatedList extends StatelessWidget {
             crossAxisCount: 1,
           ),
           itemBuilder: (BuildContext context, index) {
-            return RelatedCart(prodects: index);
-          });
+            //if(BackEnd.Prodects3[prodect].category.title == BackEnd.Prodects3[index].category.title){
+            return RelatedCart(prodects: index);}
+           /* else
+              return SizedBox(
+                width: 0,
+                height: 0,
+              );*/
+          //}
+          );
       // ListView(
       //              scrollDirection: Axis.horizontal,
       //               children:

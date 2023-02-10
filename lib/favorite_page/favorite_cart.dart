@@ -6,6 +6,7 @@ import 'package:hoomy_project1/api/api_Url.dart';
 import '../api/Api_calls.dart';
 import 'package:ionicons/ionicons.dart';
 import '../help/text_style.dart';
+import '../my_cart_page/my_cart_list.dart';
 import '../single_prodect/single_prodect_main.dart';
 
 
@@ -90,14 +91,28 @@ class _FavCartState extends State<FavCart> {
                       child: Container(
                         child: ElevatedButton(
                           onPressed: () {
-                            setState(() {
+                            setState(() {});
 
-                            });
-                            // prodects.addToCart();
-                            // prodects.deleteFromCart();
+                            print(BackEnd.Prodects3[widget.prodects].inCart);
+
+                            if (BackEnd.Prodects3[widget.prodects].inCart == false){
+                              BackEnd.Prodects3[widget.prodects].inCart = true;
+                              BackEnd.Prodects3[widget.prodects].quantity = 1;
+                              MyCardsList.cartList.add(BackEnd.Prodects3[widget.prodects]);
+                            }
+                            else{
+                              BackEnd.Prodects3[widget.prodects].inCart = false;
+                              MyCardsList.cartList.removeAt(widget.prodects);
+                            }
+
+                            print(BackEnd.Prodects3[widget.prodects].inCart);
+                            print(MyCardsList.cartList);
                           },
-                          child:Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
-                          style: ElevatedButton.styleFrom(
+                          child: BackEnd.Prodects3[widget.prodects].inCart == false
+                            ?
+                            Icon(Ionicons.cart_outline , color:Color.fromRGBO(69, 185, 238, 1)):
+                            Icon(Ionicons.cart , color:Color.fromRGBO(69, 185, 238, 1)),
+                            style: ElevatedButton.styleFrom(
                             elevation: 0,
                             backgroundColor: Colors.white,
                             fixedSize: const Size(26, 26),
@@ -118,7 +133,7 @@ class _FavCartState extends State<FavCart> {
                               child: Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                    "${BackEnd.favList[widget.prodects].title.substring(0, BackEnd.Prodects3[widget.prodects].title.toString().length>8?8:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
+                                    "${BackEnd.favList[widget.prodects].title.substring(0, BackEnd.Prodects3[widget.prodects].title.toString().length>5?5:BackEnd.Prodects3[widget.prodects].title.toString().length)}...",
                                     style: Text_Style.getstyle(
                                         fontsize: 20,
                                         ColorText: Colors.black,

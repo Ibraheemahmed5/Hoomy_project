@@ -45,7 +45,6 @@ class _MyCartState extends State<MyCart> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               Padding(
                 padding: const EdgeInsets.only(right: 0, top: 20),
                 child: Text(
